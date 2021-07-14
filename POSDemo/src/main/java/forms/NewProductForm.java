@@ -9,6 +9,7 @@ import DBCLS.Category;
 import DBCLS.Log;
 import DBCLS.Product;
 import DBCLS.Product.ProductInfo;
+import DBCLS.Stock;
 import DBCLS.Stock.StockInfo;
 import static GLOBAL.HelperFunctions.*;
 import static GLOBAL.Settings.MAIN_FONT;
@@ -461,6 +462,8 @@ public class NewProductForm extends javax.swing.JInternalFrame {
             si.product = product.getId();
             si.quantity = Integer.parseInt(quantity);
             si.remark = "";
+            
+            Stock.addStock(si);
             
             Log.LogInfo li = new Log.LogInfo();
             li.id = 0;

@@ -242,6 +242,11 @@ public class Dashboard extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(1700, 850));
         setOpaque(true);
         setPreferredSize(new java.awt.Dimension(1900, 870));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         pnlMain.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -740,6 +745,12 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        
+        loadDashboardInfo();
+        
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

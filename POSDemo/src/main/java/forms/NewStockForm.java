@@ -626,6 +626,33 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             
         } else {
             if(Stock.addStock(si) != null){
+                
+                Product product = new Product(si.product);
+                Category category = new Category(product.getCategory());
+                
+                LogInfo li = new LogInfo();
+                li.id = 0;
+                li.log_date = getCurrentDateTimeFormatted();
+                li.user = CURRENT_USER.username;
+                li.category = "APPLICATION LOG";
+                li.event = "REFILL STOCK";
+                li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
+                        + "REFILL STOCK\n"
+                        + " Stock[\n"
+                        + "  ID: "+stock.getId()+"\n"
+                        + " ]\n"
+                        + " Product[\n"
+                        + "  ID: "+product.getId()+",\n"
+                        + "  Category: ["+category.getId()+"]"+category.getName()+",\n"            
+                        + "  Code: "+product.getCode()+",\n"
+                        + "  Name: "+product.getName()+",\n"
+                        + "  Quantity: "+si.quantity+",\n"
+                        + "  New Quantity: "+stock.getQuantity()+",\n"
+                        + "  New Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
+                        + "  Result: SUCCESS\n"
+                        + " ]";
+                Log.addLog(li);
+                
                 JOptionPane.showMessageDialog(this, "Add product to Stock successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);  
                 
                 setFrameState(frameState.POST_EDIT); 
