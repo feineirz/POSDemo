@@ -352,6 +352,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
+        setTitle("PRODUCT MANAGEMENT PANEL");
         setMaximumSize(new java.awt.Dimension(2000, 1200));
         setMinimumSize(new java.awt.Dimension(1590, 750));
         setPreferredSize(new java.awt.Dimension(1590, 750));

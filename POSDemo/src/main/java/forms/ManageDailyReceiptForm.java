@@ -197,6 +197,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setMaximizable(true);
         setResizable(true);
+        setTitle("DAILY RECEIPT MANAGEMENT PANEL");
         setMaximumSize(new java.awt.Dimension(4000, 1200));
         setMinimumSize(new java.awt.Dimension(1440, 700));
         setPreferredSize(new java.awt.Dimension(1440, 800));

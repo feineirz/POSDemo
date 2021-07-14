@@ -84,7 +84,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
         }
         
         edpReport.setText(generateStockReportHTML());
-        edpReport.setSelectionEnd(0);
+        edpReport.setSelectionStart(0);
         edpReport.setSelectionEnd(0);
         
     }
