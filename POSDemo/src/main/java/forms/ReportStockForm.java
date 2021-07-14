@@ -13,6 +13,7 @@ import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.plaf.FontUIResource;
+import static pos.Apps.*;
 
 /**
  *
@@ -27,7 +28,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
         initComponents();
         setUIFont(new FontUIResource(MAIN_FONT));
         
-        edtReport.setEditable(false);
+        edpReport.setEditable(false);
     }
 
     
@@ -62,9 +63,8 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
     private void loadReport () {
         
         if (CURRENT_USER.id > 0) {
-            edtReport.setText(generateStockReportHTML());
             
-            if (ENABLE_REPORT_LOG) {
+            if (ENABLE_REPORT_LOG && reportStockForm.isVisible()) {
                 Log.LogInfo li = new Log.LogInfo();
                 li.id = 0;
                 li.log_date = getCurrentDateTimeFormatted();
@@ -83,6 +83,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
             }                
         }
         
+        edpReport.setText(generateStockReportHTML());
     }
 
     /**
@@ -95,7 +96,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        edtReport = new javax.swing.JEditorPane();
+        edpReport = new javax.swing.JEditorPane();
         btnPrint = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -113,8 +114,8 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
             }
         });
 
-        edtReport.setContentType("text/html"); // NOI18N
-        jScrollPane1.setViewportView(edtReport);
+        edpReport.setContentType("text/html"); // NOI18N
+        jScrollPane1.setViewportView(edpReport);
 
         btnPrint.setBackground(new java.awt.Color(255, 204, 0));
         btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -186,7 +187,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
 
         try {
-            edtReport.print();
+            edpReport.print();
         } catch (PrinterException ex) {
             Logger.getLogger(ManageDailyReceiptForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -208,7 +209,7 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JEditorPane edtReport;
+    private javax.swing.JEditorPane edpReport;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

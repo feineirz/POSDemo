@@ -49,6 +49,7 @@ public class HelperFunctions {
     }
     
     public static void callUpdateCategoryData() {
+        if (dashboardForm.isVisible()) dashboardForm.callFunction("loadDashboardInfo");  
         if (manageCategoryForm.isVisible()) manageCategoryForm.callFunction("listContentWithFilter");        
         if (newStockForm.isVisible()) newStockForm.callFunction("listCategory");        
         if (newProductForm.isVisible()) newProductForm.callFunction("listCategory"); 

@@ -9,7 +9,6 @@ package DBCLS;
 
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
@@ -153,10 +152,10 @@ public class Category {
 	////////////////////////////////////////////////////////////////////
 	/// Overload ///
 	public static ArrayList<Category> listCategory(){
-		return listCategory("","");
+		return listCategory("","name");
 	}
 	public static ArrayList<Category> listCategory(String condition){
-		return listCategory(condition,"");
+		return listCategory(condition,"name");
 	}	
 	/// Main ///
 	public static ArrayList<Category> listCategory(String condition, String order) {

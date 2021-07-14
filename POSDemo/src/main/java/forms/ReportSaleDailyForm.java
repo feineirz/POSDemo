@@ -13,6 +13,7 @@ import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.plaf.FontUIResource;
+import static pos.Apps.*;
 
 /**
  *
@@ -27,7 +28,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
         initComponents();
         setUIFont(new FontUIResource(MAIN_FONT));
         
-        edtReport.setEditable(false);
+        edpReport.setEditable(false);
     }
     
     /*==== Required Code Structure ====*/
@@ -61,9 +62,8 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
     private void loadReport() {
         
         if (CURRENT_USER.id > 0) {
-            edtReport.setText(generateSaleReportHTML(getCurrentDateTimeFormatted(), getCurrentDateTimeFormatted(), "SALE DAILY REPORT"));
             
-            if (ENABLE_REPORT_LOG) {
+            if (ENABLE_REPORT_LOG && reportSaleDailyForm.isVisible()) {
                 Log.LogInfo li = new Log.LogInfo();
                 li.id = 0;
                 li.log_date = getCurrentDateTimeFormatted();
@@ -83,6 +83,8 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
                 
         }
         
+        edpReport.setText(generateSaleReportHTML(getCurrentDateTimeFormatted(), getCurrentDateTimeFormatted(), "SALE DAILY REPORT"));
+        
     }    
 
     /**
@@ -97,7 +99,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
         btnRefresh = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        edtReport = new javax.swing.JEditorPane();
+        edpReport = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -131,8 +133,8 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
             }
         });
 
-        edtReport.setContentType("text/html"); // NOI18N
-        jScrollPane1.setViewportView(edtReport);
+        edpReport.setContentType("text/html"); // NOI18N
+        jScrollPane1.setViewportView(edpReport);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -192,7 +194,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
 
         try {
-            edtReport.print();
+            edpReport.print();
         } catch (PrinterException ex) {
             Logger.getLogger(ManageDailyReceiptForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -208,7 +210,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JEditorPane edtReport;
+    private javax.swing.JEditorPane edpReport;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

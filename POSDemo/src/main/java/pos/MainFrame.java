@@ -473,7 +473,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Integer level = CURRENT_USER.level;
 
                 if (level >= 90) { // Admin
-                    System.out.println("Applying Administrator rule...");
+                    System.out.println("Apply Administrator rule.");
                     dashboardForm.setMaximum(true);
                     dashboardForm.show();
                     dashboardForm.callFunction("loadUserInfo");
@@ -489,7 +489,7 @@ public class MainFrame extends javax.swing.JFrame {
                     mnuPOSMain.setEnabled(true);
                     mnuReportMain.setEnabled(true);
                 } else if (level >= 60) { // Manager
-                    System.out.println("Applying Manager rule...");
+                    System.out.println("Apply Manager rule.");
                     dashboardForm.setMaximum(true);
                     dashboardForm.show();
                     dashboardForm.callFunction("loadUserInfo");
@@ -501,7 +501,7 @@ public class MainFrame extends javax.swing.JFrame {
                     mnuDashboard.setEnabled(true);
                     mnuReportMain.setEnabled(true);
                 } else if (level >= 30) { // Supervisor
-                    System.out.println("Applying Supervisor rule...");
+                    System.out.println("Apply Supervisor rule.");
                     dashboardForm.setMaximum(true);
                     dashboardForm.show();
                     dashboardForm.callFunction("loadUserInfo");
@@ -514,7 +514,7 @@ public class MainFrame extends javax.swing.JFrame {
                     mnuPOSMain.setEnabled(true);
                     mnuReportMain.setEnabled(true);
                 } else { // Staff
-                    System.out.println("Applying Staff rule...");
+                    System.out.println("Applyi Staff rule.");
                     pullCenter(mainDesktop, posForm);
                     posForm.setMaximum(true);
                     posForm.show();

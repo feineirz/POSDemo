@@ -306,7 +306,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             clearTable(tblContentList);
             
             int curRow = 0;
-            for (Product product : Product.listProduct(filter, "category, name")) {
+            for (Product product : Product.listProduct(filter, "name")) {
                 try{
                     modelContentList.addRow(new  Object[0]);
 
