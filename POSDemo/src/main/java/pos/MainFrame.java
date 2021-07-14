@@ -441,6 +441,19 @@ public class MainFrame extends javax.swing.JFrame {
         pullCenter(mainDesktop, loginForm);
         loginForm.show();
         loginForm.requestFocus();
+        
+        User demo = User.isExist("username = 'demo'");
+        String decPass = EncDec.decrypt(demo.getPassword(), SECRET_KEY);
+        if (demo != null) {
+            loginForm.tbxUser.setText("demo");
+            loginForm.tbxPass.setText(decPass);
+            loginForm.lblLogInHint.setText("*User: demo / Pass: "+decPass);
+        } else {
+            loginForm.tbxUser.setText("");
+            loginForm.tbxPass.setText("");
+            loginForm.lblLogInHint.setText("");            
+        }
+    
         loginForm.tbxUser.requestFocus();        
         
     }//GEN-LAST:event_formWindowOpened
@@ -705,6 +718,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         loginForm = new LoginForm();        
         pullCenter(mainDesktop, loginForm);
+        
+        User demo = User.isExist("username = 'demo'");
+        String decPass = EncDec.decrypt(demo.getPassword(), SECRET_KEY);
+        if (demo != null) {
+            loginForm.tbxUser.setText("demo");
+            loginForm.tbxPass.setText(decPass);
+            loginForm.lblLogInHint.setText("*User: demo / Pass: "+decPass);
+        } else {
+            loginForm.tbxUser.setText("");
+            loginForm.tbxPass.setText("");
+            loginForm.lblLogInHint.setText("");            
+        }
+        
         mainDesktop.add(loginForm);
         loginForm.show();
         loginForm.toFront();
