@@ -207,7 +207,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JEditorPane" name="edtReport">
+        <Component class="javax.swing.JEditorPane" name="edpReport">
           <Properties>
             <Property name="contentType" type="java.lang.String" value="text/html" noResource="true"/>
           </Properties>

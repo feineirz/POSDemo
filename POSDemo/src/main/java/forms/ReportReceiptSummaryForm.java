@@ -45,7 +45,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         editor = (JTextFieldDateEditor) jdcReportEnd.getDateEditor();
         editor.setEditable(false);
         
-        edtReport.setEditable(false);
+        edpReport.setEditable(false);
     }
     
     /*==== Required Code Structure ====*/
@@ -78,7 +78,9 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
     /*==== Required Functions ====*/
     private void loadReport() {      
         
-        edtReport.setText(generateReceiptReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "RECEIPT SUMMARY REPORT"));         
+        edpReport.setText(generateReceiptReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "RECEIPT SUMMARY REPORT"));   
+        edpReport.setSelectionStart(0);
+        edpReport.setSelectionEnd(0);
         
         Log.LogInfo li = new Log.LogInfo();
         li.id = 0;
@@ -116,7 +118,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         btnReport = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        edtReport = new javax.swing.JEditorPane();
+        edpReport = new javax.swing.JEditorPane();
         btnPrint = new javax.swing.JButton();
 
         setClosable(true);
@@ -203,8 +205,8 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        edtReport.setContentType("text/html"); // NOI18N
-        jScrollPane1.setViewportView(edtReport);
+        edpReport.setContentType("text/html"); // NOI18N
+        jScrollPane1.setViewportView(edpReport);
 
         btnPrint.setBackground(new java.awt.Color(255, 204, 0));
         btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -253,7 +255,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
 
         try {
-            edtReport.print();
+            edpReport.print();
         } catch (PrinterException ex) {
             Logger.getLogger(ManageDailyReceiptForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -263,7 +265,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnReport;
-    private javax.swing.JEditorPane edtReport;
+    private javax.swing.JEditorPane edpReport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

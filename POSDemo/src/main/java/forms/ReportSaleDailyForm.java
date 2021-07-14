@@ -84,6 +84,8 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
         }
         
         edpReport.setText(generateSaleReportHTML(getCurrentDateTimeFormatted(), getCurrentDateTimeFormatted(), "SALE DAILY REPORT"));
+        edpReport.setSelectionStart(0);
+        edpReport.setSelectionEnd(0);
         
     }    
 

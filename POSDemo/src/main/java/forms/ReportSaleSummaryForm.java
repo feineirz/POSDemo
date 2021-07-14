@@ -79,6 +79,9 @@ public class ReportSaleSummaryForm extends javax.swing.JInternalFrame {
     private void loadReport() {       
         
         edpReport.setText(generateSaleReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "SALE SUMMARY REPORT"));
+        edpReport.setSelectionStart(0);
+        edpReport.setSelectionEnd(0);
+        
         Log.LogInfo li = new Log.LogInfo();
         li.id = 0;
         li.log_date = getCurrentDateTimeFormatted();

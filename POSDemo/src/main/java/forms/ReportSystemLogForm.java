@@ -46,6 +46,8 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
         editor.setEditable(false);
         
         edpReport.setEditable(false);
+        edpReport.setSelectionStart(0);
+        edpReport.setSelectionEnd(0);
     }
     
     /*==== Required Code Structure ====*/
