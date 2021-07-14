@@ -303,7 +303,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTable.setBackground(new java.awt.Color(204, 204, 204));
+        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
 
         tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblContentList.setModel(new javax.swing.table.DefaultTableModel(

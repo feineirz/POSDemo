@@ -15,8 +15,10 @@ import static GLOBAL.Varibles.*;
 import forms.LoginForm;
 import java.awt.Component;
 import java.beans.PropertyVetoException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import static pos.Apps.*;
@@ -32,7 +34,13 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         setCurrentToDefaultUser();        
-        initComponents();        
+        initComponents();
+        
+        // Set Icon
+        URL iconURL = getClass().getResource("/images/pos.png");
+        // iconURL is null when not found
+        ImageIcon icon = new ImageIcon(iconURL);
+        setIconImage(icon.getImage());
         
         try {
             LoadForms();

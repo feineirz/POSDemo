@@ -805,7 +805,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=400>
+                                <body width=380>
                                     <table>
                                         @all_row_content@
                                     </table>
@@ -842,7 +842,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=400>
+                                <body width=380>
                                     <table>
                                         @all_row_content@
                                     </table>
@@ -859,7 +859,7 @@ public class HelperFunctions {
             rowContent = ""
                     + "<tr>"
                     + "<td width=320><b>"+product.getCode()+"</b></td>"
-                    + "<td width=80 rowspan=2 align='center'><h3>"+DFMT_QUANTITY.format(stock.getQuantity())+"</h3></td>"
+                    + "<td width=60 rowspan=2 align='center'><h3>"+DFMT_QUANTITY.format(stock.getQuantity())+"</h3></td>"
                     + "</tr>"
                     + "<tr>"
                     + "<td><font size='-1'>"+product.getName()+"</font></td>"
