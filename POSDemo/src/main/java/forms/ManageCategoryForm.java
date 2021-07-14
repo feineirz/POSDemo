@@ -161,7 +161,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     public static String getFilterString(String cond) {
         if (!"".equals(cond)) {
             String filter = "id LIKE '%"+cond+"%'"
-                    + " OR catname LIKE '%"+cond+"%'"
+                    + " OR name LIKE '%"+cond+"%'"
                     + " OR description LIKE '%"+cond+"%'";
             return filter;
         } else {

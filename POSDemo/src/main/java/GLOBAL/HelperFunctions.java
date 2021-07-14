@@ -51,6 +51,7 @@ public class HelperFunctions {
     public static void callUpdateCategoryData() {
         if (manageCategoryForm.isVisible()) manageCategoryForm.callFunction("listContentWithFilter");        
         if (newStockForm.isVisible()) newStockForm.callFunction("listCategory");        
+        if (newProductForm.isVisible()) newProductForm.callFunction("listCategory"); 
         if (manageProductForm.isVisible()) manageProductForm.callFunction("listCategory");        
         if (posForm.isVisible()) posForm.callFunction("listCategory");
         

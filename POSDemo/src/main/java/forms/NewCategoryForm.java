@@ -271,7 +271,7 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
 
         String catName = tbxCategoryName.getText().trim();
         if (catName.length() >= 3) {
-            if(Category.isExist("catname='"+catName+"'") != null) {
+            if(Category.isExist("name='"+catName+"'") != null) {
                 JOptionPane.showMessageDialog(this, "Category name '"+catName+"' is already exists.", "Error", JOptionPane.ERROR_MESSAGE);
                 tbxCategoryName.setText("");
                 tbxCategoryName.requestFocus();
