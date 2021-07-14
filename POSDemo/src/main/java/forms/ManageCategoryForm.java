@@ -34,6 +34,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     public ManageCategoryForm() {
         initComponents();
         setUIFont(new FontUIResource(MAIN_FONT));
+        getContentPane().setBackground(BG_DARK_ALT);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
         tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -226,7 +227,6 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblContentList = new javax.swing.JTable();
         pnlUserInfo = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tbxCategoryName = new javax.swing.JTextField();
@@ -240,6 +240,9 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         lblDescription = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbxDescription = new javax.swing.JTextArea();
+        pnlHeader = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -259,12 +262,14 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
         tbxFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tbxFilterKeyReleased(evt);
             }
         });
 
+        btnReload.setBackground(new java.awt.Color(255, 204, 0));
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setText("Reload");
         btnReload.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +286,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbxFilter)
+                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReload)
                 .addContainerGap())
@@ -313,7 +318,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -329,9 +334,9 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         tblContentList.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblContentList);
         if (tblContentList.getColumnModel().getColumnCount() > 0) {
-            tblContentList.getColumnModel().getColumn(0).setMinWidth(100);
-            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tblContentList.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
             tblContentList.getColumnModel().getColumn(1).setMinWidth(200);
             tblContentList.getColumnModel().getColumn(1).setPreferredWidth(200);
             tblContentList.getColumnModel().getColumn(1).setMaxWidth(200);
@@ -359,12 +364,6 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
 
         pnlUserInfo.setBackground(new java.awt.Color(102, 102, 102));
         pnlUserInfo.setEnabled(false);
-
-        jLabel2.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText(" CATEGORY INFORMATION");
-        jLabel2.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -444,11 +443,43 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         tbxDescription.setRows(5);
         jScrollPane2.setViewportView(tbxDescription);
 
+        pnlHeader.setBackground(new java.awt.Color(0, 102, 102));
+
+        lblTitle.setBackground(new java.awt.Color(51, 51, 51));
+        lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("MODIFY CATEGORY INFORMATION");
+
+        lblIcon.setForeground(new java.awt.Color(204, 204, 204));
+        lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/category32.png"))); // NOI18N
+        lblIcon.setPreferredSize(new java.awt.Dimension(36, 36));
+
+        javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
+        pnlHeader.setLayout(pnlHeaderLayout);
+        pnlHeaderLayout.setHorizontalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlHeaderLayout.setVerticalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pnlUserInfoLayout = new javax.swing.GroupLayout(pnlUserInfo);
         pnlUserInfo.setLayout(pnlUserInfoLayout);
         pnlUserInfoLayout.setHorizontalGroup(
             pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlUserInfoLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,16 +499,17 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                     .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlUserInfoLayout.createSequentialGroup()
                         .addComponent(lblCategoryID, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 13, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(tbxCategoryName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(24, 24, 24))
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlUserInfoLayout.setVerticalGroup(
             pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserInfoLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCategoryID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -494,7 +526,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(lblRealID, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCategoryName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -646,7 +678,6 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnReload;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
@@ -655,7 +686,10 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     public javax.swing.JLabel lblCategoryID;
     private javax.swing.JLabel lblCategoryName;
     private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblRealID;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlTable;
     private javax.swing.JPanel pnlUserInfo;

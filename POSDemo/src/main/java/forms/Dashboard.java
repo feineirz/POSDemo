@@ -109,12 +109,18 @@ public class Dashboard extends javax.swing.JInternalFrame {
         Double monthlyProfit = monthlyIncome - Receipt.getSumCost("receipt_date between '"+startDatetime+"' and '"+endDatetime+"'");
         
         lblMonthlyIncome.setText(DFMT_PRICE.format(monthlyIncome));
-        lblMonthlyProfit.setText(DFMT_PRICE.format(monthlyProfit));
-        
+        lblMonthlyProfit.setText(DFMT_PRICE.format(monthlyProfit));        
         
         edpBestSelling.setText(getTopBestSellingHTML(10));
         edpLowStockNotification.setText(getLowStockNotificationHTML(100));
         edpSystemLog.setText(getApplicationLogHTML());
+        
+        edpBestSelling.setSelectionStart(0);
+        edpBestSelling.setSelectionEnd(0);
+        edpLowStockNotification.setSelectionStart(0);
+        edpLowStockNotification.setSelectionEnd(0);        
+        edpSystemLog.setSelectionStart(0);
+        edpSystemLog.setSelectionEnd(0);
         
         // Charts
         JFreeChart lineChart = ChartFactory.createLineChart(
@@ -253,6 +259,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         pnlUserInfo.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(72, 72));
         jLabel1.setMinimumSize(new java.awt.Dimension(72, 72));
         jLabel1.setOpaque(true);

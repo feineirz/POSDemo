@@ -37,6 +37,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         
         initComponents();
         setUIFont(new FontUIResource(MAIN_FONT));
+        getContentPane().setBackground(BG_DARK_ALT);
         
         contentModel = (DefaultTableModel)tblContentList.getModel();
         tblContentList.getTableHeader().setFont(MAIN_FONT);
@@ -263,7 +264,6 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlUserInfo = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -283,6 +283,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         cmbUserLevel = new javax.swing.JComboBox<>();
         lblEmail = new javax.swing.JLabel();
         lblUserLevel = new javax.swing.JLabel();
+        pnlHeader = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
         pnlSearch = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tbxFilter = new javax.swing.JTextField();
@@ -302,12 +305,6 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         });
 
         pnlUserInfo.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel2.setBackground(new java.awt.Color(0, 102, 153));
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText(" USER INFORMATION");
-        jLabel2.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,7 +365,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         lblUsername.setFocusable(false);
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 204, 0));
         jLabel7.setLabelFor(tbxEmail);
         jLabel7.setText("* Leave blank if no change.");
 
@@ -402,6 +399,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         lblRealUserID.setFocusable(false);
         lblRealUserID.setOpaque(true);
 
+        tbxPassword.setBackground(new java.awt.Color(255, 204, 0));
         tbxPassword.setMaximumSize(new java.awt.Dimension(2147483647, 27));
         tbxPassword.setMinimumSize(new java.awt.Dimension(7, 27));
         tbxPassword.setPreferredSize(new java.awt.Dimension(7, 27));
@@ -429,11 +427,43 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         lblUserLevel.setFocusable(false);
         lblUserLevel.setOpaque(true);
 
+        pnlHeader.setBackground(new java.awt.Color(0, 102, 153));
+
+        lblTitle.setBackground(new java.awt.Color(51, 51, 51));
+        lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("MODIFY USER INFORMATION");
+
+        lblIcon.setForeground(new java.awt.Color(204, 204, 204));
+        lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user32.png"))); // NOI18N
+        lblIcon.setPreferredSize(new java.awt.Dimension(36, 36));
+
+        javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
+        pnlHeader.setLayout(pnlHeaderLayout);
+        pnlHeaderLayout.setHorizontalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlHeaderLayout.setVerticalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pnlUserInfoLayout = new javax.swing.GroupLayout(pnlUserInfo);
         pnlUserInfo.setLayout(pnlUserInfoLayout);
         pnlUserInfoLayout.setHorizontalGroup(
             pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlUserInfoLayout.createSequentialGroup()
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pnlUserInfoLayout.createSequentialGroup()
@@ -450,7 +480,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUserInfoLayout.createSequentialGroup()
-                        .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -466,11 +496,12 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     .addComponent(lblEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblUserLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlUserInfoLayout.setVerticalGroup(
             pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserInfoLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -502,7 +533,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblUserLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,12 +552,14 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
         tbxFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tbxFilterKeyReleased(evt);
             }
         });
 
+        btnReload.setBackground(new java.awt.Color(255, 204, 0));
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setText("Reload");
         btnReload.addActionListener(new java.awt.event.ActionListener() {
@@ -543,7 +576,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbxFilter)
+                .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReload)
                 .addContainerGap())
@@ -553,14 +586,14 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
-                    .addComponent(btnReload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        pnlTable.setBackground(new java.awt.Color(204, 204, 204));
+        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
 
         tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblContentList.setModel(new javax.swing.table.DefaultTableModel(
@@ -591,9 +624,15 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         tblContentList.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblContentList);
         if (tblContentList.getColumnModel().getColumnCount() > 0) {
-            tblContentList.getColumnModel().getColumn(0).setMinWidth(100);
-            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tblContentList.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblContentList.getColumnModel().getColumn(1).setMinWidth(200);
+            tblContentList.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblContentList.getColumnModel().getColumn(1).setMaxWidth(200);
+            tblContentList.getColumnModel().getColumn(3).setMinWidth(200);
+            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tblContentList.getColumnModel().getColumn(3).setMaxWidth(200);
             tblContentList.getColumnModel().getColumn(4).setMinWidth(0);
             tblContentList.getColumnModel().getColumn(4).setPreferredWidth(0);
             tblContentList.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -608,14 +647,14 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         pnlTableLayout.setVerticalGroup(
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -805,7 +844,6 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnReload;
     private javax.swing.JComboBox<String> cmbUserLevel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -815,10 +853,13 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblRealUserID;
+    private javax.swing.JLabel lblTitle;
     public javax.swing.JLabel lblUserID;
     private javax.swing.JLabel lblUserLevel;
     public javax.swing.JLabel lblUsername;
+    private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlTable;
     private javax.swing.JPanel pnlUserInfo;

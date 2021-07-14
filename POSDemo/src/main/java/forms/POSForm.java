@@ -14,6 +14,7 @@ import DBCLS.ReceiptDetail;
 import DBCLS.ReceiptDetail.ReceiptDetailInfo;
 import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
+import static GLOBAL.Settings.BG_DARK_ALT;
 import static GLOBAL.Settings.MAIN_FONT;
 import GLOBAL.Validator;
 import static GLOBAL.Validator.InputValidation.*;
@@ -47,6 +48,7 @@ public class POSForm extends javax.swing.JInternalFrame {
     public POSForm() {
         initComponents();
         setUIFont(new FontUIResource(MAIN_FONT));
+        getContentPane().setBackground(BG_DARK_ALT);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
         modelCartList = (DefaultTableModel)tblCartList.getModel();
@@ -371,7 +373,6 @@ public class POSForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblContentList = new javax.swing.JTable();
         pnlCheckout = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         lblTotalPrice = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tbxCashIn = new javax.swing.JTextField();
@@ -381,8 +382,10 @@ public class POSForm extends javax.swing.JInternalFrame {
         lblCurrentProductID = new javax.swing.JLabel();
         lblCartCurrentRow = new javax.swing.JLabel();
         btnCalcExchange = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         pnlCart = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCartList = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -394,13 +397,16 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         lblReceiptID = new javax.swing.JLabel();
         btnClearCart = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setMaximizable(true);
         setResizable(true);
         setMaximumSize(new java.awt.Dimension(1800, 920));
-        setMinimumSize(new java.awt.Dimension(1590, 820));
+        setMinimumSize(new java.awt.Dimension(1600, 820));
         setPreferredSize(new java.awt.Dimension(1590, 820));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -419,6 +425,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxFilter.setMaximumSize(new java.awt.Dimension(2147483647, 23));
         tbxFilter.setMinimumSize(new java.awt.Dimension(100, 23));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
         tbxFilter.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxFilterFocusGained(evt);
@@ -430,6 +437,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         });
 
+        btnReload.setBackground(new java.awt.Color(255, 204, 0));
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setText("Reload");
         btnReload.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -464,7 +472,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -477,16 +485,17 @@ public class POSForm extends javax.swing.JInternalFrame {
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        pnlTable.setBackground(new java.awt.Color(204, 204, 204));
+        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
 
         tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblContentList.setModel(new javax.swing.table.DefaultTableModel(
@@ -556,18 +565,12 @@ public class POSForm extends javax.swing.JInternalFrame {
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pnlCheckout.setBackground(new java.awt.Color(102, 102, 102));
         pnlCheckout.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel8.setBackground(new java.awt.Color(0, 153, 51));
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText(" CHECKOUT");
-        jLabel8.setOpaque(true);
 
         lblTotalPrice.setBackground(new java.awt.Color(51, 51, 51));
         lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 72)); // NOI18N
@@ -618,6 +621,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnCheckout.setBackground(new java.awt.Color(51, 204, 0));
         btnCheckout.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
+        btnCheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pos16.png"))); // NOI18N
         btnCheckout.setText("Checkout");
         btnCheckout.setEnabled(false);
         btnCheckout.addActionListener(new java.awt.event.ActionListener() {
@@ -645,34 +649,69 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel6.setBackground(new java.awt.Color(255, 153, 0));
+
+        jLabel19.setBackground(new java.awt.Color(0, 102, 153));
+        jLabel19.setFont(new java.awt.Font("Tw Cen MT", 1, 28)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("CHECKOUT");
+
+        jLabel20.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pos32.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout pnlCheckoutLayout = new javax.swing.GroupLayout(pnlCheckout);
         pnlCheckout.setLayout(pnlCheckoutLayout);
         pnlCheckoutLayout.setHorizontalGroup(
             pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tbxCashIn)
-                    .addComponent(lblCurrentProductID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCalcExchange, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(tbxExchange))
-                .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
+                        .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tbxCashIn)
+                            .addComponent(lblCurrentProductID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCalcExchange, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(tbxExchange))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
+                        .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlCheckoutLayout.setVerticalGroup(
             pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCheckoutLayout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbxCashIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -684,20 +723,14 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addComponent(btnCalcExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(383, 383, 383)
+                .addGap(413, 413, 413)
                 .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(49, 49, 49)
                 .addComponent(lblCurrentProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pnlCart.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel3.setBackground(new java.awt.Color(0, 102, 153));
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText(" SHOPPING CART");
-        jLabel3.setOpaque(true);
 
         tblCartList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -831,20 +864,48 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
+
+        jLabel10.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cart32.png"))); // NOI18N
+
+        jLabel3.setBackground(new java.awt.Color(0, 102, 153));
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 28)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("SHOPPING CART");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout pnlCartLayout = new javax.swing.GroupLayout(pnlCart);
         pnlCart.setLayout(pnlCartLayout);
         pnlCartLayout.setHorizontalGroup(
             pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCartLayout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlCartLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 17, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -861,21 +922,22 @@ public class POSForm extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRemoe)))
                 .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlCartLayout.setVerticalGroup(
             pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCartLayout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblReceiptID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
                         .addComponent(tbxQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
-                    .addComponent(btnAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -898,8 +960,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlCart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(pnlCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -907,8 +968,8 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(pnlCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -941,165 +1002,6 @@ public class POSForm extends javax.swing.JInternalFrame {
         listContentWithFilter();
         
     }//GEN-LAST:event_cmbCategoryFilterActionPerformed
-
-    private void tbxCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCodeFocusGained
-        
-        tbxCode.selectAll();
-        
-    }//GEN-LAST:event_tbxCodeFocusGained
-
-    private void tbxCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxCodeKeyReleased
-        
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tbxQuantity.requestFocus();
-            tbxQuantity.selectAll();
-        }
-        
-        
-    }//GEN-LAST:event_tbxCodeKeyReleased
-
-    private void tbxQuantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxQuantityFocusGained
-        
-        tbxQuantity.selectAll();
-        
-    }//GEN-LAST:event_tbxQuantityFocusGained
-
-    private void tbxQuantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxQuantityKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxQuantityKeyReleased
-
-    private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
-        
-        tblCartList.clearSelection();
-        
-        String code = tbxCode.getText().trim();
-        String quantity = tbxQuantity.getText().trim();
-        String productID = lblCurrentProductID.getText();
-        
-        Double sumPrice = Double.parseDouble(lblTotalPrice.getText());        
-        
-        ValidationResult vr = new ValidationResult();
-        String errMessage;
-        
-        vr = validateProductCode(code);
-        if (!vr.result) {
-            popupWarning(vr);
-            tbxCode.setText("");
-            tbxCode.requestFocus();
-            return;
-        }
-        
-        errMessage = "Invalid 'Quantity' format!";
-        vr = validateStringIsInteger(quantity, errMessage);
-        if (!vr.result) {
-            popupWarning(vr);
-            tbxQuantity.setText("1");
-            tbxQuantity.requestFocus();
-            return;
-        }
-        
-        double dPrice, dTotal;
-        String dfQuantity, dfPrice;
-        
-        int row = getExistProductIDRowNo(productID);        
-        if (row > -1) { // Item already in cart
-            int curQty = Integer.parseInt(tblCartList.getValueAt(row, 1).toString());
-            int addQty = Integer.parseInt(quantity);
-            
-            if (btnAddToCart.getText().equals("Add To Cart")) {
-                dfQuantity = DFMT_QUANTITY.format(curQty + addQty);
-                modelCartList.setValueAt(dfQuantity, row, 1);
-            } else {
-                dfQuantity = DFMT_QUANTITY.format(addQty);
-                modelCartList.setValueAt(dfQuantity, row, 1);
-                btnAddToCart.setText("Add To Cart");
-            }
-                        
-            tblContentList.clearSelection();
-            tbxCode.setText("");
-            tbxCode.requestFocus();
-            tbxQuantity.setText("1");
-            lblCurrentProductID.setText("");
-                
-            tbxCashIn.setText("0.00");
-            tbxExchange.setText("0.00");
-
-            calculateCartTotal();
-            
-        } else { // Add new item  to cart
-            Product product = new Product((Integer.parseInt(productID)));
-            row = tblCartList.getRowCount();
-            try {
-                modelCartList.addRow(new  Object[0]);
-                modelCartList.setValueAt(product.getName(), row, 0);
-               
-                int iQuantity = Integer.parseInt(quantity);
-
-                dPrice = product.getPrice();
-                dfQuantity = DFMT_QUANTITY.format(iQuantity);
-                dfPrice = DFMT_PRICE.format(dPrice);
-                dTotal = dPrice * iQuantity;
-                sumPrice += dTotal;
-
-                modelCartList.setValueAt(dfQuantity, row, 1);
-                modelCartList.setValueAt(dfPrice, row, 2);
-                modelCartList.setValueAt(product.getId(), row, 4);
-                modelCartList.setValueAt(product.getCode(), row, 5);
-                modelCartList.setValueAt(product.getCost(), row, 6);
-
-                tblContentList.clearSelection();
-                tbxCode.setText("");
-                tbxCode.requestFocus();
-                tbxQuantity.setText("1");
-                
-                tbxCashIn.setText("0.00");
-                tbxExchange.setText("0.00");
-                
-                lblCurrentProductID.setText("");
-
-                calculateCartTotal();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-            
-        
-        
-    }//GEN-LAST:event_btnAddToCartActionPerformed
-
-    private void tbxCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCodeFocusLost
-        
-        String code = tbxCode.getText().trim();
-        
-        if (!"".equals(code)) {
-            if (Product.isExist("code='"+code+"'") == null) {
-                JOptionPane.showMessageDialog(this, "Product code '"+code+"' does not exists!", "ERROR", JOptionPane.ERROR_MESSAGE);
-                resetInfoPanel();
-                tbxCode.setText("");
-                tbxCode.requestFocus();
-            } else {
-                autoSelectProductList(code);
-            }
-        }
-        
-    }//GEN-LAST:event_tbxCodeFocusLost
-
-    private void tbxQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxQuantityFocusLost
-                
-        String quantity = tbxQuantity.getText().trim();        
-        
-        ValidationResult vr = new ValidationResult();
-        vr = validateStringIsInteger(quantity, "");
-        if (vr.result) {
-            int iQuantity = Integer.parseInt(quantity);
-            if (iQuantity < 1) {
-                tbxQuantity.setText("1");
-            }
-        }
-        
-        
-    }//GEN-LAST:event_tbxQuantityFocusLost
 
     private void tbxCashInFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCashInFocusGained
         
@@ -1184,26 +1086,9 @@ public class POSForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
-    private void btnRemoeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoeActionPerformed
-        
-        int curRow = tblCartList.getSelectedRow();
-                if(curRow > -1){                    
-                    modelCartList.removeRow(curRow);
-                    
-                    resetCartPanel();                    
-                    calculateCartTotal();
-                    tblContentList.clearSelection();
-                }
-        
-    }//GEN-LAST:event_btnRemoeActionPerformed
-
     private void tblContentListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblContentListMouseClicked
         
     }//GEN-LAST:event_tblContentListMouseClicked
-
-    private void tblCartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCartListMouseClicked
-        
-    }//GEN-LAST:event_tblCartListMouseClicked
 
     private void btnCalcExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcExchangeActionPerformed
                 
@@ -1265,19 +1150,191 @@ public class POSForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_tbxCashInKeyPressed
 
-    private void btnClearCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearCartActionPerformed
-        
-        clearTable(tblCartList);
-        setFrameState(frameState.INIT);
-        calculateCartTotal();
-        
-    }//GEN-LAST:event_btnClearCartActionPerformed
-
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         
         setFrameState(frameState.INIT);
         
     }//GEN-LAST:event_formComponentShown
+
+    private void btnClearCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearCartActionPerformed
+
+        clearTable(tblCartList);
+        setFrameState(frameState.INIT);
+        calculateCartTotal();
+
+    }//GEN-LAST:event_btnClearCartActionPerformed
+
+    private void btnRemoeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoeActionPerformed
+
+        int curRow = tblCartList.getSelectedRow();
+        if(curRow > -1){
+            modelCartList.removeRow(curRow);
+
+            resetCartPanel();
+            calculateCartTotal();
+            tblContentList.clearSelection();
+        }
+
+    }//GEN-LAST:event_btnRemoeActionPerformed
+
+    private void tbxQuantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxQuantityKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbxQuantityKeyReleased
+
+    private void tbxQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxQuantityFocusLost
+
+        String quantity = tbxQuantity.getText().trim();
+
+        ValidationResult vr = new ValidationResult();
+        vr = validateStringIsInteger(quantity, "");
+        if (vr.result) {
+            int iQuantity = Integer.parseInt(quantity);
+            if (iQuantity < 1) {
+                tbxQuantity.setText("1");
+            }
+        }
+
+    }//GEN-LAST:event_tbxQuantityFocusLost
+
+    private void tbxQuantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxQuantityFocusGained
+
+        tbxQuantity.selectAll();
+
+    }//GEN-LAST:event_tbxQuantityFocusGained
+
+    private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
+
+        tblCartList.clearSelection();
+
+        String code = tbxCode.getText().trim();
+        String quantity = tbxQuantity.getText().trim();
+        String productID = lblCurrentProductID.getText();
+
+        Double sumPrice = Double.parseDouble(lblTotalPrice.getText());
+
+        ValidationResult vr = new ValidationResult();
+        String errMessage;
+
+        vr = validateProductCode(code);
+        if (!vr.result) {
+            popupWarning(vr);
+            tbxCode.setText("");
+            tbxCode.requestFocus();
+            return;
+        }
+
+        errMessage = "Invalid 'Quantity' format!";
+        vr = validateStringIsInteger(quantity, errMessage);
+        if (!vr.result) {
+            popupWarning(vr);
+            tbxQuantity.setText("1");
+            tbxQuantity.requestFocus();
+            return;
+        }
+
+        double dPrice, dTotal;
+        String dfQuantity, dfPrice;
+
+        int row = getExistProductIDRowNo(productID);
+        if (row > -1) { // Item already in cart
+            int curQty = Integer.parseInt(tblCartList.getValueAt(row, 1).toString());
+            int addQty = Integer.parseInt(quantity);
+
+            if (btnAddToCart.getText().equals("Add To Cart")) {
+                dfQuantity = DFMT_QUANTITY.format(curQty + addQty);
+                modelCartList.setValueAt(dfQuantity, row, 1);
+            } else {
+                dfQuantity = DFMT_QUANTITY.format(addQty);
+                modelCartList.setValueAt(dfQuantity, row, 1);
+                btnAddToCart.setText("Add To Cart");
+            }
+
+            tblContentList.clearSelection();
+            tbxCode.setText("");
+            tbxCode.requestFocus();
+            tbxQuantity.setText("1");
+            lblCurrentProductID.setText("");
+
+            tbxCashIn.setText("0.00");
+            tbxExchange.setText("0.00");
+
+            calculateCartTotal();
+
+        } else { // Add new item  to cart
+            Product product = new Product((Integer.parseInt(productID)));
+            row = tblCartList.getRowCount();
+            try {
+                modelCartList.addRow(new  Object[0]);
+                modelCartList.setValueAt(product.getName(), row, 0);
+
+                int iQuantity = Integer.parseInt(quantity);
+
+                dPrice = product.getPrice();
+                dfQuantity = DFMT_QUANTITY.format(iQuantity);
+                dfPrice = DFMT_PRICE.format(dPrice);
+                dTotal = dPrice * iQuantity;
+                sumPrice += dTotal;
+
+                modelCartList.setValueAt(dfQuantity, row, 1);
+                modelCartList.setValueAt(dfPrice, row, 2);
+                modelCartList.setValueAt(product.getId(), row, 4);
+                modelCartList.setValueAt(product.getCode(), row, 5);
+                modelCartList.setValueAt(product.getCost(), row, 6);
+
+                tblContentList.clearSelection();
+                tbxCode.setText("");
+                tbxCode.requestFocus();
+                tbxQuantity.setText("1");
+
+                tbxCashIn.setText("0.00");
+                tbxExchange.setText("0.00");
+
+                lblCurrentProductID.setText("");
+
+                calculateCartTotal();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }//GEN-LAST:event_btnAddToCartActionPerformed
+
+    private void tbxCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxCodeKeyReleased
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tbxQuantity.requestFocus();
+            tbxQuantity.selectAll();
+        }
+
+    }//GEN-LAST:event_tbxCodeKeyReleased
+
+    private void tbxCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCodeFocusLost
+
+        String code = tbxCode.getText().trim();
+
+        if (!"".equals(code)) {
+            if (Product.isExist("code='"+code+"'") == null) {
+                JOptionPane.showMessageDialog(this, "Product code '"+code+"' does not exists!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                resetInfoPanel();
+                tbxCode.setText("");
+                tbxCode.requestFocus();
+            } else {
+                autoSelectProductList(code);
+            }
+        }
+
+    }//GEN-LAST:event_tbxCodeFocusLost
+
+    private void tbxCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCodeFocusGained
+
+        tbxCode.selectAll();
+
+    }//GEN-LAST:event_tbxCodeFocusGained
+
+    private void tblCartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCartListMouseClicked
+
+    }//GEN-LAST:event_tblCartListMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1289,14 +1346,18 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnRemoe;
     public static javax.swing.JComboBox<String> cmbCategoryFilter;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCartCurrentRow;
@@ -1310,7 +1371,7 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblCartList;
     public static javax.swing.JTable tblContentList;
     private javax.swing.JTextField tbxCashIn;
-    public static javax.swing.JTextField tbxCode;
+    private javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxExchange;
     public static javax.swing.JTextField tbxFilter;
     public static javax.swing.JTextField tbxQuantity;

@@ -17,7 +17,10 @@ public class Settings {
     public static final String SECRET_KEY = "Hige wo Soru Soshite Joshikousei wo Hirou";
     
     public static final Font MAIN_FONT = new Font("Tahoma", Font.PLAIN, 14);
+    
     public static final Color BG_LIGHT = new Color(250, 250, 250);
+    public static final Color BG_DARK_ALT = new Color(120, 120, 120);
+    public static final Color BG_DARK = new Color(102, 102, 102);
     
 }
 

@@ -117,6 +117,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
 
         btnRefresh.setBackground(new java.awt.Color(153, 204, 255));
         btnRefresh.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh16.png"))); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +127,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
 
         btnPrint.setBackground(new java.awt.Color(255, 204, 0));
         btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/printer16.png"))); // NOI18N
         btnPrint.setText("Print");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

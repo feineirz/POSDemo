@@ -161,6 +161,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
 
         btnReport.setBackground(new java.awt.Color(153, 204, 255));
         btnReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report16.png"))); // NOI18N
         btnReport.setText("Report");
         btnReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +208,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
 
         btnPrint.setBackground(new java.awt.Color(255, 204, 0));
         btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/printer16.png"))); // NOI18N
         btnPrint.setText("Print");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
