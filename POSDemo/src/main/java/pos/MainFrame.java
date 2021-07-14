@@ -526,7 +526,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }                
 
             }
-        } catch (Exception e) {
+        } catch (PropertyVetoException e) {
             // pass
         }
             

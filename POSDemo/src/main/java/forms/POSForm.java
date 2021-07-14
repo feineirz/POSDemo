@@ -1374,6 +1374,6 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxExchange;
     public static javax.swing.JTextField tbxFilter;
-    public static javax.swing.JTextField tbxQuantity;
+    public javax.swing.JTextField tbxQuantity;
     // End of variables declaration//GEN-END:variables
 }

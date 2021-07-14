@@ -109,7 +109,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
         });
 
         lblLogInHint.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
-        lblLogInHint.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogInHint.setForeground(new java.awt.Color(153, 255, 51));
         lblLogInHint.setText("* user: demo / pass: demo");
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 2, 16)); // NOI18N
@@ -130,7 +130,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/secure64.png"))); // NOI18N
 
         lblTitle.setBackground(new java.awt.Color(51, 51, 51));
-        lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(153, 255, 0));
         lblTitle.setText("SYSTEM LOGIN");
         lblTitle.setOpaque(true);
