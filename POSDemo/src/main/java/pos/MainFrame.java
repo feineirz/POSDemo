@@ -502,8 +502,7 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println("Current User: "+CURRENT_USER.username);
         try {
             if (evt.getChild().getName().equals("LOGIN_FORM")) {
-
-                setMarginHeight(mainDesktop, dashboardForm, MARGIN_SMALL);
+                
                 pullCenter(mainDesktop, dashboardForm);
                 dashboardForm.setMaximum(true);
 
