@@ -602,7 +602,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void mnuCategoryInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCategoryInfoActionPerformed
         
-        setMarginHeight(mainDesktop, manageCategoryForm, MARGIN_LARGE);
         pullCenter(mainDesktop, manageCategoryForm);
         manageCategoryForm.show();
         manageCategoryForm.toFront();

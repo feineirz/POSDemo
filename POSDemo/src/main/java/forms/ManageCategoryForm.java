@@ -8,11 +8,13 @@ package forms;
 import DBCLS.Category;
 import DBCLS.Log;
 import static GLOBAL.HelperFunctions.*;
+import GLOBAL.Settings;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
 import java.awt.Font;
+import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -219,14 +221,31 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlSearch = new javax.swing.JPanel();
+        pnlTable = new javax.swing.JPanel(){
+            // BODY
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblContentList = new javax.swing.JTable();
+        pnlSearch = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel1 = new javax.swing.JLabel();
         tbxFilter = new javax.swing.JTextField();
         btnReload = new javax.swing.JButton();
-        pnlTable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblContentList = new javax.swing.JTable();
-        pnlUserInfo = new javax.swing.JPanel();
+        pnlUserInfo = new javax.swing.JPanel(){
+            // BODY
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tbxCategoryName = new javax.swing.JTextField();
@@ -240,7 +259,12 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         lblDescription = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbxDescription = new javax.swing.JTextArea();
-        pnlHeader = new javax.swing.JPanel();
+        pnlHeader = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         lblTitle = new javax.swing.JLabel();
         lblIcon = new javax.swing.JLabel();
 
@@ -252,6 +276,48 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 formComponentShown(evt);
             }
         });
+
+        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
+
+        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CategoryID", "Name", "Description", "RealID"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblContentList.setRowHeight(24);
+        tblContentList.setShowVerticalLines(false);
+        tblContentList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblContentList);
+        if (tblContentList.getColumnModel().getColumnCount() > 0) {
+            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblContentList.getColumnModel().getColumn(1).setMinWidth(200);
+            tblContentList.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblContentList.getColumnModel().getColumn(1).setMaxWidth(200);
+            tblContentList.getColumnModel().getColumn(3).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
 
         pnlSearch.setBackground(new java.awt.Color(102, 102, 102));
         pnlSearch.setMaximumSize(new java.awt.Dimension(32767, 29));
@@ -303,48 +369,6 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
-
-        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "CategoryID", "Name", "Description", "RealID"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblContentList.setRowHeight(24);
-        tblContentList.setShowVerticalLines(false);
-        tblContentList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tblContentList);
-        if (tblContentList.getColumnModel().getColumnCount() > 0) {
-            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
-            tblContentList.getColumnModel().getColumn(1).setMinWidth(200);
-            tblContentList.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tblContentList.getColumnModel().getColumn(1).setMaxWidth(200);
-            tblContentList.getColumnModel().getColumn(3).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(3).setMaxWidth(0);
-        }
-
         javax.swing.GroupLayout pnlTableLayout = new javax.swing.GroupLayout(pnlTable);
         pnlTable.setLayout(pnlTableLayout);
         pnlTableLayout.setHorizontalGroup(
@@ -353,12 +377,14 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(pnlSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlTableLayout.setVerticalGroup(
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -463,7 +489,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
@@ -526,7 +552,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(lblRealID, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCategoryName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,20 +566,15 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnlUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
