@@ -9,11 +9,14 @@ import DBCLS.Log;
 import DBCLS.User;
 import DBCLS.User.UserInfo;
 import GLOBAL.EncDec;
+import GLOBAL.Settings;
 import static GLOBAL.HelperFunctions.*;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Varibles.*;
 import forms.LoginForm;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.beans.PropertyVetoException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -35,12 +38,9 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         setCurrentToDefaultUser();        
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/images/pos.png")).getImage());
         
-        // Set Icon
-        URL iconURL = getClass().getResource("/images/pos.png");
-        // iconURL is null when not found
-        ImageIcon icon = new ImageIcon(iconURL);
-        setIconImage(icon.getImage());
+        ImageIcon bgIcon = new ImageIcon(getClass().getResource("/images/appbg.jpg"));
         
         try {
             LoadForms();
@@ -129,7 +129,14 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainDesktop = new javax.swing.JDesktopPane();
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/appbg.jpg"));
+        Image image = imageIcon.getImage();
+        mainDesktop = new javax.swing.JDesktopPane(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         mnuMain = new javax.swing.JMenuBar();
         mnuMainSystem = new javax.swing.JMenu();
         mnuDashboard = new javax.swing.JMenuItem();
@@ -205,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuDashboard.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/log.png"))); // NOI18N
         mnuDashboard.setText("Dashboard");
         mnuDashboard.setEnabled(false);
         mnuDashboard.addActionListener(new java.awt.event.ActionListener() {
@@ -215,6 +223,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.add(mnuDashboard);
 
         mnuSystemLog.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuSystemLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/dashboard.png"))); // NOI18N
         mnuSystemLog.setText("System Log");
         mnuSystemLog.setEnabled(false);
         mnuSystemLog.addActionListener(new java.awt.event.ActionListener() {
@@ -226,6 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.add(jSeparator1);
 
         mnuLogOut.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/logout.png"))); // NOI18N
         mnuLogOut.setText("LogOut");
         mnuLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.add(jSeparator4);
 
         mnuExit.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/power-off.png"))); // NOI18N
         mnuExit.setText("Exit");
         mnuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +262,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuUserMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuUserInfo.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuUserInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/user-info.png"))); // NOI18N
         mnuUserInfo.setText("User Information");
         mnuUserInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,6 +272,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuUserMain.add(mnuUserInfo);
 
         mnuAddUser.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/new-user.png"))); // NOI18N
         mnuAddUser.setText("New User");
         mnuAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,6 +288,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuProductInfo.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuProductInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/product-info.png"))); // NOI18N
         mnuProductInfo.setText("Product Information");
         mnuProductInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +298,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.add(mnuProductInfo);
 
         mnuAddProduct.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/new-product.png"))); // NOI18N
         mnuAddProduct.setText("New Product");
         mnuAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,6 +309,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.add(jSeparator2);
 
         mnuStockInfo.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuStockInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/stock-info.png"))); // NOI18N
         mnuStockInfo.setText("Stock Information");
         mnuStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +319,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.add(mnuStockInfo);
 
         mnuAddStock.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuAddStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/refill-stock.png"))); // NOI18N
         mnuAddStock.setText("Refill Stock");
         mnuAddStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,6 +330,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.add(jSeparator3);
 
         mnuCategoryInfo.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuCategoryInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/category-info.png"))); // NOI18N
         mnuCategoryInfo.setText("Product Category");
         mnuCategoryInfo.setToolTipText("");
         mnuCategoryInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -323,6 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuProductMain.add(mnuCategoryInfo);
 
         mnuAddCategory.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuAddCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/new-category.png"))); // NOI18N
         mnuAddCategory.setText("New Category");
         mnuAddCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,6 +357,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuPOSMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuPOS.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuPOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/pos.png"))); // NOI18N
         mnuPOS.setText("POS Screen");
         mnuPOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,6 +367,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuPOSMain.add(mnuPOS);
 
         mnuReceipt.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuReceipt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/receipt.png"))); // NOI18N
         mnuReceipt.setText("Daily Receipt");
         mnuReceipt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,6 +383,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuReportMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuStockReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuStockReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/stock-report.png"))); // NOI18N
         mnuStockReport.setText("Stock Report");
         mnuStockReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,6 +393,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuReportMain.add(mnuStockReport);
 
         mnuSaleReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuSaleReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/sale-daily-report.png"))); // NOI18N
         mnuSaleReport.setText("Sales Daily Report");
         mnuSaleReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,6 +403,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuReportMain.add(mnuSaleReport);
 
         mnuSaleSummaryReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuSaleSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/sale-summary-report.png"))); // NOI18N
         mnuSaleSummaryReport.setText("Sales Summary Report");
         mnuSaleSummaryReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,6 +413,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuReportMain.add(mnuSaleSummaryReport);
 
         mnuReceiptSummaryReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuReceiptSummaryReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/receipt-summary-report.png"))); // NOI18N
         mnuReceiptSummaryReport.setText("Receipt Summary Report");
         mnuReceiptSummaryReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
