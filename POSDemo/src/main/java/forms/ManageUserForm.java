@@ -694,7 +694,11 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         
         if ("Edit".equals(btnEdit.getText())) {
             setFrameState(frameState.EDIT);
-            tbxPassword.requestFocus();
+            // Lock component            
+            if (lblUsername.getText().equals("admin")) {
+                cmbUserLevel.setEnabled(false);
+            }
+            tbxEmail.requestFocus();
         }else{
             // Validate data
             ValidationResult vr = new ValidationResult();
