@@ -274,11 +274,11 @@ public class NewUserForm extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("4-16 Characters [A-Z, a-z]");
 
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("4-16 Characters [A-Z, a-z, 0-9, Symbols]");
 
