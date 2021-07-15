@@ -8,17 +8,16 @@ package forms;
 import DBCLS.*;
 import DBCLS.Receipt.MonthlyIncomeInfo;
 import static GLOBAL.HelperFunctions.*;
+import GLOBAL.Settings;
 import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Varibles.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.plaf.FontUIResource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -85,8 +84,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         
         if (CURRENT_USER != null) {
             lblWelcomeUser.setText("Welcome "+CURRENT_USER.username);
-            lblUserEmail.setText(CURRENT_USER.email);
-            lblUserPhone.setText(CURRENT_USER.phone);
+            lblEmail.setText(CURRENT_USER.email);
         }
         
     }
@@ -200,19 +198,16 @@ public class Dashboard extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/appbg.jpg"));
-        Image image = imageIcon.getImage();
         pnlMain = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_DASHBOARD, 0, 0, getWidth(), getHeight(), this);
             }
         };
         pnlUserInfo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblWelcomeUser = new javax.swing.JLabel();
-        lblUserEmail = new javax.swing.JLabel();
-        lblUserPhone = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
         pnlInStockCost = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblStockCost = new javax.swing.JLabel();
@@ -222,14 +217,24 @@ public class Dashboard extends javax.swing.JInternalFrame {
         pnlInStockProfit = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lblStockProfit = new javax.swing.JLabel();
-        pnlBestSelling = new javax.swing.JPanel();
+        pnlBestSelling = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BESTSELLING, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel6 = new javax.swing.JLabel();
         scpBestSelling = new javax.swing.JScrollPane();
         edpBestSelling = new javax.swing.JEditorPane();
         pnlMonthlyIncome = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         lblMonthlyIncome = new javax.swing.JLabel();
-        pnlLowStockNotification = new javax.swing.JPanel();
+        pnlLowStockNotification = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_LOWSTOCK, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel8 = new javax.swing.JLabel();
         scpLowStockNotification = new javax.swing.JScrollPane();
         edpLowStockNotification = new javax.swing.JEditorPane();
@@ -239,10 +244,20 @@ public class Dashboard extends javax.swing.JInternalFrame {
         pnlMonthlyProfit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         lblMonthlyProfit = new javax.swing.JLabel();
-        pnlCharts = new javax.swing.JPanel();
+        pnlCharts = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_PROFITCHARTS, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel12 = new javax.swing.JLabel();
         pnlLineChart = new javax.swing.JPanel();
-        pnlSystemLog = new javax.swing.JPanel();
+        pnlSystemLog = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_SYSTEMLOG, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel13 = new javax.swing.JLabel();
         scpSystemLog = new javax.swing.JScrollPane();
         edpSystemLog = new javax.swing.JEditorPane();
@@ -254,7 +269,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setMaximumSize(new java.awt.Dimension(2400, 2000));
-        setMinimumSize(new java.awt.Dimension(1700, 850));
+        setMinimumSize(new java.awt.Dimension(1900, 850));
         setOpaque(true);
         setPreferredSize(new java.awt.Dimension(1900, 870));
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -272,21 +287,17 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel1.setMaximumSize(new java.awt.Dimension(72, 72));
         jLabel1.setMinimumSize(new java.awt.Dimension(72, 72));
         jLabel1.setOpaque(true);
-        jLabel1.setPreferredSize(new java.awt.Dimension(72, 72));
+        jLabel1.setPreferredSize(new java.awt.Dimension(48, 48));
 
-        lblWelcomeUser.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblWelcomeUser.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         lblWelcomeUser.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcomeUser.setText("WELCOME user");
         lblWelcomeUser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        lblUserEmail.setBackground(new java.awt.Color(102, 102, 102));
-        lblUserEmail.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        lblUserEmail.setForeground(new java.awt.Color(255, 255, 255));
-        lblUserEmail.setText("email@address");
-
-        lblUserPhone.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        lblUserPhone.setForeground(new java.awt.Color(255, 255, 255));
-        lblUserPhone.setText("000 000 0000");
+        lblEmail.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setText("email@system.net");
+        lblEmail.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout pnlUserInfoLayout = new javax.swing.GroupLayout(pnlUserInfo);
         pnlUserInfo.setLayout(pnlUserInfoLayout);
@@ -297,12 +308,10 @@ public class Dashboard extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWelcomeUser, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                     .addGroup(pnlUserInfoLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUserPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblUserEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblWelcomeUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlUserInfoLayout.setVerticalGroup(
@@ -312,12 +321,10 @@ public class Dashboard extends javax.swing.JInternalFrame {
                 .addGroup(pnlUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlUserInfoLayout.createSequentialGroup()
-                        .addComponent(lblWelcomeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblWelcomeUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblUserEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblUserPhone)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(lblEmail)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlInStockCost.setBackground(new java.awt.Color(255, 102, 0));
@@ -377,7 +384,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
                     .addComponent(lblTodayIncome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlTodayIncomeLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(0, 160, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlTodayIncomeLayout.setVerticalGroup(
@@ -479,7 +486,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
                     .addComponent(lblMonthlyIncome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMonthlyIncomeLayout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(0, 131, Short.MAX_VALUE)))
+                        .addGap(0, 136, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlMonthlyIncomeLayout.setVerticalGroup(
@@ -581,7 +588,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
                     .addComponent(lblMonthlyProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMonthlyProfitLayout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(0, 146, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlMonthlyProfitLayout.setVerticalGroup(
@@ -618,7 +625,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
             .addGroup(pnlChartsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlChartsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                     .addComponent(pnlLineChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -649,7 +656,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
             .addGroup(pnlSystemLogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlSystemLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scpSystemLog, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                    .addComponent(scpSystemLog)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -659,12 +666,12 @@ public class Dashboard extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scpSystemLog)
+                .addComponent(scpSystemLog, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 0, 48)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("DASHBOARD");
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
@@ -673,31 +680,33 @@ public class Dashboard extends javax.swing.JInternalFrame {
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addComponent(pnlBestSelling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlLowStockNotification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(pnlBestSelling, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlLowStockNotification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlCharts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlSystemLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlInStockProfit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlInStockCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlTodayIncome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlMonthlyIncome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlTodayProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlUserInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTodayProfit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTodayIncome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlInStockProfit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlInStockCost, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlMonthlyProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlLowStockNotification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlInStockCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -711,19 +720,12 @@ public class Dashboard extends javax.swing.JInternalFrame {
                         .addComponent(pnlMonthlyIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlMonthlyProfit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 30, Short.MAX_VALUE))
-                    .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
-                                .addComponent(pnlCharts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pnlSystemLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(pnlLowStockNotification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pnlBestSelling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
+                        .addComponent(pnlCharts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlSystemLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlBestSelling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -770,14 +772,13 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblMonthlyIncome;
     private javax.swing.JLabel lblMonthlyProfit;
     private javax.swing.JLabel lblStockCost;
     private javax.swing.JLabel lblStockProfit;
     private javax.swing.JLabel lblTodayIncome;
     private javax.swing.JLabel lblTodayProfit;
-    private javax.swing.JLabel lblUserEmail;
-    private javax.swing.JLabel lblUserPhone;
     private javax.swing.JLabel lblWelcomeUser;
     private javax.swing.JPanel pnlBestSelling;
     private javax.swing.JPanel pnlCharts;

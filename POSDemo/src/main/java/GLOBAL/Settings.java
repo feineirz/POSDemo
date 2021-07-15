@@ -25,10 +25,22 @@ public class Settings {
     public static final Color BG_DARK = new Color(57, 57, 57);
     
     ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource("/images/header-bg.jpg"));
-    ImageIcon imagBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
+    ImageIcon imageBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
+    
+    ImageIcon imageDashboardIcon = new ImageIcon(getClass().getResource("/images/dashboard-bg.jpg"));
+    ImageIcon imageBestSellingIcon = new ImageIcon(getClass().getResource("/images/bestselling-bg.jpg"));
+    ImageIcon imageLowStockIcon = new ImageIcon(getClass().getResource("/images/lowstock-bg.jpg"));
+    ImageIcon imageProfitChartsIcon = new ImageIcon(getClass().getResource("/images/profitcharts-bg.jpg"));
+    ImageIcon imageSystemLogIcon = new ImageIcon(getClass().getResource("/images/systemlog-bg.jpg"));
     
     public final Image BACKGROUND_IMAGE_HEADER = imageHeaderIcon.getImage();    
-    public final Image BACKGROUND_IMAGE_BODY = imagBodyIcon.getImage();
+    public final Image BACKGROUND_IMAGE_BODY = imageBodyIcon.getImage();  
+    
+    public final Image BACKGROUND_IMAGE_DASHBOARD = imageDashboardIcon.getImage();
+    public final Image BACKGROUND_IMAGE_BESTSELLING = imageBestSellingIcon.getImage();    
+    public final Image BACKGROUND_IMAGE_LOWSTOCK = imageLowStockIcon.getImage();  
+    public final Image BACKGROUND_IMAGE_PROFITCHARTS = imageProfitChartsIcon.getImage();  
+    public final Image BACKGROUND_IMAGE_SYSTEMLOG = imageSystemLogIcon.getImage();
     
 }
 
