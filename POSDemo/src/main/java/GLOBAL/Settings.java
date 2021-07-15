@@ -19,8 +19,8 @@ public class Settings {
     public static final Font MAIN_FONT = new Font("Tahoma", Font.PLAIN, 14);
     
     public static final Color BG_LIGHT = new Color(250, 250, 250);
-    public static final Color BG_DARK_ALT = new Color(120, 120, 120);
-    public static final Color BG_DARK = new Color(102, 102, 102);
+    public static final Color BG_DARK_ALT = new Color(90, 90, 90);
+    public static final Color BG_DARK = new Color(57, 57, 57);
     
 }
 
