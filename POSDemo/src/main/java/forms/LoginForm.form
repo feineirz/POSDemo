@@ -53,8 +53,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(imageBody, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imagBodyIcon = new ImageIcon(getClass().getResource(&quot;/images/body-bg.jpg&quot;));&#xa;Image imageBody = imagBodyIcon.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
       </AuxValues>
 
       <Layout>
@@ -90,7 +89,7 @@
                   </Group>
                   <EmptySpace pref="78" max="32767" attributes="0"/>
               </Group>
-              <Component id="pnlHeader" alignment="1" pref="0" max="32767" attributes="0"/>
+              <Component id="pnlHeader" alignment="1" pref="421" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -284,8 +283,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(imageHeader, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource(&quot;/images/header-bg.jpg&quot;));&#xa;Image imageHeader = imageHeaderIcon.getImage();"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
           </AuxValues>
 
           <Layout>

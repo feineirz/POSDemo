@@ -8,12 +8,11 @@ package forms;
 import DBCLS.*;
 import static GLOBAL.EncDec.*;
 import static GLOBAL.HelperFunctions.*;
+import GLOBAL.Settings;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Varibles.*;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.FontUIResource;
 
@@ -94,12 +93,10 @@ public class LoginForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon imagBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
-        Image imageBody = imagBodyIcon.getImage();
         pnlBody = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageBody, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
         tbxUser = new javax.swing.JTextField();
@@ -110,12 +107,10 @@ public class LoginForm extends javax.swing.JInternalFrame {
         lblLogInHint = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource("/images/header-bg.jpg"));
-        Image imageHeader = imageHeaderIcon.getImage();
         pnlHeader = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageHeader, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jLabel3 = new javax.swing.JLabel();
@@ -266,7 +261,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         .addComponent(tbxUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tbxPass, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(78, Short.MAX_VALUE))
-            .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 421, Short.MAX_VALUE)
         );
         pnlBodyLayout.setVerticalGroup(
             pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

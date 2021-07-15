@@ -8,6 +8,7 @@ package forms;
 import DBCLS.*;
 import static GLOBAL.EncDec.*;
 import static GLOBAL.HelperFunctions.*;
+import GLOBAL.Settings;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
@@ -15,8 +16,6 @@ import GLOBAL.Varibles;
 import static GLOBAL.Varibles.CURRENT_USER;
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.plaf.FontUIResource;
@@ -115,12 +114,10 @@ public class NewUserForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon imageBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
-        Image imageBody = imageBodyIcon.getImage();
         pnlMainInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageBody, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
         btnAddUser = new javax.swing.JButton();
@@ -139,12 +136,10 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cmbUserLevel = new javax.swing.JComboBox<>();
-        ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource("/images/header-bg.jpg"));
-        Image imageHeader = imageHeaderIcon.getImage();
         pnlHeader = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageHeader, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
             }
         };
         lblTitle = new javax.swing.JLabel();

@@ -15,8 +15,6 @@ import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
 import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -266,12 +264,10 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon imagBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
-        Image imageBody = imagBodyIcon.getImage();
         pnlUserInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageBody, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jLabel3 = new javax.swing.JLabel();
@@ -293,12 +289,10 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         cmbUserLevel = new javax.swing.JComboBox<>();
         lblEmail = new javax.swing.JLabel();
         lblUserLevel = new javax.swing.JLabel();
-        ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource("/images/header-bg.jpg"));
-        Image imageHeader = imageHeaderIcon.getImage();
         pnlHeader = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageHeader, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
             }
         };
         lblTitle = new javax.swing.JLabel();
@@ -306,7 +300,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         pnlTable = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageBody, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -314,7 +308,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         pnlSearch = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(imageHeader, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jLabel1 = new javax.swing.JLabel();
