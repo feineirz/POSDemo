@@ -156,7 +156,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
+        btnExit.setBackground(new java.awt.Color(255, 102, 102));
         btnExit.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         btnExit.setForeground(new java.awt.Color(51, 51, 51));
         btnExit.setText("EXIT");
