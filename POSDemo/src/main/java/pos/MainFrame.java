@@ -9,16 +9,15 @@ import DBCLS.Log;
 import DBCLS.User;
 import DBCLS.User.UserInfo;
 import GLOBAL.EncDec;
-import GLOBAL.Settings;
 import static GLOBAL.HelperFunctions.*;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Varibles.*;
 import forms.LoginForm;
 import java.awt.Component;
+import java.awt.ComponentOrientation;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.beans.PropertyVetoException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -40,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/images/pos.png")).getImage());
         
+        mnuMain.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         ImageIcon bgIcon = new ImageIcon(getClass().getResource("/images/appbg.jpg"));
         
         try {
@@ -197,15 +197,16 @@ public class MainFrame extends javax.swing.JFrame {
         );
         mainDesktopLayout.setVerticalGroup(
             mainDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGap(0, 633, Short.MAX_VALUE)
         );
 
         mnuMain.setBackground(new java.awt.Color(204, 204, 204));
         mnuMain.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuMain.setMaximumSize(new java.awt.Dimension(521, 30));
         mnuMain.setMinimumSize(new java.awt.Dimension(166, 30));
-        mnuMain.setPreferredSize(new java.awt.Dimension(521, 30));
+        mnuMain.setPreferredSize(new java.awt.Dimension(521, 35));
 
+        mnuMainSystem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/system-main.png"))); // NOI18N
         mnuMainSystem.setText("System");
         mnuMainSystem.setEnabled(false);
         mnuMainSystem.setFocusPainted(true);
@@ -257,6 +258,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuMain.add(mnuMainSystem);
 
+        mnuUserMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/user-main.png"))); // NOI18N
         mnuUserMain.setText("User Management");
         mnuUserMain.setEnabled(false);
         mnuUserMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -283,6 +285,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuMain.add(mnuUserMain);
 
+        mnuProductMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/product-main.png"))); // NOI18N
         mnuProductMain.setText("Product Management");
         mnuProductMain.setEnabled(false);
         mnuProductMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -352,6 +355,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuMain.add(mnuProductMain);
 
+        mnuPOSMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/pos-main.png"))); // NOI18N
         mnuPOSMain.setText("POS System");
         mnuPOSMain.setEnabled(false);
         mnuPOSMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -378,6 +382,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuMain.add(mnuPOSMain);
 
+        mnuReportMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/report-main.png"))); // NOI18N
         mnuReportMain.setText("Report System");
         mnuReportMain.setEnabled(false);
         mnuReportMain.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N

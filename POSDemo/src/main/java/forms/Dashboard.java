@@ -427,9 +427,10 @@ public class Dashboard extends javax.swing.JInternalFrame {
         );
 
         pnlUserInfo1.setBackground(new java.awt.Color(51, 51, 51));
+        pnlUserInfo1.setOpaque(false);
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT", 0, 60)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(153, 0, 102));
         jLabel5.setText("DASHBOARD");
 
         javax.swing.GroupLayout pnlUserInfo1Layout = new javax.swing.GroupLayout(pnlUserInfo1);
