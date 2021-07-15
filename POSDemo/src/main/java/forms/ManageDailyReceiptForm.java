@@ -276,7 +276,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnlHeader.setBackground(new java.awt.Color(0, 153, 0));
+        pnlHeader.setBackground(new java.awt.Color(102, 0, 255));
 
         lblTitle.setBackground(new java.awt.Color(51, 51, 51));
         lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 28)); // NOI18N
@@ -406,7 +406,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         lblReceiptID.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         lblReceiptID.setForeground(new java.awt.Color(255, 255, 255));
         lblReceiptID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblReceiptID.setText("ReceiptID");
+        lblReceiptID.setText("-");
         lblReceiptID.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

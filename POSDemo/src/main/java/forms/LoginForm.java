@@ -10,6 +10,7 @@ import static GLOBAL.EncDec.*;
 import static GLOBAL.HelperFunctions.*;
 import static GLOBAL.Settings.*;
 import static GLOBAL.Varibles.*;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.FontUIResource;
 
@@ -27,6 +28,58 @@ public class LoginForm extends javax.swing.JInternalFrame {
         setUIFont(new FontUIResource(MAIN_FONT));
         
         this.setName("LOGIN_FORM");
+    }
+    
+    private void performLogIn() {
+        
+        boolean isValid = false;
+
+        String username = tbxUser.getText();
+        String password = tbxPass.getText();
+        String encPassword = encrypt(password, SECRET_KEY);
+
+        User user = User.LogIn(username, encPassword);
+        
+        if (user != null) {
+            CURRENT_USER = user.toUserInfo();
+        }        
+        
+        Log.LogInfo li = new Log.LogInfo();
+        li.id = 0;
+        li.log_date = getCurrentDateTimeFormatted();
+        li.user = CURRENT_USER.username;
+        li.category = "SYSTEM LOG";
+        li.event = "LOGIN";    
+
+        if(user != null){                    
+            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
+                    + "LOGIN\n"
+                    + " User[\n"
+                    + "  ID: "+CURRENT_USER.id+",\n"
+                    + "  Username: "+CURRENT_USER.username+",\n"
+                    + "  Password: <***SECRET***>,\n"
+                    + "  Email: "+CURRENT_USER.email+",\n"
+                    + "  Phone: "+CURRENT_USER.phone+",\n"
+                    + "  UserLevel: "+getUserLevel(CURRENT_USER.level)+",\n"
+                    + "  Result: SUCCESS\n"
+                    + " ]";
+            Log.addLog(li);
+            this.dispose();
+        }else{
+            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
+                    + "LOGIN\n"
+                    + " User[\n"
+                    + "  Username: "+username+",\n"
+                    + "  Password: <***SECRET***>,\n"
+                    + "  Result: FAILED\n"
+                    + " ]";
+            Log.addLog(li);
+            JOptionPane.showMessageDialog(this, "Invalid username and/or password!", "Error", JOptionPane.ERROR_MESSAGE);
+            tbxUser.setText("");
+            tbxPass.setText("");
+            tbxUser.requestFocus();
+        }
+        
     }
 
     /**
@@ -69,6 +122,11 @@ public class LoginForm extends javax.swing.JInternalFrame {
                 tbxUserFocusGained(evt);
             }
         });
+        tbxUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbxUserKeyPressed(evt);
+            }
+        });
 
         tbxPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxPass.setText("demo");
@@ -78,6 +136,11 @@ public class LoginForm extends javax.swing.JInternalFrame {
         tbxPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPassFocusGained(evt);
+            }
+        });
+        tbxPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbxPassKeyPressed(evt);
             }
         });
 
@@ -105,6 +168,11 @@ public class LoginForm extends javax.swing.JInternalFrame {
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogInActionPerformed(evt);
+            }
+        });
+        btnLogIn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLogInKeyPressed(evt);
             }
         });
 
@@ -231,53 +299,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
 
-        boolean isValid = false;
-
-        String username = tbxUser.getText();
-        String password = tbxPass.getText();
-        String encPassword = encrypt(password, SECRET_KEY);
-
-        User user = User.LogIn(username, encPassword);
-        
-        if (user != null) {
-            CURRENT_USER = user.toUserInfo();
-        }        
-        
-        Log.LogInfo li = new Log.LogInfo();
-        li.id = 0;
-        li.log_date = getCurrentDateTimeFormatted();
-        li.user = CURRENT_USER.username;
-        li.category = "SYSTEM LOG";
-        li.event = "LOGIN";    
-
-        if(user != null){                    
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "LOGIN\n"
-                    + " User[\n"
-                    + "  ID: "+CURRENT_USER.id+",\n"
-                    + "  Username: "+CURRENT_USER.username+",\n"
-                    + "  Password: <***SECRET***>,\n"
-                    + "  Email: "+CURRENT_USER.email+",\n"
-                    + "  Phone: "+CURRENT_USER.phone+",\n"
-                    + "  UserLevel: "+getUserLevel(CURRENT_USER.level)+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
-            Log.addLog(li);
-            this.dispose();
-        }else{
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "LOGIN\n"
-                    + " User[\n"
-                    + "  Username: "+username+",\n"
-                    + "  Password: <***SECRET***>,\n"
-                    + "  Result: FAILED\n"
-                    + " ]";
-            Log.addLog(li);
-            JOptionPane.showMessageDialog(this, "Invalid username and/or password!", "Error", JOptionPane.ERROR_MESSAGE);
-            tbxUser.setText("");
-            tbxPass.setText("");
-            tbxUser.requestFocus();
-        }
+        performLogIn();
 
     }//GEN-LAST:event_btnLogInActionPerformed
 
@@ -294,6 +316,30 @@ public class LoginForm extends javax.swing.JInternalFrame {
     private void tbxUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxUserFocusGained
         tbxUser.selectAll();
     }//GEN-LAST:event_tbxUserFocusGained
+
+    private void tbxUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxUserKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tbxPass.requestFocus();
+        }
+        
+    }//GEN-LAST:event_tbxUserKeyPressed
+
+    private void tbxPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxPassKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnLogIn.requestFocus();
+        }
+        
+    }//GEN-LAST:event_tbxPassKeyPressed
+
+    private void btnLogInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLogInKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            performLogIn();
+        }
+        
+    }//GEN-LAST:event_btnLogInKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

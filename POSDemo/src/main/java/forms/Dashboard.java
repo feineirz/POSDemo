@@ -13,9 +13,12 @@ import static GLOBAL.Varibles.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.plaf.FontUIResource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -184,7 +187,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
             }           
         }        
 
-        return dataset;
+        return dataset;        
         
    }
 
@@ -197,7 +200,14 @@ public class Dashboard extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlMain = new javax.swing.JPanel();
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/appbg.jpg"));
+        Image image = imageIcon.getImage();
+        pnlMain = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         pnlUserInfo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblWelcomeUser = new javax.swing.JLabel();
