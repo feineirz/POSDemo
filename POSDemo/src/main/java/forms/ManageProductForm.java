@@ -9,6 +9,7 @@ import DBCLS.Category;
 import DBCLS.Log;
 import DBCLS.Product;
 import static GLOBAL.HelperFunctions.*;
+import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
 import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Validator.InputValidation.*;
@@ -16,6 +17,7 @@ import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -315,16 +317,30 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlSearch = new javax.swing.JPanel();
+        pnlTable = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblContentList = new javax.swing.JTable();
+        pnlSearch = new javax.swing.JPanel(){
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel1 = new javax.swing.JLabel();
         tbxFilter = new javax.swing.JTextField();
         btnReload = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cmbCategoryFilter = new javax.swing.JComboBox<>();
-        pnlTable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblContentList = new javax.swing.JTable();
-        pnlContentInfo = new javax.swing.JPanel();
+        pnlContentInfo = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         tbxName = new javax.swing.JTextField();
@@ -345,7 +361,11 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         tbxCost = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        pnlHeader = new javax.swing.JPanel();
+        pnlHeader = new javax.swing.JPanel(){
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         lblTitle1 = new javax.swing.JLabel();
         lblIcon = new javax.swing.JLabel();
 
@@ -361,6 +381,60 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 formComponentShown(evt);
             }
         });
+
+        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
+
+        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ProductID", "Code", "Name", "Category", "Cost", "Price", "Description", "RealID"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblContentList.setRowHeight(24);
+        tblContentList.setShowVerticalLines(false);
+        tblContentList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblContentList);
+        if (tblContentList.getColumnModel().getColumnCount() > 0) {
+            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblContentList.getColumnModel().getColumn(1).setMinWidth(150);
+            tblContentList.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tblContentList.getColumnModel().getColumn(1).setMaxWidth(150);
+            tblContentList.getColumnModel().getColumn(3).setMinWidth(150);
+            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tblContentList.getColumnModel().getColumn(3).setMaxWidth(150);
+            tblContentList.getColumnModel().getColumn(4).setMinWidth(100);
+            tblContentList.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tblContentList.getColumnModel().getColumn(4).setMaxWidth(100);
+            tblContentList.getColumnModel().getColumn(5).setMinWidth(100);
+            tblContentList.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tblContentList.getColumnModel().getColumn(5).setMaxWidth(100);
+            tblContentList.getColumnModel().getColumn(6).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(6).setMaxWidth(0);
+            tblContentList.getColumnModel().getColumn(7).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(7).setMaxWidth(0);
+        }
 
         pnlSearch.setBackground(new java.awt.Color(102, 102, 102));
         pnlSearch.setMaximumSize(new java.awt.Dimension(32767, 29));
@@ -426,7 +500,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         pnlSearchLayout.setVerticalGroup(
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -438,74 +512,22 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
-
-        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ProductID", "Code", "Name", "Category", "Cost", "Price", "Description", "RealID"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblContentList.setRowHeight(24);
-        tblContentList.setShowVerticalLines(false);
-        tblContentList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tblContentList);
-        if (tblContentList.getColumnModel().getColumnCount() > 0) {
-            tblContentList.getColumnModel().getColumn(0).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(0).setMaxWidth(0);
-            tblContentList.getColumnModel().getColumn(1).setMinWidth(150);
-            tblContentList.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tblContentList.getColumnModel().getColumn(1).setMaxWidth(150);
-            tblContentList.getColumnModel().getColumn(3).setMinWidth(150);
-            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tblContentList.getColumnModel().getColumn(3).setMaxWidth(150);
-            tblContentList.getColumnModel().getColumn(4).setMinWidth(100);
-            tblContentList.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tblContentList.getColumnModel().getColumn(4).setMaxWidth(100);
-            tblContentList.getColumnModel().getColumn(5).setMinWidth(100);
-            tblContentList.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tblContentList.getColumnModel().getColumn(5).setMaxWidth(100);
-            tblContentList.getColumnModel().getColumn(6).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(6).setMaxWidth(0);
-            tblContentList.getColumnModel().getColumn(7).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(7).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(7).setMaxWidth(0);
-        }
-
         javax.swing.GroupLayout pnlTableLayout = new javax.swing.GroupLayout(pnlTable);
         pnlTable.setLayout(pnlTableLayout);
         pnlTableLayout.setHorizontalGroup(
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(pnlSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlTableLayout.setVerticalGroup(
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -762,19 +784,14 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlContentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnlContentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
