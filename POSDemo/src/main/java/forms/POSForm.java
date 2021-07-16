@@ -217,13 +217,14 @@ public class POSForm extends javax.swing.JInternalFrame {
     
     public String getFilterString(String cond) {
         
-        String filter = "";
+        String filter = "status = 'ACTIVE' AND ";
         String categoryName;
         
         if (!"".equals(cond)) {
             filter = "(code LIKE '%"+cond+"%'"
                     + " OR name LIKE '%"+cond+"%'"
-                    + " OR description LIKE '%"+cond+"%') AND ";
+                    + " OR description LIKE '%"+cond+"%')"
+                    + " AND ";
         }
         
         categoryName = String.valueOf(cmbCategoryFilter.getSelectedItem());
@@ -300,7 +301,7 @@ public class POSForm extends javax.swing.JInternalFrame {
     }
     
     public void listContent(){
-        listContent("");
+        listContent("status = 'ACTIVE'");
     }
     
     public void listContent(String filter){
@@ -310,7 +311,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             clearTable(tblContentList);
             
             int curRow = 0;
-            for (Product product : Product.listProduct(filter, "name")) {
+            for (Product product : Product.listProduct(filter, "category, name")) {
                 try{
                     modelContentList.addRow(new  Object[0]);
 

@@ -27,7 +27,7 @@
         <Menu class="javax.swing.JMenu" name="mnuMainSystem">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/menu/system-main.png"/>
+              <Image iconType="3" name="/images/menu/system-main-color.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="System"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -107,7 +107,7 @@
         <Menu class="javax.swing.JMenu" name="mnuUserMain">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/menu/user-main.png"/>
+              <Image iconType="3" name="/images/menu/user-main-color.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="User Management"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -152,7 +152,7 @@
         <Menu class="javax.swing.JMenu" name="mnuProductMain">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/menu/product-main.png"/>
+              <Image iconType="3" name="/images/menu/product-main-color.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Product Management"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -258,7 +258,7 @@
         <Menu class="javax.swing.JMenu" name="mnuReportMain">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/menu/report-main.png"/>
+              <Image iconType="3" name="/images/menu/report-main-color.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Report System"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -328,7 +328,7 @@
         <Menu class="javax.swing.JMenu" name="mnuPOSMain">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/menu/pos-main.png"/>
+              <Image iconType="3" name="/images/menu/pos-main-color.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="POS System"/>
             <Property name="enabled" type="boolean" value="false"/>
