@@ -7,12 +7,14 @@
 
 package DBCLS;
 
+import java.lang.*;
 import java.sql.*;
 import java.util.*;
-import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
-
+/**
+ * Category class to manage Product Category in the Database.
+ */
 public class Category {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,18 +56,36 @@ public class Category {
 	///////////////////////////////////////////////////////////////////////////
 
 	/// DEFAULT CONSTRUCTOR ///
+        /**
+         * Default Category class to use a private helpful method.
+         */
 	public Category() {}
 
 	/// OVERLOAD CONSTRUCTOR ///
+        /**
+         * 
+         * @param Category_id ID of Category to be instances.
+         */        
 	public Category(Integer Category_id) {		
 		this(Category_id, new MySQLDBConnector().getDBConnection(), true);		
 	}
 	
+        /**
+         * 
+         * @param Category_id ID of Category to be instances.
+         * @param conn MySQL Connection to connect to the database.
+         */
 	public Category(Integer Category_id, Connection conn) {
 		this(Category_id, conn, false);
 	} /////////////////////////////////////////////////////////////////////////
 	
 	/// MAIN CONSTRUCTOR ///
+        /**
+         * 
+         * @param Category_id ID of Category to be instances.
+         * @param conn MySQL Connection to connect to the database.
+         * @param autoCloseConnection Auto close the given connection after query successful.
+         */
 	public Category(Integer Category_id, Connection conn, boolean autoCloseConnection) {
 		
 		try {
@@ -120,6 +140,11 @@ public class Category {
 
 
 	/// SET ///
+        /**
+         * 
+         * @param value New Category name to update to the database.
+         * @return True if update successful.
+         */
 	public boolean setName(String value) {
 		if (updateCategoryProperty("name", value)) {
 			this.name = value;
@@ -128,7 +153,12 @@ public class Category {
 			return false;
 		}
 	}
-
+        
+        /**
+         * 
+         * @param value New Category Description to update to the database.
+         * @return True if update successful.
+         */
 	public boolean setDescription(String value) {
 		if (updateCategoryProperty("description", value)) {
 			this.description = value;
@@ -151,13 +181,43 @@ public class Category {
 	// List Category in database as Category objects. //
 	////////////////////////////////////////////////////////////////////
 	/// Overload ///
+        /**
+         * 
+         * Default List method to list all record of Category in the database.
+         * 
+         * @return ArrayList of Category objects.
+         * 
+         */
 	public static ArrayList<Category> listCategory(){
 		return listCategory("","name");
 	}
+        
+        /**
+         * 
+         * @param condition The condition to specify the record to return.
+         * 
+         *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"
+         * 
+         * @return ArrayList of Category objects matches to the given condition.
+         * 
+         */
 	public static ArrayList<Category> listCategory(String condition){
 		return listCategory(condition,"name");
 	}	
 	/// Main ///
+        /**
+         * 
+         * @param condition The condition to specify the record to return.
+         * 
+         *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"
+         * 
+         * @param order The order to sort the returned list.
+         * 
+         *  Ex. "name desc"
+         * 
+         * @return ArrayList of Category objects matches to the given condition.
+         * 
+         */
 	public static ArrayList<Category> listCategory(String condition, String order) {
 		
 		ArrayList<Category> buff = new ArrayList<Category>();

@@ -33,7 +33,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author feine
  */
-public class Dashboard extends javax.swing.JInternalFrame {
+public class Dashboard extends javax.swing.JInternalFrame {    
 
     /**
      * Creates new form Dashboard
