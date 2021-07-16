@@ -438,7 +438,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setMaximizable(true);
         setResizable(true);
-        setMaximumSize(new java.awt.Dimension(1800, 920));
+        setMaximumSize(new java.awt.Dimension(2400, 1200));
         setMinimumSize(new java.awt.Dimension(1600, 820));
         setPreferredSize(new java.awt.Dimension(1590, 820));
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -529,8 +529,8 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnReload.setBackground(new java.awt.Color(255, 204, 0));
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
         btnReload.setText("Reload");
-        btnReload.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnReload.setMaximumSize(new java.awt.Dimension(73, 23));
         btnReload.setMinimumSize(new java.awt.Dimension(73, 23));
         btnReload.setPreferredSize(new java.awt.Dimension(73, 26));
@@ -562,13 +562,13 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlSearchLayout.setVerticalGroup(
@@ -591,7 +591,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
             .addComponent(pnlSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -607,7 +607,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         pnlCheckout.setBackground(new java.awt.Color(102, 102, 102));
         pnlCheckout.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblTotalPrice.setBackground(new java.awt.Color(51, 51, 51));
+        lblTotalPrice.setBackground(new java.awt.Color(35, 35, 35));
         lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 72)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(153, 255, 102));
         lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -656,7 +656,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnCheckout.setBackground(new java.awt.Color(51, 204, 0));
         btnCheckout.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
-        btnCheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pos16.png"))); // NOI18N
+        btnCheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/checkout.png"))); // NOI18N
         btnCheckout.setText("Checkout");
         btnCheckout.setEnabled(false);
         btnCheckout.addActionListener(new java.awt.event.ActionListener() {
@@ -677,6 +677,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnCalcExchange.setBackground(new java.awt.Color(51, 204, 255));
         btnCalcExchange.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnCalcExchange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/calculator.png"))); // NOI18N
         btnCalcExchange.setText("Calc Exchange");
         btnCalcExchange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -843,6 +844,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnAddToCart.setBackground(new java.awt.Color(102, 204, 255));
         btnAddToCart.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        btnAddToCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/add-to-cart.png"))); // NOI18N
         btnAddToCart.setText("Add to cart");
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -873,6 +875,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnRemoe.setBackground(new java.awt.Color(255, 51, 51));
         btnRemoe.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnRemoe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/delete.png"))); // NOI18N
         btnRemoe.setText("Remove");
         btnRemoe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -884,7 +887,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("* Click on item to Edit or Remove");
 
-        lblReceiptID.setBackground(new java.awt.Color(102, 102, 102));
+        lblReceiptID.setBackground(new java.awt.Color(75, 75, 75));
         lblReceiptID.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblReceiptID.setForeground(new java.awt.Color(255, 255, 255));
         lblReceiptID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -892,6 +895,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         btnClearCart.setBackground(new java.awt.Color(255, 204, 0));
         btnClearCart.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnClearCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/clear.png"))); // NOI18N
         btnClearCart.setText("Clear");
         btnClearCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -940,18 +944,17 @@ public class POSForm extends javax.swing.JInternalFrame {
                     .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tbxCode, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbxCode)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tbxQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                         .addGap(89, 89, 89)
                         .addComponent(btnClearCart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -972,9 +975,9 @@ public class POSForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4)
                         .addComponent(tbxQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
-                    .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addComponent(btnAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
