@@ -9,7 +9,6 @@ package DBCLS;
 
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
@@ -30,6 +29,7 @@ public class Product {
 	private Double cost;
 	private Double price;
 	private String image;
+	private String status;
 	
 	/// PUBLIC PROPERTIES ///
 	public final String relName = "product";
@@ -41,7 +41,8 @@ public class Product {
 		+ " description,"
 		+ " cost,"
 		+ " price,"
-		+ " image";
+		+ " image,"
+		+ " status";
 
 	/// CLASS STRUCTURE ///
 	public static class ProductInfo {
@@ -53,6 +54,7 @@ public class Product {
 		public Double cost;
 		public Double price;
 		public String image;
+		public String status;
 	}
 
 ////////////////////////////////////////[ END CLASS HEADER ]////////////////////////////////////////
@@ -101,6 +103,7 @@ public class Product {
 				this.cost = rs.getDouble("cost");
 				this.price = rs.getDouble("price");
 				this.image = rs.getString("image");
+				this.status = rs.getString("status");
 			}
 			
 		} catch (SQLException e) {
@@ -157,6 +160,10 @@ public class Product {
 
 	public String getImage() { 
 		return this.image;
+	}
+
+	public String getStatus() { 
+		return this.status;
 	}
 
 
@@ -224,6 +231,15 @@ public class Product {
 		}
 	}
 
+	public boolean setStatus(String value) {
+		if (updateProductProperty("status", value)) {
+			this.status = value;
+			return true;
+		} else { 
+			return false;
+		}
+	}
+
 
 //////////////////////////////////////[ END CLASS PROPERTIES ]//////////////////////////////////////
 
@@ -282,7 +298,7 @@ public class Product {
 	//////////////////////////////[ Add ]//////////////////////////////
 	// Add Product to database by giving a raw information. //
 	///////////////////////////////////////////////////////////////////
-	public static Product addProduct(Integer id, Integer category, String code, String name, String description, Double cost, Double price, String image) {
+	public static Product addProduct(Integer id, Integer category, String code, String name, String description, Double cost, Double price, String image, String status) {
 		
 		ProductInfo productInfo = new ProductInfo();
 		productInfo.id = id;
@@ -293,6 +309,7 @@ public class Product {
 		productInfo.cost = cost;
 		productInfo.price = price;
 		productInfo.image = image;
+		productInfo.status = status;
 		
 		return addProduct(productInfo);
 		
@@ -306,8 +323,8 @@ public class Product {
 		Connection conn = new MySQLDBConnector().getDBConnection();
 		try {
 			String qry = "INSERT INTO product"
-					+ " (id, category, code, name, description, cost, price, image)"
-					+ " VALUES(?,?,?,?,?,?,?,?)";
+					+ " (id, category, code, name, description, cost, price, image, status)"
+					+ " VALUES(?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(qry, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, productInfo.id);
 			stmt.setInt(2, productInfo.category);
@@ -317,6 +334,7 @@ public class Product {
 			stmt.setDouble(6, productInfo.cost);
 			stmt.setDouble(7, productInfo.price);
 			stmt.setString(8, productInfo.image);
+			stmt.setString(9, productInfo.status);
 			
 			int afr = stmt.executeUpdate();
 			if (afr > 0) {
@@ -344,7 +362,7 @@ public class Product {
 	//////////////////////////////////[ Update ]/////////////////////////////////
 	// Update Product information in database by giving a raw information. //
 	/////////////////////////////////////////////////////////////////////////////
-	public static boolean updateProductInfo(Integer id, Integer category, String code, String name, String description, Double cost, Double price, String image) {
+	public static boolean updateProductInfo(Integer id, Integer category, String code, String name, String description, Double cost, Double price, String image, String status) {
 		
 		ProductInfo productInfo = new ProductInfo();
 		productInfo.id = id;
@@ -355,6 +373,7 @@ public class Product {
 		productInfo.cost = cost;
 		productInfo.price = price;
 		productInfo.image = image;
+		productInfo.status = status;
 		
 		return updateProductInfo(productInfo);
 		
@@ -375,7 +394,8 @@ public class Product {
 					+ "  description = ?,"
 					+ "  cost = ?,"
 					+ "  price = ?,"
-					+ "  image = ?"
+					+ "  image = ?,"
+					+ "  status = ?"
 					+ " WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(qry);
 			stmt.setInt(1, productInfo.category);
@@ -385,7 +405,8 @@ public class Product {
 			stmt.setDouble(5, productInfo.cost);
 			stmt.setDouble(6, productInfo.price);
 			stmt.setString(7, productInfo.image);
-			stmt.setInt(8, productInfo.id);
+			stmt.setString(8, productInfo.status);
+			stmt.setInt(9, productInfo.id);
 
 			
 			stmt.execute();			
