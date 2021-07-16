@@ -7,9 +7,9 @@
 
 package DBCLS;
 
+import java.lang.*;
 import java.sql.*;
 import java.util.*;
-import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
 
@@ -254,10 +254,10 @@ public class Product {
 	////////////////////////////////////////////////////////////////////
 	/// Overload ///
 	public static ArrayList<Product> listProduct(){
-		return listProduct("","");
+		return listProduct("","category, name");
 	}
 	public static ArrayList<Product> listProduct(String condition){
-		return listProduct(condition,"");
+		return listProduct(condition,"category, name");
 	}	
 	/// Main ///
 	public static ArrayList<Product> listProduct(String condition, String order) {

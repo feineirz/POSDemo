@@ -85,6 +85,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     tbxDescription.setText(tblContentList.getValueAt(curRow, 6).toString());
                     
                     lblRealID.setText(tblContentList.getValueAt(curRow, 7).toString());
+                    cmbStatus.setSelectedItem(tblContentList.getValueAt(curRow, 8).toString());
 
                     setFrameState(frameState.SELECTED);
                 }
@@ -153,6 +154,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 cmbCategory.setEnabled(true);
                 tbxCost.setEnabled(true);
                 tbxPrice.setEnabled(true);
+                cmbStatus.setEnabled(true);
                 tbxDescription.setEnabled(true);
 
                 btnEdit.setText("Update");
@@ -196,6 +198,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
             cmbCategory.setSelectedIndex(0);
             cmbCategory.setEnabled(false);
+            
+            cmbStatus.setSelectedIndex(0);
+            cmbStatus.setEnabled(false);
 
             tbxDescription.setText("");
             tbxDescription.setEnabled(false);
@@ -296,6 +301,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
                     modelContentList.setValueAt(product.getDescription(), curRow, 6);
                     modelContentList.setValueAt(product.getId(), curRow, 7);
+                    modelContentList.setValueAt(product.getStatus(), curRow, 8);
 
                     curRow++;
                 }catch(Exception e){
@@ -369,6 +375,8 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         };
         lblTitle1 = new javax.swing.JLabel();
         lblIcon = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -391,14 +399,14 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ProductID", "Code", "Name", "Category", "Cost", "Price", "Description", "RealID"
+                "ProductID", "Code", "Name", "Category", "Cost", "Price", "Description", "RealID", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -435,6 +443,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             tblContentList.getColumnModel().getColumn(7).setMinWidth(0);
             tblContentList.getColumnModel().getColumn(7).setPreferredWidth(0);
             tblContentList.getColumnModel().getColumn(7).setMaxWidth(0);
+            tblContentList.getColumnModel().getColumn(8).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(8).setMaxWidth(0);
         }
 
         pnlSearch.setBackground(new java.awt.Color(102, 102, 102));
@@ -687,7 +698,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
@@ -700,22 +711,36 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Status: ");
+        jLabel9.setPreferredSize(new java.awt.Dimension(45, 20));
+
+        cmbStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "INACTIVE" }));
+        cmbStatus.setEnabled(false);
+        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 24));
+
         javax.swing.GroupLayout pnlContentInfoLayout = new javax.swing.GroupLayout(pnlContentInfo);
         pnlContentInfo.setLayout(pnlContentInfoLayout);
         pnlContentInfoLayout.setHorizontalGroup(
             pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlContentInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlContentInfoLayout.createSequentialGroup()
                         .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -732,7 +757,6 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     .addComponent(tbxPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(24, 24, 24))
-            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlContentInfoLayout.setVerticalGroup(
             pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -764,6 +788,10 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
@@ -773,7 +801,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addComponent(lblRealID, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -874,6 +902,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             pi.category = category.getId();
             pi.cost = Double.parseDouble(cost);
             pi.price = Double.parseDouble(price);
+            pi.status = cmbStatus.getSelectedItem().toString();
             pi.image = "";
             pi.description = description;
             
@@ -903,6 +932,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     + "  Name: "+product.getName()+",\n"
                     + "  Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
                     + "  Price: "+DFMT_PRICE.format(product.getPrice())+",\n"
+                    + "  Status: "+product.getStatus()+",\n"
                     + "  Result: SUCCESS\n"
                     + " ]";
             Log.addLog(li);
@@ -1004,6 +1034,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnReload;
     private javax.swing.JComboBox<String> cmbCategory;
     public static javax.swing.JComboBox<String> cmbCategoryFilter;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1014,6 +1045,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblIcon;

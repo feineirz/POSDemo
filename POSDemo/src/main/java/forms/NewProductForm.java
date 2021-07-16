@@ -70,6 +70,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                     }
                 }
                 cmbCategory.setSelectedIndex(0);
+                cmbStatus.setSelectedIndex(0);
                 tbxDescription.setText("");
                 tbxQuantity.setText("100");
                 
@@ -134,6 +135,8 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         };
         lblTitle2 = new javax.swing.JLabel();
         lblIcon = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -321,10 +324,21 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        cmbStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "INACTIVE" }));
+        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 24));
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Status: ");
+        jLabel9.setPreferredSize(new java.awt.Dimension(45, 20));
+
         javax.swing.GroupLayout pnlMainInfoLayout = new javax.swing.GroupLayout(pnlMainInfo);
         pnlMainInfo.setLayout(pnlMainInfoLayout);
         pnlMainInfoLayout.setHorizontalGroup(
             pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlMainInfoLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,9 +380,12 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tbxPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))))
+                                    .addComponent(jScrollPane1)))
+                            .addGroup(pnlMainInfoLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(40, 40, 40))))
-            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlMainInfoLayout.setVerticalGroup(
             pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,10 +412,14 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                     .addComponent(tbxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -487,6 +508,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         pi.category = category.getId();
         pi.cost = Double.parseDouble(cost);
         pi.price = Double.parseDouble(price);
+        pi.status = cmbStatus.getSelectedItem().toString();
         pi.image = "";
         pi.description = description;        
         
@@ -522,6 +544,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                     + "  Name: "+product.getName()+",\n"
                     + "  Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
                     + "  Price: "+DFMT_PRICE.format(product.getPrice())+",\n"
+                    + "  Status: "+product.getStatus()+",\n"
                     + "  InitQuantity: "+DFMT_QUANTITY.format(si.quantity)+",\n"
                     + "  Result: SUCCESS\n"
                     + " ]";
@@ -603,6 +626,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnCancel;
     private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -610,6 +634,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblTitle1;
