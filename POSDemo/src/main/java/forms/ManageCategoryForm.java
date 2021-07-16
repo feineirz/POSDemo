@@ -7,6 +7,7 @@ package forms;
 
 import DBCLS.Category;
 import DBCLS.Log;
+import DBCLS.Product;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.*;
@@ -653,6 +654,12 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (!lblRealID.getText().equals("")) {
             String categoryName = lblCategoryName.getText();
+            
+            if (Product.isExist("category = "+Category.NameToCategory(categoryName).getId()) != null) {
+                JOptionPane.showMessageDialog(this, "CANNOT delete this Category!\nCategory '"+categoryName+"' already has some Product assigned to it.", "PROHIBIT", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE category '"+categoryName+"'?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
                 
                 int categoryID = Integer.parseInt(lblRealID.getText());
@@ -673,10 +680,10 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                             + " ]";
                     Log.addLog(li);
                     
-                    JOptionPane.showMessageDialog(this, "Category 'Name: "+category.getName()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Category '"+category.getName()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
                     
                 } else {
-                    JOptionPane.showMessageDialog(this, "Category 'Name: "+category.getName()+"' deletion failed!.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Category '"+category.getName()+"' deletion failed!.", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
                 
                 setFrameState(frameState.POST_EDIT);

@@ -8,6 +8,7 @@ package forms;
 import DBCLS.Category;
 import DBCLS.Log;
 import DBCLS.Product;
+import DBCLS.ReceiptDetail;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
@@ -225,7 +226,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         if (categoryName.equals("All")) {
             filter += "category LIKE '%'";            
         } else {
-            Category category = Category.NameToID(categoryName);
+            Category category = Category.NameToCategory(categoryName);
             if (category != null) {
                 filter += "category = " + category.getId();
             } else {
@@ -826,7 +827,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             String name = tbxName.getText().trim();
 
             String categoryname = String.valueOf(cmbCategory.getSelectedItem());
-            Category category = Category.NameToID(categoryname);
+            Category category = Category.NameToCategory(categoryname);
 
             String cost = tbxCost.getText().trim();
             String price = tbxPrice.getText().trim();
@@ -922,9 +923,15 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (!lblRealID.getText().equals("")) {
             String name = tbxName.getText().trim();
-            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE Product '"+name+"'?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
+            int productID = Integer.parseInt(lblRealID.getText());
+            
+            if (ReceiptDetail.isExist("product = "+productID) != null) {
+                JOptionPane.showMessageDialog(this, "CANNOT delete this Product!\nProduct '"+name+"' already has some Receipt assigned to it.", "PROHIBIT", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE Product '"+name+"'?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {                
                 
-                int productID = Integer.parseInt(lblRealID.getText());
                 Product product = new Product(productID);
                 Category category = new Category(product.getCategory());
                 if (Product.deleteProduct(productID)) {

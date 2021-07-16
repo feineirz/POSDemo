@@ -431,7 +431,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         String name = tbxName.getText().trim();
         
         String categoryname = String.valueOf(cmbCategory.getSelectedItem());
-        Category category = Category.NameToID(categoryname);
+        Category category = Category.NameToCategory(categoryname);
         
         String cost = tbxCost.getText().trim();
         String price = tbxPrice.getText().trim();

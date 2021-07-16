@@ -469,7 +469,7 @@ public class Category {
 
 // @USER CUSTOM FUNCTIONS@ //
 // PLACE YOUR CUSTOM FUNCTIONS HERE //
-        public static Category NameToID(String categoryName) {
+        public static Category NameToCategory(String categoryName) {
 
             Connection conn = new MySQLDBConnector().getDBConnection();
             Category category = null;

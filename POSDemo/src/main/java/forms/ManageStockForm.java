@@ -199,7 +199,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
         if (categoryName.equals("All")) {
             filter += "product.category LIKE '%'";            
         } else {
-            Category category = Category.NameToID(categoryName);
+            Category category = Category.NameToCategory(categoryName);
             if (category != null) {
                 filter += "product.category = " + category.getId();
             } else {

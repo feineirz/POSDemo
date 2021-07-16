@@ -231,7 +231,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         if (categoryName.equals("All")) {
             filter += "category LIKE '%'";            
         } else {
-            Category category = Category.NameToID(categoryName);
+            Category category = Category.NameToCategory(categoryName);
             if (category != null) {
                 filter += "category = " + category.getId();
             } else {
