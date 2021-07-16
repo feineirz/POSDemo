@@ -8,6 +8,7 @@ package forms;
 import DBCLS.Category;
 import DBCLS.Log;
 import DBCLS.Product;
+import DBCLS.ReceiptDetail;
 import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
@@ -816,10 +817,16 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (!lblRealID.getText().equals("")) {
             String code = lblCode.getText();
+            int stockID = Integer.parseInt(lblRealID.getText());
+            Stock stock = new Stock(stockID);
+            
+            if (ReceiptDetail.isExist("product = "+stock.getProduct()) != null) {
+                JOptionPane.showMessageDialog(this, "CANNOT delete this Stock!\nProduct that belongs to this StockID already has some Receipt assigned to it.", "PROHIBIT", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE '"+code+"' from stock?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
-                
-                int stockID = Integer.parseInt(lblRealID.getText());
-                Stock stock = new Stock(stockID);
+                                
                 if (Stock.deleteStock(stockID)) {
                     
                     Product product = new Product(stock.getProduct());
