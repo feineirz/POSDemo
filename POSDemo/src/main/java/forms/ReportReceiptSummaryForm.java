@@ -5,12 +5,10 @@
  */
 package forms;
 
-import DBCLS.Log;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK;
 import static GLOBAL.Settings.MAIN_FONT;
-import static GLOBAL.Varibles.CURRENT_USER;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Graphics;
 import java.awt.print.PrinterException;
@@ -86,21 +84,21 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         edpReport.setSelectionStart(0);
         edpReport.setSelectionEnd(0);
         
-        Log.LogInfo li = new Log.LogInfo();
-        li.id = 0;
-        li.log_date = getCurrentDateTimeFormatted();
-        li.user = CURRENT_USER.username;
-        li.category = "APPLICATION LOG";
-        li.event = "GENERATE REPORT";            
-        li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                + "GENERATE REPORT\n"
-                + " Report[\n"
-                + "  Type: Receipt Summary Report,\n"
-                + "  Start Date: "+getDateFormatted(jdcReportStart.getDate())+",\n"
-                + "  End Date: "+getDateFormatted(jdcReportEnd.getDate())+",\n"
-                + "  Result: SUCCESS\n"
-                + " ]";
-        Log.addLog(li);
+//        Log.LogInfo li = new Log.LogInfo();
+//        li.id = 0;
+//        li.log_date = getCurrentDateTimeFormatted();
+//        li.user = CURRENT_USER.username;
+//        li.category = "APPLICATION LOG";
+//        li.event = "GENERATE REPORT";            
+//        li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
+//                + "GENERATE REPORT\n"
+//                + " Report[\n"
+//                + "  Type: Receipt Summary Report,\n"
+//                + "  Start Date: "+getDateFormatted(jdcReportStart.getDate())+",\n"
+//                + "  End Date: "+getDateFormatted(jdcReportEnd.getDate())+",\n"
+//                + "  Result: SUCCESS\n"
+//                + " ]";
+//        Log.addLog(li);
         
     }
 

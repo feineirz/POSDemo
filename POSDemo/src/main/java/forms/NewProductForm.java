@@ -529,7 +529,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
             si.quantity = Integer.parseInt(quantity);
             si.remark = "";
             
-            Stock.addStock(si);
+            Stock stock = Stock.addStock(si);
             
             Log.LogInfo li = new Log.LogInfo();
             li.id = 0;
@@ -537,19 +537,61 @@ public class NewProductForm extends javax.swing.JInternalFrame {
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "ADD PRODUCT";
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "ADD NEW PRODUCT\n"
-                    + " Product[\n"
-                    + "  ID: "+product.getId()+",\n"
-                    + "  Category: ["+category.getId()+"]"+categoryname+",\n"
-                    + "  Code: "+product.getCode()+",\n"
-                    + "  Name: "+product.getName()+",\n"
-                    + "  Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
-                    + "  Price: "+DFMT_PRICE.format(product.getPrice())+",\n"
-                    + "  Status: "+product.getStatus()+",\n"
-                    + "  InitQuantity: "+DFMT_QUANTITY.format(si.quantity)+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"ADD PRODUCT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s",
+                                    "Cost":%s,
+                                    "Price":%s,
+                                    "Status":"%s"
+                                },                                
+                                "InitQuantity":%d,
+                                "Stock":{
+                                    "ID":%d,
+                                    "Quantity":%d
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            DFMT_PRICE_NC.format(product.getCost()),
+                            DFMT_PRICE_NC.format(product.getPrice()),
+                            product.getStatus(),
+                            si.quantity,
+                            stock.getId(),
+                            stock.getQuantity()
+                    )
+            );            
             Log.addLog(li);
             
             JOptionPane.showMessageDialog(this, "Add new Product successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);

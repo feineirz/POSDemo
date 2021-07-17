@@ -452,18 +452,45 @@ public class NewUserForm extends javax.swing.JInternalFrame {
                 li.log_date = getCurrentDateTimeFormatted();
                 li.user = CURRENT_USER.username;
                 li.category = "SYSTEM LOG";
-                li.event = "ADD USER";            
-                li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                        + "ADD NEW USER\n"
-                        + " User[\n"
-                        + "  ID: "+newUser.getId()+",\n"
-                        + "  Username: "+newUser.getUsername()+",\n"
-                        + "  Password: <***SECRET***>,\n"
-                        + "  Email: "+newUser.getEmail()+",\n"
-                        + "  Phone: "+newUser.getPhone()+",\n"
-                        + "  UserLevel: "+getUserLevel(newUser.getLevel())+",\n"
-                        + "  Result: SUCCESS\n"
-                        + " ]";
+                li.event = "ADD USER";
+                
+                li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"ADD USER",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Account":{
+                                    "ID":%d,
+                                    "Username":"%s",
+                                    "Email":"%s",
+                                    "Phone":"%s",
+                                    "Level":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            newUser.getId(),
+                            newUser.getUsername(),
+                            newUser.getEmail(),
+                            newUser.getPhone(),
+                            getUserLevel(newUser.getLevel())
+                    )
+                );            
                 Log.addLog(li);
                 
                 JOptionPane.showMessageDialog(this, "Add new User successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);                

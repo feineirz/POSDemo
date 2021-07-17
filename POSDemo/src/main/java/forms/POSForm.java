@@ -1088,7 +1088,8 @@ public class POSForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
-            li.event = "ADD NEW RECEIPT";            
+            li.event = "ADD NEW RECEIPT";
+            
             li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
                     + "ADD RECEIPT\n"
                     + " Receipt[\n"
@@ -1101,6 +1102,50 @@ public class POSForm extends javax.swing.JInternalFrame {
                     + "  Cashier: "+receipt.getCashier()+",\n"
                     + "  Result: SUCCESS\n"
                     + " ]";
+            Log.addLog(li);
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"ADD PRODUCT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Receipt":{
+                                    "ID":%d,
+                                    "ReceiptDate":"%s",
+                                    "Cost":%s,
+                                    "Total":%s,
+                                    "Cash":%s,
+                                    "Exchange":%s,
+                                    "Cashier":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            receipt.getId(),
+                            receipt.getReceipt_date(),
+                            DFMT_PRICE_NC.format(receipt.getCost()),
+                            DFMT_PRICE_NC.format(receipt.getTotal()),
+                            DFMT_PRICE_NC.format(receipt.getCash()),
+                            DFMT_PRICE_NC.format(receipt.getExchange()),
+                            receipt.getCashier()
+                    )
+            );            
             Log.addLog(li);
             
             setMarginHeight(getToolkit().getScreenSize(), cashReceiptForm, MARGIN_LARGE);

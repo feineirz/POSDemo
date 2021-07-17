@@ -82,25 +82,11 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
 	
     
     /*==== Required Functions ====*/
-    private void loadReport() {       
-        
-//        Log.LogInfo li = new Log.LogInfo();
-//        li.id = 0;
-//        li.log_date = getCurrentDateTimeFormatted();
-//        li.user = CURRENT_USER.username;
-//        li.category = "APPLICATION LOG";
-//        li.event = "GENERATE REPORT";
-//        li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-//                + "GENERATE REPORT\n"
-//                + " Report[\n"
-//                + "  Type: System Log,\n"
-//                + "  Start Date: "+getDateFormatted(jdcReportStart.getDate())+",\n"
-//                + "  End Date: "+getDateFormatted(jdcReportEnd.getDate())+",\n"
-//                + "  Result: SUCCESS\n"
-//                + " ]";
-//        Log.addLog(li);
+    private void loadReport() {  
         
         edpReport.setText(generateSystemLogReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "SYSTEM LOG"));
+        edpReport.setSelectionStart(0);
+        edpReport.setSelectionEnd(0);
         
     }
 

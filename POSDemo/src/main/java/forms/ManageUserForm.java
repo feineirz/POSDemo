@@ -723,6 +723,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
             User selUser = new User(Integer.parseInt(lblRealUserID.getText()));
             setFrameState(frameState.EDIT);
             tbxEmail.requestFocus();
+            
             if (!CURRENT_USER.username.equals("admin") || selUser.getUsername().equals("admin")) {
                 cmbUserLevel.setEnabled(false);
             }
@@ -771,18 +772,45 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "SYSTEM LOG";
-            li.event = "MODIFY USER";            
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "MODIFY USER\n"
-                    + " User[\n"
-                    + "  ID: "+user.getId()+",\n"
-                    + "  Username: "+user.getUsername()+",\n"
-                    + "  Password: "+modifyPasswordStatus+",\n"
-                    + "  Email: "+user.getEmail()+",\n"
-                    + "  Phone: "+user.getPhone()+",\n"
-                    + "  UserLevel: "+getUserLevel(user.getLevel())+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            li.event = "MODIFY USER";
+            
+            li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"MODIFY USER",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Account":{
+                                    "ID":%d,
+                                    "Username":"%s",
+                                    "Email":"%s",
+                                    "Phone":"%s",
+                                    "Level":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            user.getId(),
+                            user.getUsername(),
+                            user.getEmail(),
+                            user.getPhone(),
+                            getUserLevel(user.getLevel())
+                    )
+            );            
             Log.addLog(li);
 
             JOptionPane.showMessageDialog(this, "User information has been updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);    
@@ -831,19 +859,46 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     li.log_date = getCurrentDateTimeFormatted();
                     li.user = CURRENT_USER.username;
                     li.category = "SYSTEM LOG";
-                    li.event = "DELETE USER";            
-                    li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                            + "DELETE USER\n"
-                            + " User[\n"
-                            + "  ID: "+delUser.getId()+",\n"
-                            + "  Username: "+delUser.getUsername()+",\n"
-                            + "  Password: <***SECRET***>,\n"
-                            + "  Email: "+delUser.getEmail()+",\n"
-                            + "  Phone: "+delUser.getPhone()+",\n"
-                            + "  UserLevel: "+getUserLevel(delUser.getLevel())+",\n"
-                            + "  Result: SUCCESS\n"
-                            + " ]";
-                    Log.addLog(li);
+                    li.event = "DELETE USER";       
+                                        
+                    li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"DELETE USER",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Account":{
+                                    "ID":%d,
+                                    "Username":"%s",
+                                    "Email":"%s",
+                                    "Phone":"%s",
+                                    "Level":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            delUser.getId(),
+                            delUser.getUsername(),
+                            delUser.getEmail(),
+                            delUser.getPhone(),
+                            getUserLevel(delUser.getLevel())
+                    )
+                );            
+                Log.addLog(li);
                     
                     JOptionPane.showMessageDialog(this, "Account '"+delUser.getUsername()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
                     

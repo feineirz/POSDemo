@@ -266,9 +266,9 @@
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnAdd" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="btnCancel" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="btnCancel" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblRealID" min="-2" pref="22" max="-2" attributes="0"/>

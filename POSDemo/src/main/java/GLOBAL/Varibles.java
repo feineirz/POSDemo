@@ -43,5 +43,7 @@ public class Varibles {
     
     public static final DecimalFormat DFMT_QUANTITY = new DecimalFormat("#,##0");
     public static final DecimalFormat DFMT_PRICE = new DecimalFormat("#,##0.00");
+    public static final DecimalFormat DFMT_QUANTITY_NC = new DecimalFormat("0");
+    public static final DecimalFormat DFMT_PRICE_NC = new DecimalFormat("0.00");
     
 }

@@ -53,29 +53,52 @@ public class LoginForm extends javax.swing.JInternalFrame {
         li.category = "SYSTEM LOG";
         li.event = "LOGIN";    
 
-        if(user != null){                    
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "LOGIN\n"
-                    + " User[\n"
-                    + "  ID: "+CURRENT_USER.id+",\n"
-                    + "  Username: "+CURRENT_USER.username+",\n"
-                    + "  Password: <***SECRET***>,\n"
-                    + "  Email: "+CURRENT_USER.email+",\n"
-                    + "  Phone: "+CURRENT_USER.phone+",\n"
-                    + "  UserLevel: "+getUserLevel(CURRENT_USER.level)+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+        if(user != null){
+            
+            li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"LOGIN",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level)
+                    )
+            );            
             Log.addLog(li);
+            
             this.dispose();
         }else{
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "LOGIN\n"
-                    + " User[\n"
-                    + "  Username: "+username+",\n"
-                    + "  Password: <***SECRET***>,\n"
-                    + "  Result: FAILED\n"
-                    + " ]";
+            li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"LOGIN",
+                            "Account":{
+                                "Username":"%s"
+                            },
+                            "Result":"FAILED"
+                        }
+                    }
+                    """.formatted(
+                            username
+                    )
+            );            
             Log.addLog(li);
+            
             JOptionPane.showMessageDialog(this, "Invalid username and/or password!", "Error", JOptionPane.ERROR_MESSAGE);
             tbxUser.setText("");
             tbxPass.setText("");

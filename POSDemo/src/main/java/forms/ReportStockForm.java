@@ -5,18 +5,15 @@
  */
 package forms;
 
-import DBCLS.Log;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK;
 import static GLOBAL.Settings.MAIN_FONT;
-import static GLOBAL.Varibles.*;
 import java.awt.Graphics;
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.plaf.FontUIResource;
-import static pos.Apps.*;
 
 /**
  *
@@ -66,26 +63,26 @@ public class ReportStockForm extends javax.swing.JInternalFrame {
     /*==== Required Functions ====*/
     private void loadReport () {
         
-        if (CURRENT_USER.id > 0) {
-            
-            if (ENABLE_REPORT_LOG && reportStockForm.isVisible()) {
-                Log.LogInfo li = new Log.LogInfo();
-                li.id = 0;
-                li.log_date = getCurrentDateTimeFormatted();
-                li.user = CURRENT_USER.username;
-                li.category = "APPLICATION LOG";
-                li.event = "GENERATE REPORT";
-                li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                        + "GENERATE REPORT\n"
-                        + " Report[\n"
-                        + "  Type: Stock Report,\n"
-                        + "  Start Date: <NA>,\n"
-                        + "  End Date: <NA>,\n"
-                        + "  Result: SUCCESS\n"
-                        + " ]";
-                Log.addLog(li);
-            }                
-        }
+//        if (CURRENT_USER.id > 0) {
+//            
+//            if (ENABLE_REPORT_LOG && reportStockForm.isVisible()) {
+//                Log.LogInfo li = new Log.LogInfo();
+//                li.id = 0;
+//                li.log_date = getCurrentDateTimeFormatted();
+//                li.user = CURRENT_USER.username;
+//                li.category = "APPLICATION LOG";
+//                li.event = "GENERATE REPORT";
+//                li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
+//                        + "GENERATE REPORT\n"
+//                        + " Report[\n"
+//                        + "  Type: Stock Report,\n"
+//                        + "  Start Date: <NA>,\n"
+//                        + "  End Date: <NA>,\n"
+//                        + "  Result: SUCCESS\n"
+//                        + " ]";
+//                Log.addLog(li);
+//            }                
+//        }
         
         edpReport.setText(generateStockReportHTML());
         edpReport.setSelectionStart(0);

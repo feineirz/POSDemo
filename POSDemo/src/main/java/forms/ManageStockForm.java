@@ -778,6 +778,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
             }
 
             Stock stock = new Stock(Integer.parseInt(lblRealID.getText()));
+            Integer curStockQuantity = stock.getQuantity();
             stock.setQuantity(Integer.parseInt(quantity));
             stock.setRemark(remark);
             
@@ -790,17 +791,56 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "MODIFY STOCK";
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "MODIFY STOCK\n"
-                    + " Product[\n"
-                    + "  ID: "+product.getId()+",\n"
-                    + "  Category: ["+category.getId()+"]"+category.getName()+",\n"            
-                    + "  Code: "+product.getCode()+",\n"
-                    + "  Name: "+product.getName()+",\n"
-                    + "  Quantity: "+quantity+",\n"
-                    + "  New Quantity: "+stock.getQuantity()+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"REFILL STOCK",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Stock":{
+                                    "ID":%d,
+                                    "Quantity":%d
+                                },
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s"
+                                },                                
+                                "NewQuantity":%d,
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            stock.getId(),
+                            curStockQuantity,
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            quantity,
+                            stock.getQuantity()
+                    )
+            );            
             Log.addLog(li);
 
             JOptionPane.showMessageDialog(this, "Category information has been updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
@@ -838,19 +878,55 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                     li.user = CURRENT_USER.username;
                     li.category = "APPLICATION LOG";
                     li.event = "DELETE STOCK";
-                    li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                            + "DELETE STOCK\n"
-                            + " Stock[\n"
-                            + "  ID: "+stock.getId()+"\n"
-                            + " ]\n"
-                            + " Product[\n"
-                            + "  ID: "+product.getId()+",\n"
-                            + "  Category: ["+category.getId()+"]"+category.getName()+",\n"            
-                            + "  Code: "+product.getCode()+",\n"
-                            + "  Name: "+product.getName()+",\n"
-                            + "  Quantity: "+stock.getQuantity()+",\n"
-                            + "  Result: SUCCESS\n"
-                            + " ]";
+                                        
+                    li.details = String.format(
+                            """
+                            {
+                                "APPLICATION LOG":{
+                                    "Event":"DELETE STOCK",
+                                    "Account":{
+                                        "ID":%d,
+                                        "Username":"%s",
+                                        "Email":"%s",
+                                        "Phone":"%s",
+                                        "Level":"%s"
+                                    },
+                                    "Data":{
+                                        "Stock":{
+                                            "ID":%d,
+                                            "Quantity":%d
+                                        },
+                                        "Product":{
+                                            "ID":%d,
+                                            "Category":{
+                                                "ID":%d,
+                                                "Name":"%s"
+                                            },
+                                            "Code":"%s",
+                                            "Name":"%s",
+                                            "Cost":%s
+                                        }
+                                    },
+                                    "Result":"SUCCESS"
+                                }
+                            }
+                            """.formatted(
+                                    CURRENT_USER.id,
+                                    CURRENT_USER.username,
+                                    CURRENT_USER.email,
+                                    CURRENT_USER.phone,
+                                    getUserLevel(CURRENT_USER.level),
+                                    
+                                    stock.getId(),
+                                    stock.getQuantity(),
+                                    product.getId(),
+                                    category.getId(),
+                                    category.getName(),
+                                    product.getCode(),
+                                    product.getName(),
+                                    DFMT_PRICE.format(product.getCost())
+                            )
+                    );            
                     Log.addLog(li);
                     
                     JOptionPane.showMessageDialog(this, "Stock 'StockID: "+stock.getId()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);

@@ -487,7 +487,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -622,6 +622,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             Double curSumCost = stock.getQuantity()*product.getCost();
             Double newItemSumCost = Double.parseDouble(cost) * Integer.parseInt(quantity);            
             Double newCost = (curSumCost+newItemSumCost) / (stock.getQuantity() + Integer.parseInt(quantity));
+            Double curCost = product.getCost();
             product.setCost(newCost);
             
             stock.setQuantity(stock.getQuantity() + Integer.parseInt(quantity));
@@ -635,21 +636,60 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "REFILL STOCK";
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "REFILL STOCK\n"
-                    + " Stock[\n"
-                    + "  ID: "+stock.getId()+"\n"
-                    + " ]\n"
-                    + " Product[\n"
-                    + "  ID: "+product.getId()+",\n"
-                    + "  Category: ["+category.getId()+"]"+category.getName()+",\n"            
-                    + "  Code: "+product.getCode()+",\n"
-                    + "  Name: "+product.getName()+",\n"
-                    + "  Quantity: "+si.quantity+",\n"
-                    + "  New Quantity: "+stock.getQuantity()+",\n"
-                    + "  New Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"REFILL STOCK",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Stock":{
+                                    "ID":%d,
+                                    "Quantity":%d
+                                },
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s",
+                                    "Cost":%s
+                                },
+                                "Quantity":%d,
+                                "NewQuantity":%d,
+                                "NewCost":%s
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            stock.getId(),
+                            stock.getQuantity()-si.quantity,
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            DFMT_PRICE.format(curCost),
+                            si.quantity,
+                            stock.getQuantity(),
+                            DFMT_PRICE_NC.format(product.getCost())
+                    )
+            );            
             Log.addLog(li);
             
             JOptionPane.showMessageDialog(this, "Add product to Stock successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);
@@ -668,21 +708,60 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                 li.user = CURRENT_USER.username;
                 li.category = "APPLICATION LOG";
                 li.event = "REFILL STOCK";
-                li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                        + "REFILL STOCK\n"
-                        + " Stock[\n"
-                        + "  ID: "+stock.getId()+"\n"
-                        + " ]\n"
-                        + " Product[\n"
-                        + "  ID: "+product.getId()+",\n"
-                        + "  Category: ["+category.getId()+"]"+category.getName()+",\n"            
-                        + "  Code: "+product.getCode()+",\n"
-                        + "  Name: "+product.getName()+",\n"
-                        + "  Quantity: "+si.quantity+",\n"
-                        + "  New Quantity: "+stock.getQuantity()+",\n"
-                        + "  New Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
-                        + "  Result: SUCCESS\n"
-                        + " ]";
+                
+                li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"REFILL STOCK",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Stock":{
+                                    "ID":%d,
+                                    "Quantity":%d
+                                },
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s",
+                                    "Cost":%s
+                                },
+                                "Quantity":%d,
+                                "NewQuantity":%d,
+                                "NewCost":%s
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            stock.getId(),
+                            stock.getQuantity()-si.quantity,
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            DFMT_PRICE.format(product.getCost()),
+                            si.quantity,
+                            stock.getQuantity(),
+                            DFMT_PRICE_NC.format(product.getCost())
+                    )
+                );            
                 Log.addLog(li);
                 
                 JOptionPane.showMessageDialog(this, "Add product to Stock successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);  

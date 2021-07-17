@@ -234,9 +234,9 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 34, Short.MAX_VALUE))
         );
 
@@ -281,14 +281,40 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
-            li.event = "ADD NEW CATEGORY";            
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "ADD CATEGORY\n"
-                    + " Category[\n"
-                    + "  ID: "+category.getId()+",\n"
-                    + "  CategoryName: "+category.getName()+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            li.event = "ADD NEW CATEGORY"; 
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"ADD CATEGORY",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Category":{
+                                    "ID":%d,
+                                    "Name":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+
+                            category.getId(),
+                            category.getName()
+                    )
+            );            
             Log.addLog(li);
             
             JOptionPane.showMessageDialog(this, "Add new Category successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);

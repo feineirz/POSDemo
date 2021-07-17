@@ -9,6 +9,7 @@ import DBCLS.Category;
 import DBCLS.Log;
 import DBCLS.Product;
 import DBCLS.ReceiptDetail;
+import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
@@ -929,19 +930,54 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
-            li.event = "MODIFY PRODUCT";
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "MODIFY PRODUCT\n"
-                    + " Product[\n"
-                    + "  ID: "+product.getId()+",\n"
-                    + "  Category: ["+category.getId()+"]"+categoryname+",\n"
-                    + "  Code: "+product.getCode()+",\n"
-                    + "  Name: "+product.getName()+",\n"
-                    + "  Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
-                    + "  Price: "+DFMT_PRICE.format(product.getPrice())+",\n"
-                    + "  Status: "+product.getStatus()+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            li.event = "MODIFY PRODUCT";            
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"MODIFY PRODUCT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s",
+                                    "Cost":%s,
+                                    "Price":%s,
+                                    "Status":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            DFMT_PRICE_NC.format(product.getCost()),
+                            DFMT_PRICE_NC.format(product.getPrice()),
+                            product.getStatus()
+                    )
+            );            
             Log.addLog(li);
 
             JOptionPane.showMessageDialog(this, "Product information has been updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
@@ -971,24 +1007,68 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                 
                 Product product = new Product(productID);
                 Category category = new Category(product.getCategory());
-                if (Product.deleteProduct(productID)) {
+                Stock stock = Stock.isExist("product = "+product.getId());
+                if (Product.deleteProduct(productID)) {                
+                    
                     Log.LogInfo li = new Log.LogInfo();
                     li.id = 0;
                     li.log_date = getCurrentDateTimeFormatted();
                     li.user = CURRENT_USER.username;
                     li.category = "APPLICATION LOG";
                     li.event = "DELETE PRODUCT";
-                    li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                            + "DELETE PRODUCT\n"
-                            + " Product[\n"
-                            + "  ID: "+product.getId()+",\n"
-                            + "  Category: ["+category.getId()+"]"+category.getName()+",\n"
-                            + "  Code: "+product.getCode()+",\n"
-                            + "  Name: "+product.getName()+",\n"
-                            + "  Cost: "+DFMT_PRICE.format(product.getCost())+",\n"
-                            + "  Price: "+DFMT_PRICE.format(product.getPrice())+",\n"
-                            + "  Result: SUCCESS\n"
-                            + " ]";
+                    
+                    li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"DELETE PRODUCT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Product":{
+                                    "ID":%d,
+                                    "Category":{
+                                        "ID":%d,
+                                        "Name":"%s"
+                                    },
+                                    "Code":"%s",
+                                    "Name":"%s",
+                                    "Cost":%s,
+                                    "Price":%s,
+                                    "Status":"%s"
+                                },                  
+                                "Stock":{
+                                    "ID":%d,
+                                    "Quantity":%d
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            product.getId(),
+                            category.getId(),
+                            category.getName(),
+                            product.getCode(),
+                            product.getName(),
+                            DFMT_PRICE_NC.format(product.getCost()),
+                            DFMT_PRICE_NC.format(product.getPrice()),
+                            product.getStatus(),
+                            stock.getId(),
+                            stock.getQuantity()
+                    )
+                    );            
                     Log.addLog(li);
                     
                     JOptionPane.showMessageDialog(this, "Product 'Name: "+product.getName()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);

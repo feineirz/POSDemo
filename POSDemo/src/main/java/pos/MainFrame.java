@@ -100,24 +100,38 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void logUserLogOut() {
+        
         Log.LogInfo li = new Log.LogInfo();
         li.id = 0;
         li.log_date = getCurrentDateTimeFormatted();
         li.user = CURRENT_USER.username;
         li.category = "SYSTEM LOG";
         li.event = "LOGOUT";
-        li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                + "LOGOUT\n"
-                + " User[\n"
-                + "  ID: "+CURRENT_USER.id+",\n"
-                + "  Username: "+CURRENT_USER.username+",\n"
-                + "  Password: <***SECRET***>,\n"
-                + "  Email: "+CURRENT_USER.email+",\n"
-                + "  Phone: "+CURRENT_USER.phone+",\n"
-                + "  UserLevel: "+getUserLevel(CURRENT_USER.level)+",\n"
-                + "  Result: SUCCESS\n"
-                + " ]";
-        Log.addLog(li);
+        li.details = String.format(
+                    """
+                    {
+                        "SYSTEM LOG":{
+                            "Event":"LOGOUT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level)
+                    )
+            );            
+            Log.addLog(li);
+            
     }
 
     /**
@@ -741,6 +755,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuPOSMain.setEnabled(false);
         mnuReportMain.setEnabled(false);
         
+        logUserLogOut();
         setCurrentToDefaultUser();
         
         for (Component comp : mainDesktop.getComponents()) {
@@ -749,7 +764,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
         
-        logUserLogOut();
 
         loginForm = new LoginForm();        
         pullCenter(mainDesktop, loginForm);

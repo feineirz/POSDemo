@@ -7,9 +7,9 @@
 
 package DBCLS;
 
+import java.lang.*;
 import java.sql.*;
 import java.util.*;
-import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
 
@@ -104,7 +104,7 @@ public class ReceiptDetail {
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
-		}
+		}                
 		
 	} /////////////////////////////////////////////////////////////////////////
 
@@ -534,7 +534,8 @@ public class ReceiptDetail {
 
 
 // @USER CUSTOM FUNCTIONS@ //
-// PLACE YOUR CUSTOM FUNCTIONS HERE //        
+// PLACE YOUR CUSTOM FUNCTIONS HERE //
+        
         //////////////////////////////[ List ]//////////////////////////////
 	// List ReceiptDetail in database as ReceiptDetailGroupInfo objects. //
 	////////////////////////////////////////////////////////////////////

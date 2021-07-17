@@ -633,14 +633,40 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
-            li.event = "MODIFY CATEGORY";            
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "MODIFY CATEGORY\n"
-                    + " Category[\n"
-                    + "  ID: "+category.getId()+",\n"
-                    + "  CategoryName: "+category.getName()+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
+            li.event = "MODIFY CATEGORY";
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "Event":"MODIFY CATEGORY",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Category":{
+                                    "ID":%d,
+                                    "Name":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+
+                            category.getId(),
+                            category.getName()
+                    )
+            );            
             Log.addLog(li);
 
             JOptionPane.showMessageDialog(this, "Category information has been updated.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
@@ -674,14 +700,40 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                     li.log_date = getCurrentDateTimeFormatted();
                     li.user = CURRENT_USER.username;
                     li.category = "APPLICATION LOG";
-                    li.event = "ADD NEW CATEGORY";            
-                    li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                            + "ADD CATEGORY\n"
-                            + " Category[\n"
-                            + "  ID: "+category.getId()+",\n"
-                            + "  CategoryName: "+category.getName()+",\n"
-                            + "  Result: SUCCESS\n"
-                            + " ]";
+                    li.event = "DELETE CATEGORY";     
+                    
+                    li.details = String.format(
+                            """
+                            {
+                                "APPLICATION LOG":{
+                                    "Event":"DELETE CATEGORY",
+                                    "Account":{
+                                        "ID":%d,
+                                        "Username":"%s",
+                                        "Email":"%s",
+                                        "Phone":"%s",
+                                        "Level":"%s"
+                                    },
+                                    "Data":{
+                                        "Category":{
+                                            "ID":%d,
+                                            "Name":"%s"
+                                        }
+                                    },
+                                    "Result":"SUCCESS"
+                                }
+                            }
+                            """.formatted(
+                                    CURRENT_USER.id,
+                                    CURRENT_USER.username,
+                                    CURRENT_USER.email,
+                                    CURRENT_USER.phone,
+                                    getUserLevel(CURRENT_USER.level),
+
+                                    category.getId(),
+                                    category.getName()
+                            )
+                    );            
                     Log.addLog(li);
                     
                     JOptionPane.showMessageDialog(this, "Category '"+category.getName()+"' has been DELETED.", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
