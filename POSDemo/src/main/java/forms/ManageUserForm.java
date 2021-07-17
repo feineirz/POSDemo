@@ -71,21 +71,17 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     cmbUserLevel.setSelectedIndex((level-1) / 30);
                     
                     // Check user level before allow edit.
-                    Integer curUserLevel = CURRENT_USER.level;
-                    String selUsername = lblUsername.getText();
-                    Integer userLevel = Integer.parseInt(lblUserLevel.getText());
-                    if (curUserLevel >= 90) { // Admin
-                        setFrameState(frameState.SELECTED);
-                    } else {
-                        if (selUsername.equals("admin")) {
-                            JOptionPane.showMessageDialog(manageUserForm, "This account is PROTECTED and cannot be touch by other user!", "PROHIBIT", JOptionPane.ERROR_MESSAGE);
-                        } else if (userLevel >= 60 && !selUsername.equals(CURRENT_USER.username)) {
-                            JOptionPane.showMessageDialog(manageUserForm, "You cannot modify other Manager account data. Please contact System Administrator.", "PROHIBIT", JOptionPane.ERROR_MESSAGE);
-                        } else {
-                            setFrameState(frameState.SELECTED);
-                        }
-                    }
                     
+                    User selUser = new User(Integer.parseInt(lblRealUserID.getText()));
+                    // Verify Account Owner and User Level
+                    if (CURRENT_USER.username.equals("admin")) {
+                        setFrameState(frameState.SELECTED);
+                    } else if (CURRENT_USER.id.equals(selUser.getId()) || CURRENT_USER.level > selUser.getLevel()) {
+                        setFrameState(frameState.SELECTED);
+                        if (CURRENT_USER.id.equals(selUser.getId())) {
+                            btnDelete.setEnabled(false);
+                        }
+                    }                    
                 }
             }
             
@@ -160,6 +156,11 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
 
                 tblContentList.setEnabled(true);
                 tblContentList.clearSelection();
+                
+                if (cmbUserLevel.getItemCount() == 2) {
+                    cmbUserLevel.addItem("Manager");
+                    cmbUserLevel.addItem("Administrator");                    
+                }
 
                 resetInfoPanel();
                 listContentWithFilter();
@@ -718,14 +719,15 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         
-        if ("Edit".equals(btnEdit.getText())) {
+        if ("Edit".equals(btnEdit.getText())) { // Start Edit
+            User selUser = new User(Integer.parseInt(lblRealUserID.getText()));
             setFrameState(frameState.EDIT);
-            // Lock component            
-            if (lblUsername.getText().equals("admin")) {
+            tbxEmail.requestFocus();
+            if (!CURRENT_USER.username.equals("admin") || selUser.getUsername().equals("admin")) {
                 cmbUserLevel.setEnabled(false);
             }
-            tbxEmail.requestFocus();
-        }else{
+                        
+        }else{ // Update
             // Validate data
             ValidationResult vr = new ValidationResult();
             
@@ -753,10 +755,10 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
             }
             
             User user = new User(Integer.parseInt(lblRealUserID.getText()));
-            String modifyPasswordStatus = "<***NOT CHANGE***>";
+            String modifyPasswordStatus = "<***NO CHANGE***>";
             if (!password.equals("")) {
                 user.setPassword(password);
-                modifyPasswordStatus = "<***CHANGED***>";
+                modifyPasswordStatus = "<***MODIFIED***>";
             }                
             user.setEmail(email);
             user.setPhone(phone);
