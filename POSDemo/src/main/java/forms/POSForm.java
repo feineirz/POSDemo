@@ -21,7 +21,6 @@ import GLOBAL.Validator;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
@@ -41,7 +40,7 @@ import static pos.Apps.cashReceiptForm;
  */
 public class POSForm extends javax.swing.JInternalFrame {
 
-    public static DefaultTableModel modelContentList, modelCartList;
+    public static DefaultTableModel modelContentList, modelCartList, modelHoldCartList;
     DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
     
     /**
@@ -53,21 +52,28 @@ public class POSForm extends javax.swing.JInternalFrame {
         getContentPane().setBackground(BG_DARK_ALT);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
-        modelCartList = (DefaultTableModel)tblCartList.getModel();
-        tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
-        tblCartList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
+        modelCartList = (DefaultTableModel)tblShoppingCart.getModel();
+        modelHoldCartList = (DefaultTableModel)tblSpareCart.getModel();
+//        tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
+//        tblCartList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblContentList.getColumnModel().getColumn(3).setCellRenderer(rightRenderer); // price
         tblContentList.getColumnModel().getColumn(6).setCellRenderer(rightRenderer); // cost
         
-        tblCartList.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
-        tblCartList.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
-        tblCartList.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
-        tblCartList.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
+        tblShoppingCart.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
+        tblShoppingCart.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
+        tblShoppingCart.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        tblShoppingCart.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
+        
+        tblSpareCart.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
+        tblSpareCart.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
+        tblSpareCart.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        tblSpareCart.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
         
         tblContentList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tblCartList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tblShoppingCart.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tblSpareCart.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         lblCurrentProductID.setVisible(false);
         lblCartCurrentRow.setVisible(false);
@@ -86,18 +92,18 @@ public class POSForm extends javax.swing.JInternalFrame {
             }            
         });
         
-        tblCartList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        tblShoppingCart.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int curRow = tblCartList.getSelectedRow();
+                int curRow = tblShoppingCart.getSelectedRow();
                 if(curRow > -1){
                     autoSelectProductList(tbxCode.getText());
                     
-                    tbxCode.setText(tblCartList.getValueAt(curRow, 5).toString());
-                    tbxQuantity.setText(tblCartList.getValueAt(curRow, 1).toString());
+                    tbxCode.setText(tblShoppingCart.getValueAt(curRow, 5).toString());
+                    tbxQuantity.setText(tblShoppingCart.getValueAt(curRow, 1).toString());
                     btnAddToCart.setText("Update");
 
-                    lblCurrentProductID.setText(tblCartList.getValueAt(curRow, 4).toString());
+                    lblCurrentProductID.setText(tblShoppingCart.getValueAt(curRow, 4).toString());
                     lblCartCurrentRow.setText(String.valueOf(curRow));                    
                 }
 
@@ -141,7 +147,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                 tbxCode.setText("");
                 tbxQuantity.setText("1");
                 btnAddToCart.setText("Add To Cart");
-                clearTable(tblCartList);
+                modelCartList.setRowCount(0);
                 lblCartCurrentRow.setText("");
                 lblCurrentProductID.setText("");
 
@@ -180,16 +186,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         }
     }
     
-    /*==== Helper Functions ====*/	
-    private void clearTable(JTable tbl) {
-        
-        int lastRow = tbl.getRowCount() - 1;
-        while (lastRow > -1) {
-            ((DefaultTableModel)tbl.getModel()).removeRow(lastRow);
-            lastRow--;
-        }
-        
-    }
+    /*==== Helper Functions ====*/
     
     private void autoSelectProductList(String code) {
         
@@ -249,7 +246,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         tbxCode.setText("");
         tbxQuantity.setText("1");
         btnAddToCart.setText("Add To Cart");
-        tblCartList.clearSelection();
+        tblShoppingCart.clearSelection();
         
         lblCurrentProductID.setText("");
         lblCartCurrentRow.setText("");
@@ -267,14 +264,30 @@ public class POSForm extends javax.swing.JInternalFrame {
     private int getExistProductIDRowNo(String productID) {
         
         String existedID;
-        for (int i = 0; i < tblCartList.getRowCount(); i++) {
-            existedID = tblCartList.getValueAt(i, 4).toString();
+        for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
+            existedID = tblShoppingCart.getValueAt(i, 4).toString();
             if (existedID.equals(productID)) {
                 return i;
             }
         }
         
         return -1;
+        
+    }
+    
+     
+    
+    private void cloneTableData(JTable source, DefaultTableModel destination) {
+        
+        if (source.getRowCount() > 0) {
+            destination.setRowCount(0);
+            for (int row = 0; row < source.getRowCount(); row++) {
+                destination.addRow(new Object[0]);
+                for (int col = 0; col < source.getColumnCount(); col++) {
+                    destination.setValueAt(source.getValueAt(row, col), row, col);
+                }
+            }
+        }
         
     }
     
@@ -308,7 +321,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         Category category;
         
         try {
-            clearTable(tblContentList);
+            modelContentList.setRowCount(0);
             
             int curRow = 0;
             for (Product product : Product.listProduct(filter, "category, name")) {
@@ -337,17 +350,17 @@ public class POSForm extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
         
-    }    
+    }
     
     private void calculateCartTotal() {
         
         Double grandTotal = 0.0;
         
         // Remove if Qty < 1        
-        for (int i = 0; i < tblCartList.getRowCount(); i++) {
+        for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
             
-            Integer quantity = Integer.parseInt(tblCartList.getValueAt(i, 1).toString());
-            Double price = Double.parseDouble(tblCartList.getValueAt(i, 2).toString());
+            Integer quantity = Integer.parseInt(tblShoppingCart.getValueAt(i, 1).toString());
+            Double price = Double.parseDouble(tblShoppingCart.getValueAt(i, 2).toString());
             Double total = quantity*price;
             
             grandTotal += total;
@@ -415,7 +428,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         };
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblCartList = new javax.swing.JTable();
+        tblShoppingCart = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         tbxCode = new javax.swing.JTextField();
         btnAddToCart = new javax.swing.JButton();
@@ -433,14 +446,20 @@ public class POSForm extends javax.swing.JInternalFrame {
         };
         jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblSpareCart = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        btnHold = new javax.swing.JButton();
+        btnClearHoldCart = new javax.swing.JButton();
+        btnFillback = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setMaximizable(true);
         setResizable(true);
         setMaximumSize(new java.awt.Dimension(2400, 1200));
-        setMinimumSize(new java.awt.Dimension(1600, 820));
-        setPreferredSize(new java.awt.Dimension(1590, 820));
+        setMinimumSize(new java.awt.Dimension(1600, 890));
+        setPreferredSize(new java.awt.Dimension(1590, 890));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -562,7 +581,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addComponent(tbxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -721,9 +740,13 @@ public class POSForm extends javax.swing.JInternalFrame {
         pnlCheckoutLayout.setHorizontalGroup(
             pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlCheckOutHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
+                        .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
                         .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -735,11 +758,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                             .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCalcExchange, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(tbxExchange))
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
-                        .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-            .addComponent(pnlCheckOutHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(23, 23, 23))))
         );
         pnlCheckoutLayout.setVerticalGroup(
             pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,16 +778,16 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addComponent(btnCalcExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(413, 413, 413)
+                .addGap(444, 444, 444)
                 .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addComponent(lblCurrentProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pnlCart.setBackground(new java.awt.Color(102, 102, 102));
 
-        tblCartList.setModel(new javax.swing.table.DefaultTableModel(
+        tblShoppingCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -791,35 +810,35 @@ public class POSForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblCartList.setFocusable(false);
-        tblCartList.setRowHeight(24);
-        tblCartList.setShowVerticalLines(false);
-        tblCartList.getTableHeader().setReorderingAllowed(false);
-        tblCartList.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblShoppingCart.setFocusable(false);
+        tblShoppingCart.setRowHeight(24);
+        tblShoppingCart.setShowVerticalLines(false);
+        tblShoppingCart.getTableHeader().setReorderingAllowed(false);
+        tblShoppingCart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblCartListMouseClicked(evt);
+                tblShoppingCartMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblCartList);
-        if (tblCartList.getColumnModel().getColumnCount() > 0) {
-            tblCartList.getColumnModel().getColumn(1).setMinWidth(50);
-            tblCartList.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tblCartList.getColumnModel().getColumn(1).setMaxWidth(50);
-            tblCartList.getColumnModel().getColumn(2).setMinWidth(70);
-            tblCartList.getColumnModel().getColumn(2).setPreferredWidth(70);
-            tblCartList.getColumnModel().getColumn(2).setMaxWidth(70);
-            tblCartList.getColumnModel().getColumn(3).setMinWidth(90);
-            tblCartList.getColumnModel().getColumn(3).setPreferredWidth(90);
-            tblCartList.getColumnModel().getColumn(3).setMaxWidth(90);
-            tblCartList.getColumnModel().getColumn(4).setMinWidth(0);
-            tblCartList.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tblCartList.getColumnModel().getColumn(4).setMaxWidth(0);
-            tblCartList.getColumnModel().getColumn(5).setMinWidth(0);
-            tblCartList.getColumnModel().getColumn(5).setPreferredWidth(0);
-            tblCartList.getColumnModel().getColumn(5).setMaxWidth(0);
-            tblCartList.getColumnModel().getColumn(6).setMinWidth(0);
-            tblCartList.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tblCartList.getColumnModel().getColumn(6).setMaxWidth(0);
+        jScrollPane2.setViewportView(tblShoppingCart);
+        if (tblShoppingCart.getColumnModel().getColumnCount() > 0) {
+            tblShoppingCart.getColumnModel().getColumn(1).setMinWidth(50);
+            tblShoppingCart.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblShoppingCart.getColumnModel().getColumn(1).setMaxWidth(50);
+            tblShoppingCart.getColumnModel().getColumn(2).setMinWidth(70);
+            tblShoppingCart.getColumnModel().getColumn(2).setPreferredWidth(70);
+            tblShoppingCart.getColumnModel().getColumn(2).setMaxWidth(70);
+            tblShoppingCart.getColumnModel().getColumn(3).setMinWidth(90);
+            tblShoppingCart.getColumnModel().getColumn(3).setPreferredWidth(90);
+            tblShoppingCart.getColumnModel().getColumn(3).setMaxWidth(90);
+            tblShoppingCart.getColumnModel().getColumn(4).setMinWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(4).setMaxWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(5).setMinWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(5).setMaxWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(6).setMinWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tblShoppingCart.getColumnModel().getColumn(6).setMaxWidth(0);
         }
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
@@ -934,15 +953,104 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tblSpareCart.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Item", "Qty", "Price", "Total", "RealID", "Code", "Cost"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblSpareCart.setFocusable(false);
+        tblSpareCart.setRowHeight(24);
+        tblSpareCart.setShowVerticalLines(false);
+        tblSpareCart.getTableHeader().setReorderingAllowed(false);
+        tblSpareCart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSpareCartMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblSpareCart);
+        if (tblSpareCart.getColumnModel().getColumnCount() > 0) {
+            tblSpareCart.getColumnModel().getColumn(1).setMinWidth(50);
+            tblSpareCart.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblSpareCart.getColumnModel().getColumn(1).setMaxWidth(50);
+            tblSpareCart.getColumnModel().getColumn(2).setMinWidth(70);
+            tblSpareCart.getColumnModel().getColumn(2).setPreferredWidth(70);
+            tblSpareCart.getColumnModel().getColumn(2).setMaxWidth(70);
+            tblSpareCart.getColumnModel().getColumn(3).setMinWidth(90);
+            tblSpareCart.getColumnModel().getColumn(3).setPreferredWidth(90);
+            tblSpareCart.getColumnModel().getColumn(3).setMaxWidth(90);
+            tblSpareCart.getColumnModel().getColumn(4).setMinWidth(0);
+            tblSpareCart.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tblSpareCart.getColumnModel().getColumn(4).setMaxWidth(0);
+            tblSpareCart.getColumnModel().getColumn(5).setMinWidth(0);
+            tblSpareCart.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tblSpareCart.getColumnModel().getColumn(5).setMaxWidth(0);
+            tblSpareCart.getColumnModel().getColumn(6).setMinWidth(0);
+            tblSpareCart.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tblSpareCart.getColumnModel().getColumn(6).setMaxWidth(0);
+        }
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Spare Cart");
+
+        btnHold.setBackground(new java.awt.Color(153, 153, 255));
+        btnHold.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnHold.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/pause.png"))); // NOI18N
+        btnHold.setText("Hold");
+        btnHold.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHoldActionPerformed(evt);
+            }
+        });
+
+        btnClearHoldCart.setBackground(new java.awt.Color(255, 204, 0));
+        btnClearHoldCart.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnClearHoldCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/clear.png"))); // NOI18N
+        btnClearHoldCart.setText("Clear");
+        btnClearHoldCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearHoldCartActionPerformed(evt);
+            }
+        });
+
+        btnFillback.setBackground(new java.awt.Color(153, 204, 0));
+        btnFillback.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnFillback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/fillback.png"))); // NOI18N
+        btnFillback.setText("Fill Back");
+        btnFillback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFillbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCartLayout = new javax.swing.GroupLayout(pnlCart);
         pnlCart.setLayout(pnlCartLayout);
         pnlCartLayout.setHorizontalGroup(
             pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlShoppingCartHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlCartLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -954,13 +1062,23 @@ public class POSForm extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                        .addGap(89, 89, 89)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnHold, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClearCart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoe)))
+                        .addComponent(btnRemoe, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlCartLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCartLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnClearHoldCart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnFillback, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(pnlShoppingCartHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlCartLayout.setVerticalGroup(
             pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -977,14 +1095,23 @@ public class POSForm extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5))
                     .addComponent(btnAddToCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRemoe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnClearCart, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnClearCart, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHold, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel9))
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFillback, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearHoldCart, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1001,7 +1128,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 790, Short.MAX_VALUE)
+            .addComponent(pnlCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 860, Short.MAX_VALUE)
             .addComponent(pnlTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1062,7 +1189,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         if (receipt != null) {
             ReceiptDetailInfo rdi = new ReceiptDetailInfo();
             Double totalCost = 0.0;
-            for (int i = 0; i < tblCartList.getRowCount(); i++) {
+            for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
                 rdi.id = 0;
                 rdi.receipt = receipt.getId();
                 rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
@@ -1094,6 +1221,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"ADD RECEIPT",
                             "Account":{
                                 "ID":%d,
@@ -1117,6 +1245,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -1222,7 +1351,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     private void btnClearCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearCartActionPerformed
 
-        clearTable(tblCartList);
+        modelCartList.setRowCount(0);
         setFrameState(frameState.INIT);
         calculateCartTotal();
 
@@ -1230,7 +1359,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     private void btnRemoeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoeActionPerformed
 
-        int curRow = tblCartList.getSelectedRow();
+        int curRow = tblShoppingCart.getSelectedRow();
         if(curRow > -1){
             modelCartList.removeRow(curRow);
 
@@ -1268,7 +1397,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
 
-        tblCartList.clearSelection();
+        tblShoppingCart.clearSelection();
 
         String code = tbxCode.getText().trim();
         String quantity = tbxQuantity.getText().trim();
@@ -1301,7 +1430,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         int row = getExistProductIDRowNo(productID);
         if (row > -1) { // Item already in cart
-            int curQty = Integer.parseInt(tblCartList.getValueAt(row, 1).toString());
+            int curQty = Integer.parseInt(tblShoppingCart.getValueAt(row, 1).toString());
             int addQty = Integer.parseInt(quantity);
 
             if (btnAddToCart.getText().equals("Add To Cart")) {
@@ -1326,7 +1455,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         } else { // Add new item  to cart
             Product product = new Product((Integer.parseInt(productID)));
-            row = tblCartList.getRowCount();
+            row = tblShoppingCart.getRowCount();
             try {
                 modelCartList.addRow(new  Object[0]);
                 modelCartList.setValueAt(product.getName(), row, 0);
@@ -1396,9 +1525,45 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tbxCodeFocusGained
 
-    private void tblCartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCartListMouseClicked
+    private void tblShoppingCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblShoppingCartMouseClicked
 
-    }//GEN-LAST:event_tblCartListMouseClicked
+    }//GEN-LAST:event_tblShoppingCartMouseClicked
+
+    private void tblSpareCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSpareCartMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblSpareCartMouseClicked
+
+    private void btnHoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoldActionPerformed
+        
+        if (tblSpareCart.getRowCount() > 0) {
+            if (JOptionPane.showConfirmDialog(this, "Hold Cart already has items. Are you sure to remove all existing?", "WARNING", JOptionPane.WARNING_MESSAGE,JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
+                return;
+        }
+        cloneTableData(tblShoppingCart, modelHoldCartList);
+        modelCartList.setRowCount(0);
+        setFrameState(frameState.INIT);
+        calculateCartTotal();
+        
+    }//GEN-LAST:event_btnHoldActionPerformed
+
+    private void btnClearHoldCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearHoldCartActionPerformed
+        
+        modelHoldCartList.setRowCount(0);
+        
+    }//GEN-LAST:event_btnClearHoldCartActionPerformed
+
+    private void btnFillbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFillbackActionPerformed
+        
+        if (tblShoppingCart.getRowCount() > 0) {
+            if (JOptionPane.showConfirmDialog(this, "Shopping Cart already has items. Are you sure to remove all existing?", "WARNING", JOptionPane.WARNING_MESSAGE,JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
+                return;
+        }
+        setFrameState(frameState.INIT);
+        cloneTableData(tblSpareCart, modelCartList);
+        modelHoldCartList.setRowCount(0);
+        calculateCartTotal();
+        
+    }//GEN-LAST:event_btnFillbackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1406,6 +1571,9 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCalcExchange;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnClearCart;
+    private javax.swing.JButton btnClearHoldCart;
+    private javax.swing.JButton btnFillback;
+    private javax.swing.JButton btnHold;
     private javax.swing.JButton btnReload;
     private javax.swing.JButton btnRemoe;
     public static javax.swing.JComboBox<String> cmbCategoryFilter;
@@ -1419,9 +1587,11 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblCartCurrentRow;
     private javax.swing.JLabel lblCurrentProductID;
     private javax.swing.JLabel lblReceiptID;
@@ -1432,8 +1602,9 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlShoppingCartHeader;
     private javax.swing.JPanel pnlTable;
-    private javax.swing.JTable tblCartList;
     public static javax.swing.JTable tblContentList;
+    private javax.swing.JTable tblShoppingCart;
+    private javax.swing.JTable tblSpareCart;
     private javax.swing.JTextField tbxCashIn;
     public static javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxExchange;
