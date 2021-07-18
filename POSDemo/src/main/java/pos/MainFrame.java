@@ -158,10 +158,10 @@ public class MainFrame extends javax.swing.JFrame {
         mnuDashboard = new javax.swing.JMenuItem();
         mnuSystemLog = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuCredits = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnuLogOut = new javax.swing.JMenuItem();
         mnuExit = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        mnuCredits = new javax.swing.JMenuItem();
         mnuUserMain = new javax.swing.JMenu();
         mnuUserInfo = new javax.swing.JMenuItem();
         mnuAddUser = new javax.swing.JMenuItem();
@@ -252,6 +252,17 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.add(mnuSystemLog);
         mnuMainSystem.add(jSeparator1);
 
+        mnuCredits.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/credits.png"))); // NOI18N
+        mnuCredits.setText("Credits");
+        mnuCredits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCreditsActionPerformed(evt);
+            }
+        });
+        mnuMainSystem.add(mnuCredits);
+        mnuMainSystem.add(jSeparator4);
+
         mnuLogOut.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/logout.png"))); // NOI18N
         mnuLogOut.setText("LogOut");
@@ -271,17 +282,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         mnuMainSystem.add(mnuExit);
-        mnuMainSystem.add(jSeparator5);
-
-        mnuCredits.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        mnuCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/credits.png"))); // NOI18N
-        mnuCredits.setText("Credits");
-        mnuCredits.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuCreditsActionPerformed(evt);
-            }
-        });
-        mnuMainSystem.add(mnuCredits);
 
         mnuMain.add(mnuMainSystem);
 
@@ -852,7 +852,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     public javax.swing.JDesktopPane mainDesktop;
     private javax.swing.JMenuItem mnuAddCategory;
     private javax.swing.JMenuItem mnuAddProduct;
