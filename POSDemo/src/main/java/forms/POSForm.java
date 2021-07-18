@@ -352,6 +352,104 @@ public class POSForm extends javax.swing.JInternalFrame {
         
     }
     
+    private void addToCart() {
+        
+        tblShoppingCart.clearSelection();
+
+        String code = tbxCode.getText().trim();
+        String quantity = tbxQuantity.getText().trim();
+        String productID = lblCurrentProductID.getText();
+
+        Double sumPrice = Double.parseDouble(lblTotalPrice.getText());
+
+        ValidationResult vr = new ValidationResult();
+        String errMessage;
+
+        vr = validateProductCode(code);
+        if (!vr.result) {
+            popupWarning(vr);
+            tbxCode.setText("");
+            tbxCode.requestFocus();
+            return;
+        }
+
+        errMessage = "Invalid 'Quantity' format!";
+        vr = validateStringIsInteger(quantity, errMessage);
+        if (!vr.result) {
+            popupWarning(vr);
+            tbxQuantity.setText("1");
+            tbxQuantity.requestFocus();
+            return;
+        }
+
+        double dPrice, dTotal;
+        String dfQuantity, dfPrice;
+
+        int row = getExistProductIDRowNo(productID);
+        if (row > -1) { // Item already in cart
+            int curQty = Integer.parseInt(tblShoppingCart.getValueAt(row, 1).toString());
+            int addQty = Integer.parseInt(quantity);
+
+            if (btnAddToCart.getText().equals("Add To Cart")) {
+                dfQuantity = DFMT_QUANTITY.format(curQty + addQty);
+                modelCartList.setValueAt(dfQuantity, row, 1);
+            } else {
+                dfQuantity = DFMT_QUANTITY.format(addQty);
+                modelCartList.setValueAt(dfQuantity, row, 1);
+                btnAddToCart.setText("Add To Cart");
+            }
+
+            tblContentList.clearSelection();
+            tbxCode.setText("");
+            tbxCode.requestFocus();
+            tbxQuantity.setText("1");
+            lblCurrentProductID.setText("");
+
+            tbxCashIn.setText("0.00");
+            tbxExchange.setText("0.00");
+
+            calculateCartTotal();
+
+        } else { // Add new item  to cart
+            Product product = new Product((Integer.parseInt(productID)));
+            row = tblShoppingCart.getRowCount();
+            try {
+                modelCartList.addRow(new  Object[0]);
+                modelCartList.setValueAt(product.getName(), row, 0);
+
+                int iQuantity = Integer.parseInt(quantity);
+
+                dPrice = product.getPrice();
+                dfQuantity = DFMT_QUANTITY.format(iQuantity);
+                dfPrice = DFMT_PRICE.format(dPrice);
+                dTotal = dPrice * iQuantity;
+                sumPrice += dTotal;
+
+                modelCartList.setValueAt(dfQuantity, row, 1);
+                modelCartList.setValueAt(dfPrice, row, 2);
+                modelCartList.setValueAt(product.getId(), row, 4);
+                modelCartList.setValueAt(product.getCode(), row, 5);
+                modelCartList.setValueAt(product.getCost(), row, 6);
+
+                tblContentList.clearSelection();
+                tbxCode.setText("");
+                tbxCode.requestFocus();
+                tbxQuantity.setText("1");
+
+                tbxCashIn.setText("0.00");
+                tbxExchange.setText("0.00");
+
+                lblCurrentProductID.setText("");
+
+                calculateCartTotal();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+    }
+    
     private void calculateCartTotal() {
         
         Double grandTotal = 0.0;
@@ -856,8 +954,8 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         });
         tbxCode.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tbxCodeKeyReleased(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbxCodeKeyPressed(evt);
             }
         });
 
@@ -868,6 +966,11 @@ public class POSForm extends javax.swing.JInternalFrame {
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddToCartActionPerformed(evt);
+            }
+        });
+        btnAddToCart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAddToCartKeyPressed(evt);
             }
         });
 
@@ -883,8 +986,8 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         });
         tbxQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tbxQuantityKeyReleased(evt);
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbxQuantityKeyPressed(evt);
             }
         });
 
@@ -1370,10 +1473,6 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnRemoeActionPerformed
 
-    private void tbxQuantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxQuantityKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxQuantityKeyReleased
-
     private void tbxQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxQuantityFocusLost
 
         String quantity = tbxQuantity.getText().trim();
@@ -1397,110 +1496,9 @@ public class POSForm extends javax.swing.JInternalFrame {
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
 
-        tblShoppingCart.clearSelection();
-
-        String code = tbxCode.getText().trim();
-        String quantity = tbxQuantity.getText().trim();
-        String productID = lblCurrentProductID.getText();
-
-        Double sumPrice = Double.parseDouble(lblTotalPrice.getText());
-
-        ValidationResult vr = new ValidationResult();
-        String errMessage;
-
-        vr = validateProductCode(code);
-        if (!vr.result) {
-            popupWarning(vr);
-            tbxCode.setText("");
-            tbxCode.requestFocus();
-            return;
-        }
-
-        errMessage = "Invalid 'Quantity' format!";
-        vr = validateStringIsInteger(quantity, errMessage);
-        if (!vr.result) {
-            popupWarning(vr);
-            tbxQuantity.setText("1");
-            tbxQuantity.requestFocus();
-            return;
-        }
-
-        double dPrice, dTotal;
-        String dfQuantity, dfPrice;
-
-        int row = getExistProductIDRowNo(productID);
-        if (row > -1) { // Item already in cart
-            int curQty = Integer.parseInt(tblShoppingCart.getValueAt(row, 1).toString());
-            int addQty = Integer.parseInt(quantity);
-
-            if (btnAddToCart.getText().equals("Add To Cart")) {
-                dfQuantity = DFMT_QUANTITY.format(curQty + addQty);
-                modelCartList.setValueAt(dfQuantity, row, 1);
-            } else {
-                dfQuantity = DFMT_QUANTITY.format(addQty);
-                modelCartList.setValueAt(dfQuantity, row, 1);
-                btnAddToCart.setText("Add To Cart");
-            }
-
-            tblContentList.clearSelection();
-            tbxCode.setText("");
-            tbxCode.requestFocus();
-            tbxQuantity.setText("1");
-            lblCurrentProductID.setText("");
-
-            tbxCashIn.setText("0.00");
-            tbxExchange.setText("0.00");
-
-            calculateCartTotal();
-
-        } else { // Add new item  to cart
-            Product product = new Product((Integer.parseInt(productID)));
-            row = tblShoppingCart.getRowCount();
-            try {
-                modelCartList.addRow(new  Object[0]);
-                modelCartList.setValueAt(product.getName(), row, 0);
-
-                int iQuantity = Integer.parseInt(quantity);
-
-                dPrice = product.getPrice();
-                dfQuantity = DFMT_QUANTITY.format(iQuantity);
-                dfPrice = DFMT_PRICE.format(dPrice);
-                dTotal = dPrice * iQuantity;
-                sumPrice += dTotal;
-
-                modelCartList.setValueAt(dfQuantity, row, 1);
-                modelCartList.setValueAt(dfPrice, row, 2);
-                modelCartList.setValueAt(product.getId(), row, 4);
-                modelCartList.setValueAt(product.getCode(), row, 5);
-                modelCartList.setValueAt(product.getCost(), row, 6);
-
-                tblContentList.clearSelection();
-                tbxCode.setText("");
-                tbxCode.requestFocus();
-                tbxQuantity.setText("1");
-
-                tbxCashIn.setText("0.00");
-                tbxExchange.setText("0.00");
-
-                lblCurrentProductID.setText("");
-
-                calculateCartTotal();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        addToCart();
 
     }//GEN-LAST:event_btnAddToCartActionPerformed
-
-    private void tbxCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxCodeKeyReleased
-
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tbxQuantity.requestFocus();
-            tbxQuantity.selectAll();
-        }
-
-    }//GEN-LAST:event_tbxCodeKeyReleased
 
     private void tbxCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCodeFocusLost
 
@@ -1565,6 +1563,31 @@ public class POSForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnFillbackActionPerformed
 
+    private void tbxCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxCodeKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tbxQuantity.requestFocus();
+            tbxQuantity.selectAll();
+        }
+        
+    }//GEN-LAST:event_tbxCodeKeyPressed
+
+    private void tbxQuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxQuantityKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnAddToCart.requestFocus();
+        }
+        
+    }//GEN-LAST:event_tbxQuantityKeyPressed
+
+    private void btnAddToCartKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAddToCartKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            addToCart();
+        }
+        
+    }//GEN-LAST:event_btnAddToCartKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToCart;
@@ -1606,7 +1629,7 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblShoppingCart;
     private javax.swing.JTable tblSpareCart;
     private javax.swing.JTextField tbxCashIn;
-    public static javax.swing.JTextField tbxCode;
+    public javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxExchange;
     public static javax.swing.JTextField tbxFilter;
     public javax.swing.JTextField tbxQuantity;

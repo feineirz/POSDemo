@@ -569,6 +569,7 @@ public class MainFrame extends javax.swing.JFrame {
                     pullCenter(mainDesktop, posForm);
                     posForm.setMaximum(true);
                     posForm.show();
+                    posForm.tbxCode.requestFocus();
                     
                     dashboardForm.pnlUserInfo.setBackground(DASHBOARD_STAFF_COLOR);
 
@@ -674,8 +675,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         posForm.show();
         posForm.toFront();
-        posForm.tbxQuantity.requestFocus();
-        posForm.tbxQuantity.selectAll();
+        posForm.tbxCode.requestFocus();
         
     }//GEN-LAST:event_mnuPOSActionPerformed
 
