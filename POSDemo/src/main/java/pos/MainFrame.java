@@ -92,6 +92,8 @@ public class MainFrame extends javax.swing.JFrame {
         mainDesktop.add(reportReceiptSummaryForm); 
         mainDesktop.add(reportSystemLogForm);
         
+        mainDesktop.add(creditsForm);
+        
         System.out.println("All forms Loaded.");
     }
     
@@ -157,8 +159,9 @@ public class MainFrame extends javax.swing.JFrame {
         mnuSystemLog = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuLogOut = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnuExit = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        mnuCredits = new javax.swing.JMenuItem();
         mnuUserMain = new javax.swing.JMenu();
         mnuUserInfo = new javax.swing.JMenuItem();
         mnuAddUser = new javax.swing.JMenuItem();
@@ -258,7 +261,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         mnuMainSystem.add(mnuLogOut);
-        mnuMainSystem.add(jSeparator4);
 
         mnuExit.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/power-off.png"))); // NOI18N
@@ -269,6 +271,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         mnuMainSystem.add(mnuExit);
+        mnuMainSystem.add(jSeparator5);
+
+        mnuCredits.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/credits.png"))); // NOI18N
+        mnuCredits.setText("Credits");
+        mnuCredits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCreditsActionPerformed(evt);
+            }
+        });
+        mnuMainSystem.add(mnuCredits);
 
         mnuMain.add(mnuMainSystem);
 
@@ -762,8 +775,7 @@ public class MainFrame extends javax.swing.JFrame {
             if (comp instanceof JInternalFrame) {
                 ((JInternalFrame) comp).hide();
             }
-        }
-        
+        }        
 
         loginForm = new LoginForm();        
         pullCenter(mainDesktop, loginForm);
@@ -788,6 +800,14 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println("Current User: "+CURRENT_USER.username);
         
     }//GEN-LAST:event_mnuLogOutActionPerformed
+
+    private void mnuCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCreditsActionPerformed
+        
+        pullCenter(mainDesktop, creditsForm);
+        creditsForm.show();
+        creditsForm.toFront();
+        
+    }//GEN-LAST:event_mnuCreditsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -832,13 +852,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     public javax.swing.JDesktopPane mainDesktop;
     private javax.swing.JMenuItem mnuAddCategory;
     private javax.swing.JMenuItem mnuAddProduct;
     private javax.swing.JMenuItem mnuAddStock;
     private javax.swing.JMenuItem mnuAddUser;
     private javax.swing.JMenuItem mnuCategoryInfo;
+    private javax.swing.JMenuItem mnuCredits;
     private javax.swing.JMenuItem mnuDashboard;
     private javax.swing.JMenuItem mnuExit;
     private javax.swing.JMenuItem mnuLogOut;

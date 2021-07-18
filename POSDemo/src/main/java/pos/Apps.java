@@ -42,4 +42,6 @@ public class Apps {
     public static ReportReceiptSummaryForm reportReceiptSummaryForm = new ReportReceiptSummaryForm();
     public static ReportSystemLogForm reportSystemLogForm = new ReportSystemLogForm();
     
+    public static CreditsForm creditsForm = new CreditsForm();
+    
 }
