@@ -796,6 +796,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"REFILL STOCK",
                             "Account":{
                                 "ID":%d,
@@ -824,6 +825,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -883,6 +885,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                             """
                             {
                                 "APPLICATION LOG":{
+                                    "LogDate":"%s",
                                     "Event":"DELETE STOCK",
                                     "Account":{
                                         "ID":%d,
@@ -911,6 +914,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                                 }
                             }
                             """.formatted(
+                                    li.log_date,
                                     CURRENT_USER.id,
                                     CURRENT_USER.username,
                                     CURRENT_USER.email,

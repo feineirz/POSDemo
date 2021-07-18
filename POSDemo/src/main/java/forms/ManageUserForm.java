@@ -778,6 +778,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "SYSTEM LOG":{
+                            "LogDate":"%s",
                             "Event":"MODIFY USER",
                             "Account":{
                                 "ID":%d,
@@ -799,6 +800,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -865,6 +867,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "SYSTEM LOG":{
+                            "LogDate":"%s",
                             "Event":"DELETE USER",
                             "Account":{
                                 "ID":%d,
@@ -886,6 +889,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,

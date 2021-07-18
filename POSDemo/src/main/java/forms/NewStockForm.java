@@ -641,6 +641,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"REFILL STOCK",
                             "Account":{
                                 "ID":%d,
@@ -665,6 +666,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                                     "Cost":%s
                                 },
                                 "Quantity":%d,
+                                "Cost":%s,
                                 "NewQuantity":%d,
                                 "NewCost":%s
                             },
@@ -672,6 +674,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -686,6 +689,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                             product.getName(),
                             DFMT_PRICE.format(curCost),
                             si.quantity,
+                            DFMT_PRICE_NC.format(Double.parseDouble(cost)),
                             stock.getQuantity(),
                             DFMT_PRICE_NC.format(product.getCost())
                     )
@@ -713,6 +717,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"REFILL STOCK",
                             "Account":{
                                 "ID":%d,
@@ -737,6 +742,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                                     "Cost":%s
                                 },
                                 "Quantity":%d,
+                                "Cost":%s,
                                 "NewQuantity":%d,
                                 "NewCost":%s
                             },
@@ -744,6 +750,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -758,6 +765,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                             product.getName(),
                             DFMT_PRICE.format(product.getCost()),
                             si.quantity,
+                            DFMT_PRICE_NC.format(product.getCost()),
                             stock.getQuantity(),
                             DFMT_PRICE_NC.format(product.getCost())
                     )

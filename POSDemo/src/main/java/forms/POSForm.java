@@ -1088,27 +1088,13 @@ public class POSForm extends javax.swing.JInternalFrame {
             li.log_date = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
-            li.event = "ADD NEW RECEIPT";
-            
-            li.details = "User '"+CURRENT_USER.username+"' (User Level: "+getUserLevel(CURRENT_USER.level)+") \n"
-                    + "ADD RECEIPT\n"
-                    + " Receipt[\n"
-                    + "  ID: "+receipt.getId()+",\n"
-                    + "  Recept Date: "+receipt.getReceipt_date()+",\n"
-                    + "  Cost: "+DFMT_PRICE.format(receipt.getCost())+",\n"
-                    + "  Total: "+DFMT_PRICE.format(receipt.getTotal())+",\n"
-                    + "  Cash: "+DFMT_PRICE.format(receipt.getCash())+",\n"
-                    + "  Exchange: "+DFMT_PRICE.format(receipt.getExchange())+",\n"
-                    + "  Cashier: "+receipt.getCashier()+",\n"
-                    + "  Result: SUCCESS\n"
-                    + " ]";
-            Log.addLog(li);
+            li.event = "ADD RECEIPT";
             
             li.details = String.format(
                     """
                     {
                         "APPLICATION LOG":{
-                            "Event":"ADD PRODUCT",
+                            "Event":"ADD RECEIPT",
                             "Account":{
                                 "ID":%d,
                                 "Username":"%s",

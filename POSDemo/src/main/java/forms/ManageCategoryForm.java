@@ -639,6 +639,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"MODIFY CATEGORY",
                             "Account":{
                                 "ID":%d,
@@ -657,6 +658,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -706,6 +708,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                             """
                             {
                                 "APPLICATION LOG":{
+                                    "LogDate":"%s",
                                     "Event":"DELETE CATEGORY",
                                     "Account":{
                                         "ID":%d,
@@ -724,6 +727,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                                 }
                             }
                             """.formatted(
+                                    li.log_date,
                                     CURRENT_USER.id,
                                     CURRENT_USER.username,
                                     CURRENT_USER.email,

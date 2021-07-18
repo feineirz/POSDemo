@@ -542,6 +542,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"ADD PRODUCT",
                             "Account":{
                                 "ID":%d,
@@ -573,6 +574,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,

@@ -59,6 +59,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "SYSTEM LOG":{
+                            "LogDate":"%s",
                             "Event":"LOGIN",
                             "Account":{
                                 "ID":%d,
@@ -71,6 +72,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -86,6 +88,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "SYSTEM LOG":{
+                            "LogDate":"%s",
                             "Event":"LOGIN",
                             "Account":{
                                 "Username":"%s"
@@ -94,6 +97,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             username
                     )
             );            

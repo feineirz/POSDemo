@@ -936,6 +936,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"MODIFY PRODUCT",
                             "Account":{
                                 "ID":%d,
@@ -962,6 +963,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -1021,6 +1023,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     """
                     {
                         "APPLICATION LOG":{
+                            "LogDate":"%s",
                             "Event":"DELETE PRODUCT",
                             "Account":{
                                 "ID":%d,
@@ -1051,6 +1054,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
