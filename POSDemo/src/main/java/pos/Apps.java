@@ -43,5 +43,6 @@ public class Apps {
     public static ReportSystemLogForm reportSystemLogForm = new ReportSystemLogForm();
     
     public static CreditsForm creditsForm = new CreditsForm();
+    public static AboutForm aboutForm = new AboutForm();
     
 }

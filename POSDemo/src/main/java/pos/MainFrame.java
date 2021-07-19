@@ -93,6 +93,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainDesktop.add(reportSystemLogForm);
         
         mainDesktop.add(creditsForm);
+        mainDesktop.add(aboutForm);
         
         System.out.println("All forms Loaded.");
     }
@@ -158,6 +159,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuDashboard = new javax.swing.JMenuItem();
         mnuSystemLog = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuAbout = new javax.swing.JMenuItem();
         mnuCredits = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnuLogOut = new javax.swing.JMenuItem();
@@ -251,6 +253,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         mnuMainSystem.add(mnuSystemLog);
         mnuMainSystem.add(jSeparator1);
+
+        mnuAbout.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/about.png"))); // NOI18N
+        mnuAbout.setText("About");
+        mnuAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAboutActionPerformed(evt);
+            }
+        });
+        mnuMainSystem.add(mnuAbout);
 
         mnuCredits.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuCredits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/credits.png"))); // NOI18N
@@ -809,6 +821,14 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnuCreditsActionPerformed
 
+    private void mnuAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAboutActionPerformed
+        
+        pullCenter(mainDesktop, aboutForm);
+        aboutForm.show();
+        aboutForm.toFront();
+        
+    }//GEN-LAST:event_mnuAboutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -854,6 +874,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     public javax.swing.JDesktopPane mainDesktop;
+    private javax.swing.JMenuItem mnuAbout;
     private javax.swing.JMenuItem mnuAddCategory;
     private javax.swing.JMenuItem mnuAddProduct;
     private javax.swing.JMenuItem mnuAddStock;
