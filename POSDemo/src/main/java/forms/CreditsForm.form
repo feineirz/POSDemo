@@ -84,7 +84,7 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="1" attributes="0">
                           <Component id="lblCreditURL9" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
@@ -97,6 +97,7 @@
                       <Component id="lblCreditURL3" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
                       <Component id="lblCreditURL4" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
                       <Component id="lblCreditURL5" alignment="1" min="-2" pref="320" max="-2" attributes="0"/>
+                      <Component id="lblCreditURL18" min="-2" pref="320" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
               </Group>
@@ -164,6 +165,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblCreditURL6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCreditURL18" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -557,6 +560,23 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCreditURL17lblCreditURL1MouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCreditURL18">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="ff" red="99" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="https://jsonformatter.curiousconcept.com/"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCreditURL18MouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

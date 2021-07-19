@@ -15,9 +15,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import static javax.swing.SwingUtilities.isRightMouseButton;
 import javax.swing.plaf.FontUIResource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -77,6 +81,14 @@ public class Dashboard extends javax.swing.JInternalFrame {
     }
     
     /*==== Helper Functions ====*/
+    private void copySystemLog() {
+        
+        String content = edpSystemLog.getSelectedText();
+        StringSelection ss = new StringSelection(content);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(ss, null);
+        
+    }
 	
     
     /*==== Required Functions ====*/
@@ -198,6 +210,9 @@ public class Dashboard extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popSystemLog = new javax.swing.JPopupMenu();
+        popSystemLog_Copy = new javax.swing.JMenuItem();
+        popSystemLog_CopyReFormat = new javax.swing.JMenuItem();
         pnlMain = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
@@ -262,6 +277,22 @@ public class Dashboard extends javax.swing.JInternalFrame {
         scpSystemLog = new javax.swing.JScrollPane();
         edpSystemLog = new javax.swing.JEditorPane();
         jLabel11 = new javax.swing.JLabel();
+
+        popSystemLog_Copy.setText("Copy");
+        popSystemLog_Copy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popSystemLog_CopyActionPerformed(evt);
+            }
+        });
+        popSystemLog.add(popSystemLog_Copy);
+
+        popSystemLog_CopyReFormat.setText("Copy and Reformat");
+        popSystemLog_CopyReFormat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popSystemLog_CopyReFormatActionPerformed(evt);
+            }
+        });
+        popSystemLog.add(popSystemLog_CopyReFormat);
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
@@ -647,6 +678,11 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         edpSystemLog.setBackground(new java.awt.Color(240, 240, 240));
         edpSystemLog.setContentType("text/html"); // NOI18N
+        edpSystemLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                edpSystemLogMouseClicked(evt);
+            }
+        });
         scpSystemLog.setViewportView(edpSystemLog);
 
         javax.swing.GroupLayout pnlSystemLogLayout = new javax.swing.GroupLayout(pnlSystemLog);
@@ -755,6 +791,27 @@ public class Dashboard extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formComponentShown
 
+    private void popSystemLog_CopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyActionPerformed
+        
+        copySystemLog();
+        
+    }//GEN-LAST:event_popSystemLog_CopyActionPerformed
+
+    private void edpSystemLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edpSystemLogMouseClicked
+        
+        if (isRightMouseButton(evt)) {
+            popSystemLog.show(pnlMain,evt.getXOnScreen(),evt.getYOnScreen() - 100);
+        }
+        
+    }//GEN-LAST:event_edpSystemLogMouseClicked
+
+    private void popSystemLog_CopyReFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyReFormatActionPerformed
+        
+        copySystemLog();
+        openURL("https://jsonformatter.curiousconcept.com/");
+        
+    }//GEN-LAST:event_popSystemLog_CopyReFormatActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JEditorPane edpBestSelling;
@@ -793,6 +850,9 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlTodayIncome;
     private javax.swing.JPanel pnlTodayProfit;
     public static javax.swing.JPanel pnlUserInfo;
+    private javax.swing.JPopupMenu popSystemLog;
+    private javax.swing.JMenuItem popSystemLog_Copy;
+    private javax.swing.JMenuItem popSystemLog_CopyReFormat;
     private javax.swing.JScrollPane scpBestSelling;
     private javax.swing.JScrollPane scpLowStockNotification;
     private javax.swing.JScrollPane scpSystemLog;

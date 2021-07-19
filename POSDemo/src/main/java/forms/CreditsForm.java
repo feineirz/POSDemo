@@ -5,10 +5,9 @@
  */
 package forms;
 
+import static GLOBAL.HelperFunctions.openURL;
 import GLOBAL.Settings;
-import java.awt.Desktop;
 import java.awt.Graphics;
-import java.net.URI;
 
 /**
  *
@@ -24,19 +23,6 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     }
     
     /*---- Helper Functions ----*/
-    
-    private void openURL(String url) {
-        
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            try {
-                desktop.browse(new URI(url));                
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        
-    }
 
     /**
      * This method is called from within the constructor to
@@ -83,6 +69,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         lblCreditURL16 = new javax.swing.JLabel();
         lblCreditURL17 = new javax.swing.JLabel();
+        lblCreditURL18 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -294,6 +281,16 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCreditURL18.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL18.setForeground(new java.awt.Color(153, 255, 51));
+        lblCreditURL18.setText("https://jsonformatter.curiousconcept.com/");
+        lblCreditURL18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCreditURL18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL18MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMain2Layout = new javax.swing.GroupLayout(pnlMain2);
         pnlMain2.setLayout(pnlMain2Layout);
         pnlMain2Layout.setHorizontalGroup(
@@ -319,18 +316,19 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                         .addComponent(lblCreditURL16, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(59, 59, 59)
-                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblCreditURL9, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblCreditURL2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCreditURL2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL18, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88))
         );
         pnlMain2Layout.setVerticalGroup(
@@ -382,7 +380,9 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMain2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCreditURL6))
+                        .addComponent(lblCreditURL6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL18))
                     .addGroup(pnlMain2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel10)
@@ -411,36 +411,31 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
     private void lblCreditURL7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL7MouseClicked
 
-        String url = "https://www.flaticon.com/authors/freepik";
-        openURL(url);
+        openURL("https://www.flaticon.com/authors/freepik");
 
     }//GEN-LAST:event_lblCreditURL7MouseClicked
 
     private void lblCreditURL6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL6MouseClicked
 
-        String url = "https://beginnersbook.com/";
-        openURL(url);
+        openURL("https://beginnersbook.com/");
 
     }//GEN-LAST:event_lblCreditURL6MouseClicked
 
     private void lblCreditURL5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL5MouseClicked
 
-        String url = "https://www.javatpoint.com/";
-        openURL(url);
+        openURL("https://www.javatpoint.com/");
 
     }//GEN-LAST:event_lblCreditURL5MouseClicked
 
     private void lblCreditURL4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL4MouseClicked
 
-        String url = "https://www.w3schools.com/";
-        openURL(url);
+        openURL("https://www.w3schools.com/");
 
     }//GEN-LAST:event_lblCreditURL4MouseClicked
 
     private void lblCreditURL3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL3MouseClicked
 
-        String url = "https://stackoverflow.com/";
-        openURL(url);
+        openURL("https://stackoverflow.com/");
 
     }//GEN-LAST:event_lblCreditURL3MouseClicked
 
@@ -453,8 +448,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
     private void lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL1MouseClicked
 
-        String url = "https://www.wallpaperflare.com/";
-        openURL(url);
+        openURL("https://www.wallpaperflare.com/");
 
     }//GEN-LAST:event_lblCreditURL1MouseClicked
 
@@ -490,18 +484,21 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblCreditURL17lblCreditURL1MouseClicked
 
+    private void lblCreditURL18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL18MouseClicked
+        
+        openURL("https://jsonformatter.curiousconcept.com/");
+        
+    }//GEN-LAST:event_lblCreditURL18MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblCreditURL1;
     private javax.swing.JLabel lblCreditURL10;
     private javax.swing.JLabel lblCreditURL11;
     private javax.swing.JLabel lblCreditURL12;
@@ -510,18 +507,16 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCreditURL15;
     private javax.swing.JLabel lblCreditURL16;
     private javax.swing.JLabel lblCreditURL17;
+    private javax.swing.JLabel lblCreditURL18;
     private javax.swing.JLabel lblCreditURL2;
     private javax.swing.JLabel lblCreditURL3;
     private javax.swing.JLabel lblCreditURL4;
     private javax.swing.JLabel lblCreditURL5;
     private javax.swing.JLabel lblCreditURL6;
     private javax.swing.JLabel lblCreditURL7;
-    private javax.swing.JLabel lblCreditURL8;
     private javax.swing.JLabel lblCreditURL9;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlHeader;
-    private javax.swing.JPanel pnlMain;
-    private javax.swing.JPanel pnlMain1;
     private javax.swing.JPanel pnlMain2;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,8 +13,10 @@ import DBCLS.ReceiptDetail;
 import DBCLS.ReceiptDetail.TopBestSellingInfo;
 import DBCLS.Stock;
 import static GLOBAL.Varibles.*;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -40,6 +42,19 @@ public class HelperFunctions {
                 if (value instanceof javax.swing.plaf.FontUIResource)
                         UIManager.put (key, f);
         }
+    }
+    
+    public static void openURL(String url) {
+        
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                desktop.browse(new URI(url));                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
     }
     
     /*---- Call Functions ----*/
