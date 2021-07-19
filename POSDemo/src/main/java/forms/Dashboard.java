@@ -32,6 +32,7 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
+import pos.Apps;
 
 /**
  *
@@ -800,7 +801,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private void edpSystemLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edpSystemLogMouseClicked
         
         if (isRightMouseButton(evt)) {
-            popSystemLog.show(pnlMain,evt.getXOnScreen(),evt.getYOnScreen() - 100);
+            popSystemLog.show(Apps.mainFrame.mainDesktop, evt.getXOnScreen(),evt.getYOnScreen()-100);
         }
         
     }//GEN-LAST:event_edpSystemLogMouseClicked
