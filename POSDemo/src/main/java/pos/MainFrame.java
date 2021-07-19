@@ -93,7 +93,6 @@ public class MainFrame extends javax.swing.JFrame {
         mainDesktop.add(reportSystemLogForm);
         
         mainDesktop.add(creditsForm);
-        mainDesktop.add(aboutForm);
         
         System.out.println("All forms Loaded.");
     }

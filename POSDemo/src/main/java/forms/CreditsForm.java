@@ -203,7 +203,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel7.setText("Program and Database Design");
 
         lblCreditURL10.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL10.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL10.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL10.setText("Mr. Marut Nuchbanpa");
         lblCreditURL10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,7 +217,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel8.setText("Programmer");
 
         lblCreditURL11.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL11.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL11.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL11.setText("Mr. Marut Nuchbanpa");
         lblCreditURL11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,7 +227,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         });
 
         lblCreditURL12.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL12.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL12.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL12.setText("-");
         lblCreditURL12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,7 +241,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel9.setText("Tester");
 
         lblCreditURL13.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL13.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL13.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL13.setText("-");
         lblCreditURL13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,7 +251,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         });
 
         lblCreditURL14.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL14.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL14.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL14.setText("-");
         lblCreditURL14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,7 +261,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         });
 
         lblCreditURL15.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL15.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL15.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL15.setText("-");
         lblCreditURL15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -275,7 +275,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel10.setText("Documenter");
 
         lblCreditURL16.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL16.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL16.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL16.setText("-");
         lblCreditURL16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -285,7 +285,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         });
 
         lblCreditURL17.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        lblCreditURL17.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL17.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL17.setText("-");
         lblCreditURL17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL17.addMouseListener(new java.awt.event.MouseAdapter() {
