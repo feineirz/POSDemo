@@ -48,14 +48,14 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlMain = new javax.swing.JPanel(){
+        pnlMain2 = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
                 g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        jLabel2 = new javax.swing.JLabel();
-        lblCreditURL1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lblCreditURL9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblCreditURL2 = new javax.swing.JLabel();
         pnlHeader = new javax.swing.JPanel(){
@@ -71,34 +71,46 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL5 = new javax.swing.JLabel();
         lblCreditURL6 = new javax.swing.JLabel();
         lblCreditURL7 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblCreditURL10 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblCreditURL11 = new javax.swing.JLabel();
+        lblCreditURL12 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblCreditURL13 = new javax.swing.JLabel();
+        lblCreditURL14 = new javax.swing.JLabel();
+        lblCreditURL15 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblCreditURL16 = new javax.swing.JLabel();
+        lblCreditURL17 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 520));
-        setMinimumSize(new java.awt.Dimension(600, 520));
-        setPreferredSize(new java.awt.Dimension(600, 520));
+        setMaximumSize(new java.awt.Dimension(1000, 620));
+        setMinimumSize(new java.awt.Dimension(1000, 620));
+        setPreferredSize(new java.awt.Dimension(1000, 620));
 
-        pnlMain.setBackground(new java.awt.Color(51, 51, 51));
+        pnlMain2.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Form and Panel background images");
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Form and Panel background images");
 
-        lblCreditURL1.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        lblCreditURL1.setForeground(new java.awt.Color(153, 255, 51));
-        lblCreditURL1.setText("https://www.wallpaperflare.com/");
-        lblCreditURL1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblCreditURL1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCreditURL9.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL9.setForeground(new java.awt.Color(153, 255, 51));
+        lblCreditURL9.setText("https://www.wallpaperflare.com/");
+        lblCreditURL9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCreditURL9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCreditURL1MouseClicked(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Program, Title, Menu and Button icons");
 
-        lblCreditURL2.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL2.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL2.setText("https://www.flaticon.com/");
         lblCreditURL2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -113,7 +125,6 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblTitle.setBackground(new java.awt.Color(51, 51, 51));
         lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("CREDITS");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
@@ -122,7 +133,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
@@ -133,11 +144,11 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Helpful + Useful codes and ideas");
 
-        lblCreditURL3.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL3.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL3.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL3.setText("https://stackoverflow.com/");
         lblCreditURL3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -147,7 +158,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCreditURL4.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL4.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL4.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL4.setText("https://www.w3schools.com/");
         lblCreditURL4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -157,7 +168,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCreditURL5.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL5.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL5.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL5.setText("https://www.javatpoint.com/");
         lblCreditURL5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -167,7 +178,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCreditURL6.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL6.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL6.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL6.setText("https://beginnersbook.com/");
         lblCreditURL6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -177,7 +188,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCreditURL7.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        lblCreditURL7.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL7.setForeground(new java.awt.Color(153, 255, 51));
         lblCreditURL7.setText("https://www.flaticon.com/authors/freepik");
         lblCreditURL7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -187,55 +198,199 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
-        pnlMain.setLayout(pnlMainLayout);
-        pnlMainLayout.setHorizontalGroup(
-            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Program and Database Design");
+
+        lblCreditURL10.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL10.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL10.setText("Mr. Marut Nuchbanpa");
+        lblCreditURL10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL10lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Programmer");
+
+        lblCreditURL11.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL11.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL11.setText("Mr. Marut Nuchbanpa");
+        lblCreditURL11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL11lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        lblCreditURL12.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL12.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL12.setText("-");
+        lblCreditURL12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL12lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Tester");
+
+        lblCreditURL13.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL13.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL13.setText("-");
+        lblCreditURL13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL13lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        lblCreditURL14.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL14.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL14.setText("-");
+        lblCreditURL14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL14lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        lblCreditURL15.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL15.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL15.setText("-");
+        lblCreditURL15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL15lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Documenter");
+
+        lblCreditURL16.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL16.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL16.setText("-");
+        lblCreditURL16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL16lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        lblCreditURL17.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL17.setForeground(new java.awt.Color(204, 255, 0));
+        lblCreditURL17.setText("-");
+        lblCreditURL17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblCreditURL17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL17lblCreditURL1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMain2Layout = new javax.swing.GroupLayout(pnlMain2);
+        pnlMain2.setLayout(pnlMain2Layout);
+        pnlMain2Layout.setHorizontalGroup(
+            pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlMainLayout.createSequentialGroup()
-                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCreditURL6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreditURL2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(pnlMainLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lblCreditURL1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
-                            .addGap(152, 152, 152)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCreditURL15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreditURL12, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreditURL11, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreditURL10, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCreditURL17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreditURL16, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCreditURL9, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCreditURL2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreditURL5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88))
         );
-        pnlMainLayout.setVerticalGroup(
-            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(jLabel2)
+        pnlMain2Layout.setVerticalGroup(
+            pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain2Layout.createSequentialGroup()
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlMain2Layout.createSequentialGroup()
+                        .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlMain2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCreditURL9))
+                            .addGroup(pnlMain2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCreditURL10)))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlMain2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCreditURL2))
+                            .addGroup(pnlMain2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCreditURL11)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4))
+                    .addGroup(pnlMain2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreditURL3)
+                    .addComponent(lblCreditURL13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL2)
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreditURL4)
+                    .addComponent(lblCreditURL14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL6)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreditURL5)
+                    .addComponent(lblCreditURL15))
+                .addGroup(pnlMain2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMain2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL6))
+                    .addGroup(pnlMain2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL17)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,81 +399,129 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlMain2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnlMain2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL1MouseClicked
-        
-        String url = "https://www.wallpaperflare.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL1MouseClicked
-
-    private void lblCreditURL2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL2MouseClicked
-        
-        String url = "https://www.flaticon.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL2MouseClicked
-
-    private void lblCreditURL3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL3MouseClicked
-        
-        String url = "https://stackoverflow.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL3MouseClicked
-
-    private void lblCreditURL4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL4MouseClicked
-        
-        String url = "https://www.w3schools.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL4MouseClicked
-
-    private void lblCreditURL5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL5MouseClicked
-        
-        String url = "https://www.javatpoint.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL5MouseClicked
-
-    private void lblCreditURL6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL6MouseClicked
-        
-        String url = "https://beginnersbook.com/";
-        openURL(url);
-        
-    }//GEN-LAST:event_lblCreditURL6MouseClicked
-
     private void lblCreditURL7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL7MouseClicked
-                
+
         String url = "https://www.flaticon.com/authors/freepik";
         openURL(url);
-        
+
     }//GEN-LAST:event_lblCreditURL7MouseClicked
+
+    private void lblCreditURL6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL6MouseClicked
+
+        String url = "https://beginnersbook.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL6MouseClicked
+
+    private void lblCreditURL5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL5MouseClicked
+
+        String url = "https://www.javatpoint.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL5MouseClicked
+
+    private void lblCreditURL4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL4MouseClicked
+
+        String url = "https://www.w3schools.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL4MouseClicked
+
+    private void lblCreditURL3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL3MouseClicked
+
+        String url = "https://stackoverflow.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL3MouseClicked
+
+    private void lblCreditURL2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL2MouseClicked
+
+        String url = "https://www.flaticon.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL2MouseClicked
+
+    private void lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL1MouseClicked
+
+        String url = "https://www.wallpaperflare.com/";
+        openURL(url);
+
+    }//GEN-LAST:event_lblCreditURL1MouseClicked
+
+    private void lblCreditURL10lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL10lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL10lblCreditURL1MouseClicked
+
+    private void lblCreditURL11lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL11lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL11lblCreditURL1MouseClicked
+
+    private void lblCreditURL12lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL12lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL12lblCreditURL1MouseClicked
+
+    private void lblCreditURL13lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL13lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL13lblCreditURL1MouseClicked
+
+    private void lblCreditURL14lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL14lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL14lblCreditURL1MouseClicked
+
+    private void lblCreditURL15lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL15lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL15lblCreditURL1MouseClicked
+
+    private void lblCreditURL16lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL16lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL16lblCreditURL1MouseClicked
+
+    private void lblCreditURL17lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL17lblCreditURL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblCreditURL17lblCreditURL1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblCreditURL1;
+    private javax.swing.JLabel lblCreditURL10;
+    private javax.swing.JLabel lblCreditURL11;
+    private javax.swing.JLabel lblCreditURL12;
+    private javax.swing.JLabel lblCreditURL13;
+    private javax.swing.JLabel lblCreditURL14;
+    private javax.swing.JLabel lblCreditURL15;
+    private javax.swing.JLabel lblCreditURL16;
+    private javax.swing.JLabel lblCreditURL17;
     private javax.swing.JLabel lblCreditURL2;
     private javax.swing.JLabel lblCreditURL3;
     private javax.swing.JLabel lblCreditURL4;
     private javax.swing.JLabel lblCreditURL5;
     private javax.swing.JLabel lblCreditURL6;
     private javax.swing.JLabel lblCreditURL7;
+    private javax.swing.JLabel lblCreditURL8;
+    private javax.swing.JLabel lblCreditURL9;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JPanel pnlMain1;
+    private javax.swing.JPanel pnlMain2;
     // End of variables declaration//GEN-END:variables
 }
