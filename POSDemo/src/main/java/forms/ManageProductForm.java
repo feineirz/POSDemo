@@ -692,7 +692,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
         lblIcon.setForeground(new java.awt.Color(204, 204, 204));
         lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/prroduct32.png"))); // NOI18N
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product32.png"))); // NOI18N
         lblIcon.setPreferredSize(new java.awt.Dimension(36, 36));
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);

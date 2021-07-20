@@ -195,11 +195,6 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL10.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL10.setText("Mr. Marut Nuchbanpa");
         lblCreditURL10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL10lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -209,21 +204,11 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL11.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL11.setText("Mr. Marut Nuchbanpa");
         lblCreditURL11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL11lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         lblCreditURL12.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL12.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL12.setText("Mr. Pichit Wongwai");
         lblCreditURL12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL12lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,31 +218,16 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL13.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL13.setText("-");
         lblCreditURL13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL13lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         lblCreditURL14.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL14.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL14.setText("-");
         lblCreditURL14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL14lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         lblCreditURL15.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL15.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL15.setText("-");
         lblCreditURL15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL15lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,21 +237,11 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL16.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL16.setText("-");
         lblCreditURL16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL16lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         lblCreditURL17.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL17.setForeground(new java.awt.Color(255, 255, 0));
         lblCreditURL17.setText("-");
         lblCreditURL17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblCreditURL17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCreditURL17lblCreditURL1MouseClicked(evt);
-            }
-        });
 
         lblCreditURL18.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL18.setForeground(new java.awt.Color(153, 255, 51));
@@ -472,38 +432,6 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         openURL("https://www.wallpaperflare.com/");
 
     }//GEN-LAST:event_lblCreditURL1MouseClicked
-
-    private void lblCreditURL10lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL10lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL10lblCreditURL1MouseClicked
-
-    private void lblCreditURL11lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL11lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL11lblCreditURL1MouseClicked
-
-    private void lblCreditURL12lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL12lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL12lblCreditURL1MouseClicked
-
-    private void lblCreditURL13lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL13lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL13lblCreditURL1MouseClicked
-
-    private void lblCreditURL14lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL14lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL14lblCreditURL1MouseClicked
-
-    private void lblCreditURL15lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL15lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL15lblCreditURL1MouseClicked
-
-    private void lblCreditURL16lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL16lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL16lblCreditURL1MouseClicked
-
-    private void lblCreditURL17lblCreditURL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL17lblCreditURL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblCreditURL17lblCreditURL1MouseClicked
 
     private void lblCreditURL18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL18MouseClicked
         

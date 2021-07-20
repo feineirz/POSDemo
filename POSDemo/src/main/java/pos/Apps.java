@@ -17,6 +17,8 @@ public class Apps {
     public static MainFrame mainFrame;
     public static LoginForm loginForm = new LoginForm();
     
+    public static SystemLogViewerForm systemLogViewerForm = new SystemLogViewerForm();
+    
     public static Dashboard dashboardForm = new Dashboard();
     
     public static NewUserForm newUserForm = new NewUserForm();

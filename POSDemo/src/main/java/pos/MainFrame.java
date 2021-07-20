@@ -64,6 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void LoadForms() {
         mainDesktop.add(loginForm);
+        mainDesktop.add(systemLogViewerForm);
         
         mainDesktop.add(dashboardForm);
         mainDesktop.add(newUserForm);
@@ -156,7 +157,8 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMain = new javax.swing.JMenuBar();
         mnuMainSystem = new javax.swing.JMenu();
         mnuDashboard = new javax.swing.JMenuItem();
-        mnuSystemLog = new javax.swing.JMenuItem();
+        mnuSystemLogViewer = new javax.swing.JMenuItem();
+        mnuSystemLogReport = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuCredits = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -230,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMainSystem.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
 
         mnuDashboard.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        mnuDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/log.png"))); // NOI18N
+        mnuDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/dashboard.png"))); // NOI18N
         mnuDashboard.setText("Dashboard");
         mnuDashboard.setEnabled(false);
         mnuDashboard.addActionListener(new java.awt.event.ActionListener() {
@@ -240,16 +242,26 @@ public class MainFrame extends javax.swing.JFrame {
         });
         mnuMainSystem.add(mnuDashboard);
 
-        mnuSystemLog.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        mnuSystemLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/dashboard.png"))); // NOI18N
-        mnuSystemLog.setText("System Log");
-        mnuSystemLog.setEnabled(false);
-        mnuSystemLog.addActionListener(new java.awt.event.ActionListener() {
+        mnuSystemLogViewer.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuSystemLogViewer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/view-logs.png"))); // NOI18N
+        mnuSystemLogViewer.setText("System Log Viewer");
+        mnuSystemLogViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuSystemLogActionPerformed(evt);
+                mnuSystemLogViewerActionPerformed(evt);
             }
         });
-        mnuMainSystem.add(mnuSystemLog);
+        mnuMainSystem.add(mnuSystemLogViewer);
+
+        mnuSystemLogReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        mnuSystemLogReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/log.png"))); // NOI18N
+        mnuSystemLogReport.setText("System Log Report");
+        mnuSystemLogReport.setEnabled(false);
+        mnuSystemLogReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSystemLogReportActionPerformed(evt);
+            }
+        });
+        mnuMainSystem.add(mnuSystemLogReport);
         mnuMainSystem.add(jSeparator1);
 
         mnuCredits.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -546,7 +558,7 @@ public class MainFrame extends javax.swing.JFrame {
 
                     mnuMainSystem.setEnabled(true);
                     mnuDashboard.setEnabled(true);
-                    mnuSystemLog.setEnabled(true);
+                    mnuSystemLogReport.setEnabled(true);
 
                     mnuUserMain.setEnabled(true);
                     mnuProductMain.setEnabled(true);
@@ -591,7 +603,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }                
 
             }
-        } catch (PropertyVetoException e) {
+        } catch (Exception e) {
             // pass
         }
             
@@ -749,20 +761,20 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowClosing
 
-    private void mnuSystemLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSystemLogActionPerformed
+    private void mnuSystemLogReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSystemLogReportActionPerformed
         
         setMarginHeight(mainDesktop, reportSystemLogForm, MARGIN_SMALL);
         pullCenter(mainDesktop, reportSystemLogForm);
         reportSystemLogForm.show();
         reportSystemLogForm.toFront();
         
-    }//GEN-LAST:event_mnuSystemLogActionPerformed
+    }//GEN-LAST:event_mnuSystemLogReportActionPerformed
 
     private void mnuLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLogOutActionPerformed
         
         mnuMainSystem.setEnabled(false);
         mnuDashboard.setEnabled(false);
-        mnuSystemLog.setEnabled(false);
+        mnuSystemLogReport.setEnabled(false);
         mnuUserMain.setEnabled(false);
         mnuProductMain.setEnabled(false);
         mnuPOSMain.setEnabled(false);
@@ -808,6 +820,14 @@ public class MainFrame extends javax.swing.JFrame {
         creditsForm.toFront();
         
     }//GEN-LAST:event_mnuCreditsActionPerformed
+
+    private void mnuSystemLogViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSystemLogViewerActionPerformed
+        
+        pullCenter(mainDesktop, systemLogViewerForm);
+        systemLogViewerForm.show();
+        systemLogViewerForm.toFront();
+        
+    }//GEN-LAST:event_mnuSystemLogViewerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -876,7 +896,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuSaleSummaryReport;
     private javax.swing.JMenuItem mnuStockInfo;
     private javax.swing.JMenuItem mnuStockReport;
-    private javax.swing.JMenuItem mnuSystemLog;
+    private javax.swing.JMenuItem mnuSystemLogReport;
+    private javax.swing.JMenuItem mnuSystemLogViewer;
     private javax.swing.JMenuItem mnuUserInfo;
     public javax.swing.JMenu mnuUserMain;
     // End of variables declaration//GEN-END:variables
