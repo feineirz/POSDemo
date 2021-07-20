@@ -217,7 +217,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         lblCreditURL12.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL12.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL12.setText("-");
+        lblCreditURL12.setText("Mr. Pichit Wongwai");
         lblCreditURL12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCreditURL12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -295,7 +295,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         jLabel11.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Project Team");
+        jLabel11.setText("Project Team Members");
 
         jLabel12.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
