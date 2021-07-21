@@ -114,6 +114,7 @@ public class MainFrame extends javax.swing.JFrame {
                     """
                     {
                         "SYSTEM LOG":{
+                            "LogDate":"%s",
                             "Event":"LOGOUT",
                             "Account":{
                                 "ID":%d,
@@ -126,6 +127,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                     }
                     """.formatted(
+                            li.log_date,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,

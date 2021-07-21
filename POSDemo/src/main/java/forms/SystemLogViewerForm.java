@@ -70,7 +70,46 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         });
         
     }
+    
+    /*==== Required Code Structure ====*/
+    public void callFunction(String functionName) {
+        switch(functionName) {
+            case "initForm" -> initForm();
+        }
+    }
+    
+    enum frameState {
+        INIT, FILTERED, SELECTED
+    }
+    
+    private void initForm() {
+        setFrameState(frameState.INIT);
+    }
+    
+    private void setFrameState(frameState framState) {
+        switch(framState) {
+            case INIT -> {
+                
+            }
+            
+            case FILTERED -> {
+                
+            }
+            
+            case SELECTED -> {
+                
+            }
+        }
+    }
+    
+    /*==== Helper Functions ====*/
+    
+    private void resetContent() {
         
+        modelLogList.setRowCount(0);
+        tbxContent.setText("");
+        
+    }
     
     private void listLogs() {
         
@@ -191,6 +230,11 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         jdcReportEnd.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jdcReportEnd.setOpaque(false);
         jdcReportEnd.setPreferredSize(new java.awt.Dimension(88, 27));
+        jdcReportEnd.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcReportEndPropertyChange(evt);
+            }
+        });
 
         btnReport.setBackground(new java.awt.Color(153, 204, 255));
         btnReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -210,6 +254,11 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         cmbLogType.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         cmbLogType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "System Log", "Application Log" }));
         cmbLogType.setPreferredSize(new java.awt.Dimension(57, 27));
+        cmbLogType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbLogTypeActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,6 +270,11 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         jdcReportStart.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jdcReportStart.setOpaque(false);
         jdcReportStart.setPreferredSize(new java.awt.Dimension(88, 27));
+        jdcReportStart.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcReportStartPropertyChange(evt);
+            }
+        });
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxFilter.setMaximumSize(new java.awt.Dimension(2147483647, 27));
@@ -318,6 +372,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
             tblLogList.getColumnModel().getColumn(3).setMaxWidth(0);
         }
 
+        tbxContent.setBackground(new java.awt.Color(240, 240, 240));
         tbxContent.setColumns(20);
         tbxContent.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxContent.setRows(5);
@@ -370,6 +425,24 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         listLogs();
         
     }//GEN-LAST:event_btnReportActionPerformed
+
+    private void cmbLogTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbLogTypeActionPerformed
+        
+        resetContent();
+        
+    }//GEN-LAST:event_cmbLogTypeActionPerformed
+
+    private void jdcReportStartPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcReportStartPropertyChange
+        
+        resetContent();
+        
+    }//GEN-LAST:event_jdcReportStartPropertyChange
+
+    private void jdcReportEndPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcReportEndPropertyChange
+        
+        resetContent();
+        
+    }//GEN-LAST:event_jdcReportEndPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
