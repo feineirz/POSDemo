@@ -7,10 +7,10 @@
 
 package DBCLS;
 
-import java.sql.*;
-import java.util.*;
 import java.lang.*;
+import java.sql.*;
 import java.text.DecimalFormat;
+import java.util.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
 
@@ -699,10 +699,12 @@ public class Receipt {
                 MonthlyIncomeInfo mii;
 		
 		try {
-			String qry = "SELECT DATE_FORMAT(receipt_date ,'%d') as date_id, DATE_FORMAT(receipt_date ,'%Y-%m-%d') as receipt_date, sum(cost) as cost, sum(total) as income, (sum(total)-sum(cost)) as profit" 
-					+ " FROM receipt"
-                                        + " WHERE receipt_date LIKE '"+year+"-"+dfMonth+"-%'"
-                                        + " GROUP BY YEAR(receipt_date), MONTH(receipt_date), DAY(receipt_date)";
+			String qry = "SELECT DATE_FORMAT(receipt_date ,'%d') as date_id, "
+                                + "DATE_FORMAT(receipt_date ,'%Y-%m-%d') as receipt_date, "
+                                + "sum(cost) as cost, sum(total) as income, (sum(total)-sum(cost)) as profit" 
+                                + " FROM receipt"
+                                + " WHERE receipt_date LIKE '"+year+"-"+dfMonth+"-%'"
+                                + " GROUP BY YEAR(receipt_date), MONTH(receipt_date), DAY(receipt_date)";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
 			while (rs.next()) {

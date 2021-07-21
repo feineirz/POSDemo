@@ -72,6 +72,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL18 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        lblCreditURL19 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -221,12 +222,12 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         lblCreditURL14.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL14.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL14.setText("-");
+        lblCreditURL14.setText("Mrs. Katareya Bamrungjaroen");
         lblCreditURL14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblCreditURL15.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL15.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL15.setText("-");
+        lblCreditURL15.setText("Mr. Prasert Kavijit");
         lblCreditURL15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel10.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -235,7 +236,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         lblCreditURL16.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL16.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL16.setText("-");
+        lblCreditURL16.setText("Mr. Pichit Wongwai");
         lblCreditURL16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblCreditURL17.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -260,6 +261,11 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Resources");
+
+        lblCreditURL19.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL19.setForeground(new java.awt.Color(255, 255, 0));
+        lblCreditURL19.setText("Mr. Chetsada Laongwichit");
+        lblCreditURL19.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -286,7 +292,8 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                             .addComponent(lblCreditURL17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(lblCreditURL16, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCreditURL19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59)
                         .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -358,20 +365,22 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCreditURL5)
                     .addComponent(lblCreditURL15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreditURL6)
+                    .addComponent(lblCreditURL19))
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCreditURL6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCreditURL18))
                     .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCreditURL16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCreditURL17)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -459,6 +468,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCreditURL16;
     private javax.swing.JLabel lblCreditURL17;
     private javax.swing.JLabel lblCreditURL18;
+    private javax.swing.JLabel lblCreditURL19;
     private javax.swing.JLabel lblCreditURL2;
     private javax.swing.JLabel lblCreditURL3;
     private javax.swing.JLabel lblCreditURL4;
