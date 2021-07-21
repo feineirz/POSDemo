@@ -114,6 +114,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
+        setTitle("Sales Daily Report");
         setMaximumSize(new java.awt.Dimension(935, 2000));
         setMinimumSize(new java.awt.Dimension(935, 850));
         setPreferredSize(new java.awt.Dimension(935, 850));
@@ -150,7 +151,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("REPORT");
+        jLabel4.setText("SALES DAILY REPORT");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
@@ -159,7 +160,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(795, Short.MAX_VALUE))
+                .addContainerGap(601, Short.MAX_VALUE))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

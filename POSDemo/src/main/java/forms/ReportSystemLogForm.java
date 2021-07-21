@@ -123,6 +123,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Log Report");
         setMaximumSize(new java.awt.Dimension(950, 2000));
         setMinimumSize(new java.awt.Dimension(950, 850));
         setPreferredSize(new java.awt.Dimension(950, 850));
@@ -131,7 +132,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("SYSTEM LOG");
+        jLabel4.setText("LOG REPORT");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);

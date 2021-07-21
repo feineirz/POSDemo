@@ -136,6 +136,7 @@ public class ReportSaleSummaryForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
+        setTitle("Sales Summary Report");
         setMaximumSize(new java.awt.Dimension(935, 2000));
         setMinimumSize(new java.awt.Dimension(935, 850));
         setPreferredSize(new java.awt.Dimension(935, 850));
@@ -171,6 +172,7 @@ public class ReportSaleSummaryForm extends javax.swing.JInternalFrame {
         btnReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/report.png"))); // NOI18N
         btnReport.setText("Report");
+        btnReport.setToolTipText("");
         btnReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportActionPerformed(evt);
@@ -228,7 +230,7 @@ public class ReportSaleSummaryForm extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("REPORT");
+        jLabel4.setText("SALES SUMMARY REPORT");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);

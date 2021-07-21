@@ -135,6 +135,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setTitle("Receipt Summary Report");
         setMaximumSize(new java.awt.Dimension(950, 2400));
         setMinimumSize(new java.awt.Dimension(950, 850));
         setPreferredSize(new java.awt.Dimension(950, 850));
@@ -143,7 +144,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("REPORT");
+        jLabel4.setText("RECEIPT SUMMARY REPORT");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);

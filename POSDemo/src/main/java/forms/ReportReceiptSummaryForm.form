@@ -4,6 +4,7 @@
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="defaultCloseOperation" type="int" value="1"/>
+    <Property name="title" type="java.lang.String" value="Receipt Summary Report"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[950, 2400]"/>
     </Property>
@@ -93,7 +94,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="REPORT"/>
+            <Property name="text" type="java.lang.String" value="RECEIPT SUMMARY REPORT"/>
           </Properties>
         </Component>
       </SubComponents>
