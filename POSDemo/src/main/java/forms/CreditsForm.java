@@ -216,7 +216,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         lblCreditURL13.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL13.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL13.setText("-");
+        lblCreditURL13.setText("Mr. Tanapon Plaimas");
         lblCreditURL13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblCreditURL14.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
