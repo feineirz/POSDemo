@@ -33,6 +33,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import pos.Apps;
+import static pos.Apps.newStockForm;
 
 /**
  *
@@ -214,6 +215,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
         popSystemLog = new javax.swing.JPopupMenu();
         popSystemLog_Copy = new javax.swing.JMenuItem();
         popSystemLog_CopyReFormat = new javax.swing.JMenuItem();
+        popLowStockNTF = new javax.swing.JPopupMenu();
+        popLowStockNTF_RefillStock = new javax.swing.JMenuItem();
         pnlMain = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
@@ -294,6 +297,14 @@ public class Dashboard extends javax.swing.JInternalFrame {
             }
         });
         popSystemLog.add(popSystemLog_CopyReFormat);
+
+        popLowStockNTF_RefillStock.setText("Refill Stock");
+        popLowStockNTF_RefillStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popLowStockNTF_RefillStockActionPerformed(evt);
+            }
+        });
+        popLowStockNTF.add(popLowStockNTF_RefillStock);
 
         setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
@@ -538,6 +549,11 @@ public class Dashboard extends javax.swing.JInternalFrame {
         jLabel8.setText("LOW STOCK NOTIFICATION");
 
         edpLowStockNotification.setContentType("text/html"); // NOI18N
+        edpLowStockNotification.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                edpLowStockNotificationMouseClicked(evt);
+            }
+        });
         scpLowStockNotification.setViewportView(edpLowStockNotification);
 
         javax.swing.GroupLayout pnlLowStockNotificationLayout = new javax.swing.GroupLayout(pnlLowStockNotification);
@@ -801,7 +817,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private void edpSystemLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edpSystemLogMouseClicked
         
         if (isRightMouseButton(evt)) {
-            popSystemLog.show(Apps.mainFrame.mainDesktop, evt.getXOnScreen(),evt.getYOnScreen()-100);
+            popSystemLog.show(Apps.mainFrame.mainDesktop, evt.getXOnScreen(),evt.getYOnScreen()-50);
         }
         
     }//GEN-LAST:event_edpSystemLogMouseClicked
@@ -812,6 +828,39 @@ public class Dashboard extends javax.swing.JInternalFrame {
         openURL("https://jsonformatter.curiousconcept.com/");
         
     }//GEN-LAST:event_popSystemLog_CopyReFormatActionPerformed
+
+    private void popLowStockNTF_RefillStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popLowStockNTF_RefillStockActionPerformed
+        
+        String selText = edpLowStockNotification.getSelectedText().trim();       
+        
+        if (!selText.equals("")) {
+            Product product = Product.isExist("code = '"+selText+"'");
+            if (product != null) {
+                pullCenter(Apps.mainFrame.mainDesktop, newStockForm);
+                newStockForm.show();
+                newStockForm.toFront();
+                newStockForm.tbxCode.requestFocus();
+                newStockForm.tbxCode.setText(selText);
+                newStockForm.tbxCode.selectAll();
+                REFILL_STOCK_IGNORE_INIT_CODE = true; // Special event
+            }
+        }
+        
+    }//GEN-LAST:event_popLowStockNTF_RefillStockActionPerformed
+
+    private void edpLowStockNotificationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edpLowStockNotificationMouseClicked
+        
+        if (isRightMouseButton(evt)) {
+            String selText = String.valueOf(edpLowStockNotification.getSelectedText());        
+            if (!selText.equals("")) {
+                Product product = Product.isExist("code = '"+selText+"'");
+                if (product != null) {
+                    popLowStockNTF.show(Apps.mainFrame.mainDesktop, evt.getXOnScreen(),evt.getYOnScreen()-50);
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_edpLowStockNotificationMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -851,6 +900,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlTodayIncome;
     private javax.swing.JPanel pnlTodayProfit;
     public static javax.swing.JPanel pnlUserInfo;
+    private javax.swing.JPopupMenu popLowStockNTF;
+    private javax.swing.JMenuItem popLowStockNTF_RefillStock;
     private javax.swing.JPopupMenu popSystemLog;
     private javax.swing.JMenuItem popSystemLog_Copy;
     private javax.swing.JMenuItem popSystemLog_CopyReFormat;

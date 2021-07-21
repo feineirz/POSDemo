@@ -95,8 +95,10 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             case INIT -> {
                 listCategory();
                 listContentWithFilter();
-        
-                tbxCode.setText("");
+                
+                if (!REFILL_STOCK_IGNORE_INIT_CODE) tbxCode.setText("");
+                REFILL_STOCK_IGNORE_INIT_CODE = true;
+                
                 lblName.setText("");
                 tbxCost.setText("");
                 tbxQuantity.setText("");
@@ -871,7 +873,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlTable;
     private javax.swing.JTable tblContentList;
-    private javax.swing.JTextField tbxCode;
+    public javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxCost;
     private javax.swing.JTextField tbxQuantity;
     private javax.swing.JTextArea tbxRemark;

@@ -19,6 +19,7 @@ public class Varibles {
     public static Integer CURRENT_CASHRECEIPT_ID;
     
     public static boolean ENABLE_REPORT_LOG = true;
+    public static boolean REFILL_STOCK_IGNORE_INIT_CODE = false;
     
     public static final Integer MARGIN_SMALL = 20;
     public static final Integer MARGIN_MEDIUM = 40;
