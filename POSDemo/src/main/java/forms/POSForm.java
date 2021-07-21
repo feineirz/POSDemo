@@ -352,7 +352,8 @@ public class POSForm extends javax.swing.JInternalFrame {
         String dfExchange = DFMT_PRICE.format(exchange);
         tbxExchange.setText(dfExchange);
 
-        btnCheckout.setEnabled(true);
+        btnCheckout.setEnabled(true);        
+        btnCheckout.requestFocus();
         
     }
     
@@ -1475,7 +1476,6 @@ public class POSForm extends javax.swing.JInternalFrame {
     private void btnCalcExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcExchangeActionPerformed
           
         calcExchange();
-        btnCheckout.requestFocus();
         
     }//GEN-LAST:event_btnCalcExchangeActionPerformed
 
