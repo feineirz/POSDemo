@@ -386,15 +386,14 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
             tblReceiptDetail.getColumnModel().getColumn(5).setMaxWidth(0);
         }
 
-        lblTotalPrice.setBackground(new java.awt.Color(51, 51, 51));
+        lblTotalPrice.setBackground(new java.awt.Color(25, 25, 25));
         lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 48)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(153, 255, 102));
-        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblTotalPrice.setText("0.00");
         lblTotalPrice.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblTotalPrice.setMaximumSize(new java.awt.Dimension(94, 60));
         lblTotalPrice.setMinimumSize(new java.awt.Dimension(94, 60));
-        lblTotalPrice.setOpaque(true);
         lblTotalPrice.setPreferredSize(new java.awt.Dimension(94, 60));
         lblTotalPrice.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -405,7 +404,6 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         lblReceiptID.setBackground(new java.awt.Color(102, 102, 102));
         lblReceiptID.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         lblReceiptID.setForeground(new java.awt.Color(255, 255, 255));
-        lblReceiptID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblReceiptID.setText("-");
 
         javax.swing.GroupLayout pnlDetailsLayout = new javax.swing.GroupLayout(pnlDetails);
@@ -413,18 +411,21 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         pnlDetailsLayout.setHorizontalGroup(
             pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDetailsLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
         );
         pnlDetailsLayout.setVerticalGroup(
             pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetailsLayout.createSequentialGroup()
-                .addGroup(pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReceiptID))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2))
         );
 

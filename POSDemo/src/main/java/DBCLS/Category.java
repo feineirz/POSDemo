@@ -57,7 +57,7 @@ public class Category {
 
 	/// DEFAULT CONSTRUCTOR ///
         /**
-         * Default Category class to use a private helpful method.
+         * Default Category class to use a private helpful methods.
          */
 	public Category() {}
 
@@ -256,6 +256,13 @@ public class Category {
 	//////////////////////////////[ Add ]//////////////////////////////
 	// Add Category to database by giving a raw information. //
 	///////////////////////////////////////////////////////////////////
+        /**
+         * 
+         * @param id ID of new Category.
+         * @param name Name of New Category.
+         * @param description Description of new Category.
+         * @return Category object of new created Category.
+         */
 	public static Category addCategory(Integer id, String name, String description) {
 		
 		CategoryInfo categoryInfo = new CategoryInfo();
@@ -270,6 +277,11 @@ public class Category {
 	/////////////////////////////////////////////////////////////////////
 	// Add Category to database by giving a structured information. //
 	/////////////////////////////////////////////////////////////////////
+        /**
+         * 
+         * @param categoryInfo Category information structure that contains all category's information.
+         * @return Category object of new created Category.
+         */
 	public static Category addCategory(CategoryInfo categoryInfo) {
 		
 		Connection conn = new MySQLDBConnector().getDBConnection();
