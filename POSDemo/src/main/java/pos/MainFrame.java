@@ -247,6 +247,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuSystemLogViewer.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuSystemLogViewer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/view-logs.png"))); // NOI18N
         mnuSystemLogViewer.setText("Log Viewer");
+        mnuSystemLogViewer.setEnabled(false);
         mnuSystemLogViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSystemLogViewerActionPerformed(evt);
@@ -560,12 +561,14 @@ public class MainFrame extends javax.swing.JFrame {
 
                     mnuMainSystem.setEnabled(true);
                     mnuDashboard.setEnabled(true);
+                    mnuSystemLogViewer.setEnabled(true);
                     mnuSystemLogReport.setEnabled(true);
 
                     mnuUserMain.setEnabled(true);
                     mnuProductMain.setEnabled(true);
                     mnuPOSMain.setEnabled(true);
                     mnuReportMain.setEnabled(true);
+                    
                 } else if (level >= 60) { // Manager
                     System.out.println("Apply Manager rule.");
                     dashboardForm.setMaximum(true);
@@ -578,6 +581,7 @@ public class MainFrame extends javax.swing.JFrame {
                     mnuUserMain.setEnabled(true);
                     mnuDashboard.setEnabled(true);
                     mnuReportMain.setEnabled(true);
+                    
                 } else if (level >= 30) { // Supervisor
                     System.out.println("Apply Supervisor rule.");
                     dashboardForm.setMaximum(true);
@@ -591,6 +595,7 @@ public class MainFrame extends javax.swing.JFrame {
                     mnuProductMain.setEnabled(true);
                     mnuPOSMain.setEnabled(true);
                     mnuReportMain.setEnabled(true);
+                    
                 } else { // Staff
                     System.out.println("Applyi Staff rule.");
                     pullCenter(mainDesktop, posForm);
@@ -608,7 +613,6 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             // pass
         }
-            
         
     }//GEN-LAST:event_mainDesktopComponentRemoved
 
