@@ -137,7 +137,7 @@
                       <Component id="btnAddUser" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnCancel" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="57" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -199,13 +199,13 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1000, 25]"/>
+              <Dimension value="[1000, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 25]"/>
+              <Dimension value="[100, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[7, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
           </Properties>
           <Events>
@@ -245,13 +245,13 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1000, 25]"/>
+              <Dimension value="[1000, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 25]"/>
+              <Dimension value="[100, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[7, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
           </Properties>
           <Events>
@@ -288,13 +288,13 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1000, 25]"/>
+              <Dimension value="[1000, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 25]"/>
+              <Dimension value="[100, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[7, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
           </Properties>
           <Events>
@@ -308,13 +308,13 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1000, 25]"/>
+              <Dimension value="[1000, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 25]"/>
+              <Dimension value="[100, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[7, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
           </Properties>
           <Events>
@@ -327,13 +327,13 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1000, 25]"/>
+              <Dimension value="[1000, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 25]"/>
+              <Dimension value="[100, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[7, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
           </Properties>
           <Events>
@@ -384,13 +384,13 @@
               </StringArray>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[200, 25]"/>
+              <Dimension value="[200, 29]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[57, 25]"/>
+              <Dimension value="[57, 29]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[57, 25]"/>
+              <Dimension value="[57, 29]"/>
             </Property>
           </Properties>
           <AuxValues>

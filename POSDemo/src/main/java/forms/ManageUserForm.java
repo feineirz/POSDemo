@@ -347,8 +347,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
 
         tbxEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxEmail.setEnabled(false);
-        tbxEmail.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxEmail.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxEmail.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxEmail.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxEmail.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxEmailFocusGained(evt);
@@ -398,7 +399,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
 
         tbxPhone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxPhone.setEnabled(false);
-        tbxPhone.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxPhone.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxPhone.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxPhone.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxPhone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPhoneFocusGained(evt);
@@ -428,9 +431,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         lblRealUserID.setOpaque(true);
 
         tbxPassword.setBackground(new java.awt.Color(255, 204, 0));
-        tbxPassword.setMaximumSize(new java.awt.Dimension(2147483647, 27));
-        tbxPassword.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxPassword.setPreferredSize(new java.awt.Dimension(7, 27));
+        tbxPassword.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxPassword.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxPassword.setPreferredSize(new java.awt.Dimension(7, 29));
 
         jLabel9.setFont(new java.awt.Font("Tw Cen MT", 2, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -561,7 +564,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(lblUserLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -628,7 +631,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
+        tbxFilter.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxFilter.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tbxFilterKeyReleased(evt);
@@ -639,7 +644,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
         btnReload.setText("Reload");
-        btnReload.setPreferredSize(new java.awt.Dimension(93, 27));
+        btnReload.setMaximumSize(new java.awt.Dimension(93, 29));
+        btnReload.setMinimumSize(new java.awt.Dimension(93, 29));
+        btnReload.setPreferredSize(new java.awt.Dimension(93, 29));
         btnReload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReloadActionPerformed(evt);

@@ -173,9 +173,9 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
-        setMaximumSize(new java.awt.Dimension(1200, 1200));
-        setMinimumSize(new java.awt.Dimension(850, 750));
-        setPreferredSize(new java.awt.Dimension(850, 750));
+        setMaximumSize(new java.awt.Dimension(1200, 1900));
+        setMinimumSize(new java.awt.Dimension(1200, 750));
+        setPreferredSize(new java.awt.Dimension(1200, 750));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -214,7 +214,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
@@ -238,7 +238,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         jdcReportEnd.setDateFormatString("yyyy-MM-dd");
         jdcReportEnd.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jdcReportEnd.setOpaque(false);
-        jdcReportEnd.setPreferredSize(new java.awt.Dimension(88, 27));
+        jdcReportEnd.setPreferredSize(new java.awt.Dimension(88, 29));
         jdcReportEnd.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jdcReportEndPropertyChange(evt);
@@ -262,7 +262,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
 
         cmbLogType.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         cmbLogType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "System Log", "Application Log" }));
-        cmbLogType.setPreferredSize(new java.awt.Dimension(57, 27));
+        cmbLogType.setPreferredSize(new java.awt.Dimension(57, 29));
         cmbLogType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbLogTypeActionPerformed(evt);
@@ -278,7 +278,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         jdcReportStart.setDateFormatString("yyyy-MM-dd");
         jdcReportStart.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jdcReportStart.setOpaque(false);
-        jdcReportStart.setPreferredSize(new java.awt.Dimension(88, 27));
+        jdcReportStart.setPreferredSize(new java.awt.Dimension(88, 29));
         jdcReportStart.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jdcReportStartPropertyChange(evt);
@@ -288,7 +288,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxFilter.setMaximumSize(new java.awt.Dimension(2147483647, 27));
         tbxFilter.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxFilter.setPreferredSize(new java.awt.Dimension(60, 27));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(60, 29));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));

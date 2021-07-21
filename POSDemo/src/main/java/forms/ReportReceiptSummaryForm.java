@@ -164,7 +164,10 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         jdcReportStart.setBackground(new java.awt.Color(102, 102, 102));
         jdcReportStart.setDateFormatString("yyyy-MM-dd");
         jdcReportStart.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jdcReportStart.setMaximumSize(new java.awt.Dimension(200, 29));
+        jdcReportStart.setMinimumSize(new java.awt.Dimension(28, 29));
         jdcReportStart.setOpaque(false);
+        jdcReportStart.setPreferredSize(new java.awt.Dimension(88, 29));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,7 +176,10 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         jdcReportEnd.setBackground(new java.awt.Color(102, 102, 102));
         jdcReportEnd.setDateFormatString("yyyy-MM-dd");
         jdcReportEnd.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jdcReportEnd.setMaximumSize(new java.awt.Dimension(200, 29));
+        jdcReportEnd.setMinimumSize(new java.awt.Dimension(28, 29));
         jdcReportEnd.setOpaque(false);
+        jdcReportEnd.setPreferredSize(new java.awt.Dimension(88, 29));
 
         btnReport.setBackground(new java.awt.Color(153, 204, 255));
         btnReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -213,7 +219,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlDateFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jdcReportStart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReport, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jdcReportEnd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jdcReportEnd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -237,12 +243,12 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(pnlDateFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +257,7 @@ public class ReportReceiptSummaryForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlDateFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPrint)
                 .addContainerGap())

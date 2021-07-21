@@ -272,7 +272,9 @@ public class NewStockForm extends javax.swing.JInternalFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(45, 20));
 
         cmbCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 24));
+        cmbCategory.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbCategory.setMinimumSize(new java.awt.Dimension(34, 29));
+        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 29));
         cmbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryActionPerformed(evt);
@@ -366,9 +368,9 @@ public class NewStockForm extends javax.swing.JInternalFrame {
         jLabel6.setPreferredSize(new java.awt.Dimension(45, 20));
 
         tbxQuantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxQuantity.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxQuantity.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxQuantity.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxQuantity.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxQuantity.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxQuantity.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxQuantityFocusGained(evt);
@@ -417,9 +419,9 @@ public class NewStockForm extends javax.swing.JInternalFrame {
         jLabel10.setPreferredSize(new java.awt.Dimension(45, 20));
 
         tbxCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxCost.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxCost.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxCost.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxCost.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxCost.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxCost.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxCost.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCostFocusGained(evt);
@@ -558,7 +560,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE))
                     .addComponent(pnlContentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

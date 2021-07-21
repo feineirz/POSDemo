@@ -153,9 +153,9 @@ public class LoginForm extends javax.swing.JInternalFrame {
 
         tbxUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxUser.setText("demo");
-        tbxUser.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxUser.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxUser.setPreferredSize(new java.awt.Dimension(100, 25));
+        tbxUser.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxUser.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxUser.setPreferredSize(new java.awt.Dimension(100, 29));
         tbxUser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxUserFocusGained(evt);
@@ -169,9 +169,9 @@ public class LoginForm extends javax.swing.JInternalFrame {
 
         tbxPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxPass.setText("demo");
-        tbxPass.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxPass.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxPass.setPreferredSize(new java.awt.Dimension(100, 25));
+        tbxPass.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxPass.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxPass.setPreferredSize(new java.awt.Dimension(100, 29));
         tbxPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPassFocusGained(evt);
@@ -315,7 +315,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(53, Short.MAX_VALUE))))
+                        .addContainerGap(48, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

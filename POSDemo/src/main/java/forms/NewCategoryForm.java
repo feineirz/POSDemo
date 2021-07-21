@@ -149,9 +149,9 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
         jLabel3.setText("Description: ");
 
         tbxCategoryName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxCategoryName.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxCategoryName.setMinimumSize(new java.awt.Dimension(7, 25));
-        tbxCategoryName.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxCategoryName.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxCategoryName.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxCategoryName.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxCategoryName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCategoryNameFocusGained(evt);
@@ -237,7 +237,7 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

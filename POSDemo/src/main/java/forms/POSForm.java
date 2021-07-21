@@ -695,9 +695,9 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxFilter.setMaximumSize(new java.awt.Dimension(2147483647, 23));
-        tbxFilter.setMinimumSize(new java.awt.Dimension(100, 23));
-        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
+        tbxFilter.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxFilter.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxFilter.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxFilterFocusGained(evt);
@@ -713,9 +713,9 @@ public class POSForm extends javax.swing.JInternalFrame {
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
         btnReload.setText("Reload");
-        btnReload.setMaximumSize(new java.awt.Dimension(73, 23));
-        btnReload.setMinimumSize(new java.awt.Dimension(73, 23));
-        btnReload.setPreferredSize(new java.awt.Dimension(73, 26));
+        btnReload.setMaximumSize(new java.awt.Dimension(73, 29));
+        btnReload.setMinimumSize(new java.awt.Dimension(73, 29));
+        btnReload.setPreferredSize(new java.awt.Dimension(73, 29));
         btnReload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReloadActionPerformed(evt);
@@ -727,9 +727,9 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel2.setText("Category");
 
         cmbCategoryFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbCategoryFilter.setMaximumSize(new java.awt.Dimension(1000, 25));
-        cmbCategoryFilter.setMinimumSize(new java.awt.Dimension(254, 25));
-        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(254, 27));
+        cmbCategoryFilter.setMaximumSize(new java.awt.Dimension(1000, 29));
+        cmbCategoryFilter.setMinimumSize(new java.awt.Dimension(254, 29));
+        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(254, 29));
         cmbCategoryFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryFilterActionPerformed(evt);

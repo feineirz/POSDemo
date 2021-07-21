@@ -203,9 +203,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         jLabel5.setToolTipText("");
 
         tbxComfirmPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxComfirmPassword.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxComfirmPassword.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxComfirmPassword.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxComfirmPassword.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxComfirmPassword.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxComfirmPassword.setPreferredSize(new java.awt.Dimension(200, 29));
         tbxComfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxComfirmPasswordFocusGained(evt);
@@ -224,9 +224,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(45, 20));
 
         tbxPhone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxPhone.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxPhone.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxPhone.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxPhone.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxPhone.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxPhone.setPreferredSize(new java.awt.Dimension(200, 29));
         tbxPhone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPhoneFocusGained(evt);
@@ -244,9 +244,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         jLabel4.setText(" Email: ");
 
         tbxUsername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxUsername.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxUsername.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxUsername.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxUsername.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxUsername.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxUsername.setPreferredSize(new java.awt.Dimension(200, 29));
         tbxUsername.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxUsernameFocusGained(evt);
@@ -257,9 +257,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         });
 
         tbxEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxEmail.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxEmail.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxEmail.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxEmail.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxEmail.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxEmail.setPreferredSize(new java.awt.Dimension(200, 29));
         tbxEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxEmailFocusGained(evt);
@@ -267,9 +267,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         });
 
         tbxPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxPassword.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxPassword.setMinimumSize(new java.awt.Dimension(100, 25));
-        tbxPassword.setPreferredSize(new java.awt.Dimension(7, 25));
+        tbxPassword.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxPassword.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxPassword.setPreferredSize(new java.awt.Dimension(200, 29));
         tbxPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPasswordFocusGained(evt);
@@ -290,9 +290,9 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         jLabel8.setText("User Level: ");
 
         cmbUserLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff", "Supervisor", "Manager" }));
-        cmbUserLevel.setMaximumSize(new java.awt.Dimension(200, 25));
-        cmbUserLevel.setMinimumSize(new java.awt.Dimension(57, 25));
-        cmbUserLevel.setPreferredSize(new java.awt.Dimension(57, 25));
+        cmbUserLevel.setMaximumSize(new java.awt.Dimension(200, 29));
+        cmbUserLevel.setMinimumSize(new java.awt.Dimension(57, 29));
+        cmbUserLevel.setPreferredSize(new java.awt.Dimension(57, 29));
 
         pnlHeader.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -393,7 +393,7 @@ public class NewUserForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

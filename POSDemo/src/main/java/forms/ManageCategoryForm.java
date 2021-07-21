@@ -329,7 +329,9 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
+        tbxFilter.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxFilter.setMinimumSize(new java.awt.Dimension(7, 29));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tbxFilterKeyReleased(evt);
@@ -340,6 +342,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
         btnReload.setText("Reload");
+        btnReload.setPreferredSize(new java.awt.Dimension(93, 29));
         btnReload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReloadActionPerformed(evt);
@@ -363,11 +366,11 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
-                    .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

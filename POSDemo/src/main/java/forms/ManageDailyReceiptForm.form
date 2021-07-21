@@ -459,7 +459,7 @@
               <Component id="jScrollPane3" pref="367" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnPrint" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="btnPrint" min="-2" pref="120" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

@@ -458,7 +458,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Search");
 
         tbxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 27));
+        tbxFilter.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxFilter.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxFilter.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxFilter.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxFilterFocusGained(evt);
@@ -474,7 +476,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         btnReload.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         btnReload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
         btnReload.setText("Reload");
-        btnReload.setPreferredSize(new java.awt.Dimension(93, 27));
+        btnReload.setMaximumSize(new java.awt.Dimension(100, 29));
+        btnReload.setMinimumSize(new java.awt.Dimension(100, 29));
+        btnReload.setPreferredSize(new java.awt.Dimension(93, 29));
         btnReload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReloadActionPerformed(evt);
@@ -486,9 +490,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         jLabel2.setText("Category");
 
         cmbCategoryFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbCategoryFilter.setMaximumSize(new java.awt.Dimension(32767, 27));
-        cmbCategoryFilter.setMinimumSize(new java.awt.Dimension(34, 27));
-        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(57, 27));
+        cmbCategoryFilter.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbCategoryFilter.setMinimumSize(new java.awt.Dimension(100, 29));
+        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(57, 29));
         cmbCategoryFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryFilterActionPerformed(evt);
@@ -516,13 +520,13 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnReload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tbxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)
                         .addComponent(jLabel2)
-                        .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnReload, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -560,8 +564,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
         tbxName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxName.setEnabled(false);
-        tbxName.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxName.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxName.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxName.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxName.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxNameFocusGained(evt);
@@ -622,8 +627,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
         tbxCode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxCode.setEnabled(false);
-        tbxCode.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxCode.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxCode.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxCode.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxCode.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCodeFocusGained(evt);
@@ -632,9 +638,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
         cmbCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbCategory.setEnabled(false);
-        cmbCategory.setMaximumSize(new java.awt.Dimension(32767, 27));
-        cmbCategory.setMinimumSize(new java.awt.Dimension(34, 27));
-        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 27));
+        cmbCategory.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbCategory.setMinimumSize(new java.awt.Dimension(100, 29));
+        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 29));
 
         jLabel15.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -648,8 +654,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
 
         tbxPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxPrice.setEnabled(false);
-        tbxPrice.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxPrice.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxPrice.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxPrice.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxPrice.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxPrice.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPriceFocusGained(evt);
@@ -671,8 +678,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         tbxCost.setBackground(new java.awt.Color(255, 204, 51));
         tbxCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxCost.setEnabled(false);
-        tbxCost.setMinimumSize(new java.awt.Dimension(7, 27));
-        tbxCost.setPreferredSize(new java.awt.Dimension(9, 27));
+        tbxCost.setMaximumSize(new java.awt.Dimension(400, 29));
+        tbxCost.setMinimumSize(new java.awt.Dimension(100, 29));
+        tbxCost.setPreferredSize(new java.awt.Dimension(7, 29));
         tbxCost.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCostFocusGained(evt);
@@ -725,7 +733,9 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         cmbStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "INACTIVE" }));
         cmbStatus.setEnabled(false);
-        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 24));
+        cmbStatus.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbStatus.setMinimumSize(new java.awt.Dimension(100, 29));
+        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 29));
 
         javax.swing.GroupLayout pnlContentInfoLayout = new javax.swing.GroupLayout(pnlContentInfo);
         pnlContentInfo.setLayout(pnlContentInfoLayout);
@@ -809,7 +819,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(lblRealID, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

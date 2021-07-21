@@ -184,9 +184,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel3.setText("Description: ");
 
         tbxCode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxCode.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxCode.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxCode.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxCode.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxCode.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxCode.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCodeFocusGained(evt);
@@ -204,9 +204,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbxDescription);
 
         tbxName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxName.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxName.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxName.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxName.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxName.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxName.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxNameFocusGained(evt);
@@ -223,7 +223,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel4.setPreferredSize(new java.awt.Dimension(45, 20));
 
         cmbCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 24));
+        cmbCategory.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbCategory.setMinimumSize(new java.awt.Dimension(87, 29));
+        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 29));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,9 +234,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel5.setPreferredSize(new java.awt.Dimension(45, 20));
 
         tbxPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxPrice.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxPrice.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxPrice.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxPrice.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxPrice.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxPrice.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxPrice.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxPriceFocusGained(evt);
@@ -262,9 +264,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
 
         tbxQuantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbxQuantity.setText("100");
-        tbxQuantity.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxQuantity.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxQuantity.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxQuantity.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxQuantity.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxQuantity.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxQuantityFocusGained(evt);
@@ -281,9 +283,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(45, 20));
 
         tbxCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbxCost.setMaximumSize(new java.awt.Dimension(1000, 25));
-        tbxCost.setMinimumSize(new java.awt.Dimension(260, 25));
-        tbxCost.setPreferredSize(new java.awt.Dimension(260, 25));
+        tbxCost.setMaximumSize(new java.awt.Dimension(1000, 29));
+        tbxCost.setMinimumSize(new java.awt.Dimension(260, 29));
+        tbxCost.setPreferredSize(new java.awt.Dimension(260, 29));
         tbxCost.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tbxCostFocusGained(evt);
@@ -328,7 +330,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
 
         cmbStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "INACTIVE" }));
-        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 24));
+        cmbStatus.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbStatus.setMinimumSize(new java.awt.Dimension(87, 29));
+        cmbStatus.setPreferredSize(new java.awt.Dimension(57, 29));
 
         jLabel9.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -421,7 +425,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
