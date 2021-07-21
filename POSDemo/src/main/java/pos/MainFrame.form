@@ -63,7 +63,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/menu/view-logs.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="System Log Viewer"/>
+                <Property name="text" type="java.lang.String" value="Log Viewer"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSystemLogViewerActionPerformed"/>
@@ -77,7 +77,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/menu/log.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="System Log Report"/>
+                <Property name="text" type="java.lang.String" value="Log Report"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>

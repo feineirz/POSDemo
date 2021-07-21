@@ -12,13 +12,7 @@ import static GLOBAL.Settings.BG_DARK;
 import static GLOBAL.Settings.MAIN_FONT;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Graphics;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,14 +34,8 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         
         modelLogList = (DefaultTableModel)tblLogList.getModel();
         
-        Date curDate = null;
-        try {
-            curDate = new SimpleDateFormat("yyyy-MM-dd").parse(getCurrentDateFormatted());
-        } catch (ParseException ex) {
-            Logger.getLogger(ReportSaleSummaryForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jdcReportStart.setDate(curDate);
-        jdcReportEnd.setDate(curDate);
+        jdcReportStart.setDate(getCurrentDate());
+        jdcReportEnd.setDate(getCurrentDate());
         JTextFieldDateEditor editor;
         editor = (JTextFieldDateEditor) jdcReportStart.getDateEditor();
         editor.setEditable(false);
@@ -55,17 +43,14 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         editor.setEditable(false);
         tbxContent.setEditable(false);
         
-        tblLogList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                int curRow = tblLogList.getSelectedRow();
-                int logID;
-                Log log;
-                if(curRow > -1){
-                    logID = Integer.parseInt(tblLogList.getValueAt(curRow, 3).toString());
-                    log = new Log(logID);
-                    tbxContent.setText(log.getDetails());
-                }
+        tblLogList.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            int curRow = tblLogList.getSelectedRow();
+            int logID;
+            Log log1;
+            if (curRow > -1) {
+                logID = Integer.parseInt(tblLogList.getValueAt(curRow, 3).toString());
+                log1 = new Log(logID);
+                tbxContent.setText(log1.getDetails());
             }            
         });
         
@@ -89,7 +74,11 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
     private void setFrameState(frameState framState) {
         switch(framState) {
             case INIT -> {
-                
+                jdcReportStart.setDate(getCurrentDate());
+                jdcReportEnd.setDate(getCurrentDate());
+                cmbLogType.setSelectedIndex(0);
+                tbxFilter.setText("");
+                resetContent();
             }
             
             case FILTERED -> {
@@ -106,10 +95,13 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
     
     private void resetContent() {
         
+        tbxFilter.setText("");
         modelLogList.setRowCount(0);
         tbxContent.setText("");
         
     }
+    
+    /*==== Required Functions ====*/
     
     private void listLogs() {
         
@@ -184,13 +176,30 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         setMaximumSize(new java.awt.Dimension(1200, 1200));
         setMinimumSize(new java.awt.Dimension(850, 750));
         setPreferredSize(new java.awt.Dimension(850, 750));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         pnlHeader.setBackground(new java.awt.Color(0, 102, 153));
 
         lblTitle.setBackground(new java.awt.Color(51, 51, 51));
         lblTitle.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("SYSTEM LOG VIEWER");
+        lblTitle.setText("LOG VIEWER");
 
         lblIcon.setForeground(new java.awt.Color(204, 204, 204));
         lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -356,7 +365,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblLogList.setRowHeight(20);
+        tblLogList.setRowHeight(24);
         tblLogList.setShowVerticalLines(false);
         tblLogList.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tblLogList);
@@ -385,12 +394,11 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
             .addComponent(pnlHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(pnlFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(pnlBodyLayout.createSequentialGroup()
-                        .addComponent(pnlFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3)))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         pnlBodyLayout.setVerticalGroup(
@@ -398,11 +406,12 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
             .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBodyLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))
+                    .addComponent(pnlFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -443,6 +452,12 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         resetContent();
         
     }//GEN-LAST:event_jdcReportEndPropertyChange
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        
+        setFrameState(frameState.INIT);
+        
+    }//GEN-LAST:event_formInternalFrameClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

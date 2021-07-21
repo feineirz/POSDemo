@@ -246,7 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuSystemLogViewer.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuSystemLogViewer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/view-logs.png"))); // NOI18N
-        mnuSystemLogViewer.setText("System Log Viewer");
+        mnuSystemLogViewer.setText("Log Viewer");
         mnuSystemLogViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSystemLogViewerActionPerformed(evt);
@@ -256,7 +256,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mnuSystemLogReport.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuSystemLogReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/log.png"))); // NOI18N
-        mnuSystemLogReport.setText("System Log Report");
+        mnuSystemLogReport.setText("Log Report");
         mnuSystemLogReport.setEnabled(false);
         mnuSystemLogReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

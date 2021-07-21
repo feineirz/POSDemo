@@ -13,16 +13,20 @@ import DBCLS.ReceiptDetail;
 import DBCLS.ReceiptDetail.TopBestSellingInfo;
 import DBCLS.Stock;
 import static GLOBAL.Varibles.*;
+import forms.ReportSaleSummaryForm;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.net.URI;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
@@ -183,6 +187,19 @@ public class HelperFunctions {
     
     
     /*---- Datetime ----*/
+    
+    public static Date getCurrentDate() {
+        
+        Date curDate = null;
+        try {
+            curDate = new SimpleDateFormat("yyyy-MM-dd").parse(getCurrentDateFormatted());
+        } catch (ParseException ex) {
+            Logger.getLogger(ReportSaleSummaryForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return curDate;
+    }
+    
     public static String getDateFormatted(String dateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.parse(dateTime, formatter);
