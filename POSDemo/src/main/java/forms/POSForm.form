@@ -305,7 +305,7 @@
                   <Dimension value="[254, 25]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[254, 25]"/>
+                  <Dimension value="[254, 27]"/>
                 </Property>
               </Properties>
               <Events>
@@ -345,20 +345,28 @@
                           <Component id="lblCartCurrentRow" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="tbxCashIn" max="32767" attributes="0"/>
-                              <Component id="lblCurrentProductID" alignment="1" max="32767" attributes="0"/>
-                              <Component id="btnCheckout" alignment="1" max="32767" attributes="0"/>
-                              <Component id="btnCalcExchange" alignment="1" pref="210" max="32767" attributes="0"/>
-                              <Component id="tbxExchange" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="chkRequireConfirmCheckout" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="tbxCashIn" max="32767" attributes="0"/>
+                                      <Component id="lblCurrentProductID" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnCheckout" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnCalcExchange" alignment="1" pref="210" max="32767" attributes="0"/>
+                                      <Component id="tbxExchange" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -382,9 +390,11 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCalcExchange" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnCheckout" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="444" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="chkRequireConfirmCheckout" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
                   <Component id="lblCartCurrentRow" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblCurrentProductID" min="-2" pref="22" max="-2" attributes="0"/>
@@ -397,7 +407,7 @@
         <Component class="javax.swing.JLabel" name="lblTotalPrice">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="23" green="23" red="23" type="rgb"/>
+              <Color blue="14" green="14" red="14" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Digital-7 Mono" size="72" style="0"/>
@@ -465,7 +475,7 @@
         <Component class="javax.swing.JButton" name="btnCheckout">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="cc" red="33" type="rgb"/>
+              <Color blue="0" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tw Cen MT" size="22" style="0"/>
@@ -579,6 +589,18 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JCheckBox" name="chkRequireConfirmCheckout">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Require confirm checkout"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlCart">

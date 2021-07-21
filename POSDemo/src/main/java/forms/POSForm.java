@@ -54,8 +54,6 @@ public class POSForm extends javax.swing.JInternalFrame {
         modelContentList = (DefaultTableModel)tblContentList.getModel();
         modelCartList = (DefaultTableModel)tblShoppingCart.getModel();
         modelHoldCartList = (DefaultTableModel)tblSpareCart.getModel();
-//        tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
-//        tblCartList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblContentList.getColumnModel().getColumn(3).setCellRenderer(rightRenderer); // price
@@ -292,6 +290,72 @@ public class POSForm extends javax.swing.JInternalFrame {
     }
     
     /*==== Required Functions ====*/
+    
+    private void calcExchange() {
+        
+        Double cashRate[] = {2000.0, 1000.0, 900.0, 800.0, 700.0, 600.0, 500.0, 400.0, 300.0, 200.0, 100.0, 50.0, 20.0};
+        Integer cIndex = 0, pIndex = 0;
+        
+        tbxExchange.setText("0.00");
+        
+        String grandTotal = lblTotalPrice.getText();
+        String cash = tbxCashIn.getText().trim();
+
+        ValidationResult vr = new ValidationResult();
+        String errMessage;
+
+        errMessage = "Invalid 'Cash' format!";
+        vr = validateStringIsDouble(cash, errMessage);
+        if (!vr.result) {
+            popupWarning(vr);
+            tbxCashIn.setText("0.00");
+            tbxCashIn.requestFocus();
+            return;
+        }
+
+        Double dGrandTotal = Double.parseDouble(grandTotal);
+        Double dCash = Double.parseDouble(cash);
+        
+        if (dGrandTotal <= 0) return;
+
+        if (dCash < dGrandTotal) {
+            vr.result = false;
+            vr.message = "Not enough CASH!";
+            popupWarning(vr);
+            tbxCashIn.setText("0.00");
+            tbxCashIn.requestFocus();
+            return;
+        }
+        
+        for (int i = 0; i < cashRate.length; i++) {
+            if (dGrandTotal <= cashRate[i]) pIndex = i;
+            if (dCash <= cashRate[i]) cIndex = i;
+        }
+        
+        if (!pIndex.equals(cIndex)) {
+            if (JOptionPane.showConfirmDialog(
+                    this, 
+                    "Cash is too high!\n Are you sure you input the right CASH amount?", 
+                    "VALIDTION WARNING",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE) == JOptionPane.NO_OPTION) {
+                tbxCashIn.setText("0.00");
+                tbxCashIn.requestFocus();
+                return;
+            }
+        }
+
+        Double exchange = dCash-dGrandTotal;
+
+        tbxCashIn.setText(DFMT_PRICE.format(dCash));
+
+        String dfExchange = DFMT_PRICE.format(exchange);
+        tbxExchange.setText(dfExchange);
+
+        btnCheckout.setEnabled(true);
+        
+    }
+    
     private void updateReceiptID() {
         lblReceiptID.setText(IDPF_RECEIPT+IDFMT_RECEIPT.format(Receipt.getNextID()));
         
@@ -519,6 +583,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         };
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        chkRequireConfirmCheckout = new javax.swing.JCheckBox();
         pnlCart = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
@@ -664,7 +729,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         cmbCategoryFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbCategoryFilter.setMaximumSize(new java.awt.Dimension(1000, 25));
         cmbCategoryFilter.setMinimumSize(new java.awt.Dimension(254, 25));
-        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(254, 25));
+        cmbCategoryFilter.setPreferredSize(new java.awt.Dimension(254, 27));
         cmbCategoryFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryFilterActionPerformed(evt);
@@ -724,7 +789,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         pnlCheckout.setBackground(new java.awt.Color(102, 102, 102));
         pnlCheckout.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblTotalPrice.setBackground(new java.awt.Color(35, 35, 35));
+        lblTotalPrice.setBackground(new java.awt.Color(20, 20, 20));
         lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 72)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(153, 255, 102));
         lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -771,7 +836,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Exchange: ");
 
-        btnCheckout.setBackground(new java.awt.Color(51, 204, 0));
+        btnCheckout.setBackground(new java.awt.Color(255, 153, 0));
         btnCheckout.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
         btnCheckout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/checkout.png"))); // NOI18N
         btnCheckout.setText("Checkout");
@@ -833,6 +898,11 @@ public class POSForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        chkRequireConfirmCheckout.setBackground(new java.awt.Color(102, 102, 102));
+        chkRequireConfirmCheckout.setForeground(new java.awt.Color(255, 153, 0));
+        chkRequireConfirmCheckout.setSelected(true);
+        chkRequireConfirmCheckout.setText("Require confirm checkout");
+
         javax.swing.GroupLayout pnlCheckoutLayout = new javax.swing.GroupLayout(pnlCheckout);
         pnlCheckout.setLayout(pnlCheckoutLayout);
         pnlCheckoutLayout.setHorizontalGroup(
@@ -845,18 +915,23 @@ public class POSForm extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
                         .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckoutLayout.createSequentialGroup()
+                    .addGroup(pnlCheckoutLayout.createSequentialGroup()
                         .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbxCashIn)
-                            .addComponent(lblCurrentProductID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCalcExchange, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(tbxExchange))
-                        .addGap(23, 23, 23))))
+                        .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCheckoutLayout.createSequentialGroup()
+                                .addComponent(chkRequireConfirmCheckout)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlCheckoutLayout.createSequentialGroup()
+                                .addGroup(pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tbxCashIn)
+                                    .addComponent(lblCurrentProductID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCalcExchange, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                    .addComponent(tbxExchange))
+                                .addGap(23, 23, 23))))))
         );
         pnlCheckoutLayout.setVerticalGroup(
             pnlCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -874,9 +949,11 @@ public class POSForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCalcExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(444, 444, 444)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkRequireConfirmCheckout)
+                .addGap(407, 407, 407)
                 .addComponent(lblCartCurrentRow, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblCurrentProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1273,7 +1350,18 @@ public class POSForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbxCashInFocusGained
 
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
-                
+                        
+        if (chkRequireConfirmCheckout.isSelected()) {
+            if (JOptionPane.showConfirmDialog(
+                    this, 
+                    "Are you sure to CHECKOUT?", 
+                    "CHECKOUT CONFIRMATION",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+        
         Double total = Double.parseDouble(lblTotalPrice.getText());
         Double cash = Double.parseDouble(tbxCashIn.getText());
         Double exchange = Double.parseDouble(tbxExchange.getText());
@@ -1376,9 +1464,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             
         } else {
             JOptionPane.showMessageDialog(this, "Unable to add new receipt data!", "ERROR.", JOptionPane.ERROR);
-        }           
-        
-        
+        }   
         
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
@@ -1387,46 +1473,8 @@ public class POSForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblContentListMouseClicked
 
     private void btnCalcExchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcExchangeActionPerformed
-                
-        tbxExchange.setText("0.00");
-        
-        String grandTotal = lblTotalPrice.getText();
-        String cash = tbxCashIn.getText().trim();
-
-        ValidationResult vr = new ValidationResult();
-        String errMessage;
-
-        errMessage = "Invalid 'Cash' format!";
-        vr = validateStringIsDouble(cash, errMessage);
-        if (!vr.result) {
-            popupWarning(vr);
-            tbxCashIn.setText("0.00");
-            tbxCashIn.requestFocus();
-            return;
-        }
-
-        Double dGrandTotal = Double.parseDouble(grandTotal);
-        Double dCash = Double.parseDouble(cash);
-        
-        if (dGrandTotal <= 0) return;
-
-        if (dCash < dGrandTotal) {
-            vr.result = false;
-            vr.message = "Not enough CASH!";
-            popupWarning(vr);
-            tbxCashIn.setText("0.00");
-            tbxCashIn.requestFocus();
-            return;
-        }
-
-        Double exchange = dCash-dGrandTotal;
-
-        tbxCashIn.setText(DFMT_PRICE.format(dCash));
-
-        String dfExchange = DFMT_PRICE.format(exchange);
-        tbxExchange.setText(dfExchange);
-
-        btnCheckout.setEnabled(true);
+          
+        calcExchange();
         btnCheckout.requestFocus();
         
     }//GEN-LAST:event_btnCalcExchangeActionPerformed
@@ -1440,9 +1488,14 @@ public class POSForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbxCashInPropertyChange
 
     private void tbxCashInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbxCashInKeyPressed
-               
-        tbxExchange.setText("0.00");
-        btnCheckout.setEnabled(false);
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnCalcExchange.requestFocus();
+            calcExchange();
+        } else {
+            tbxExchange.setText("0.00");
+            btnCheckout.setEnabled(false);
+        }
         
     }//GEN-LAST:event_tbxCashInKeyPressed
 
@@ -1506,7 +1559,11 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         if (!"".equals(code)) {
             if (Product.isExist("code='"+code+"'") == null) {
-                JOptionPane.showMessageDialog(this, "Product code '"+code+"' does not exists!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        this, 
+                        "Product code '"+code+"' does not exists!", 
+                        "ERROR", 
+                        JOptionPane.ERROR_MESSAGE);
                 resetInfoPanel();
                 tbxCode.setText("");
                 tbxCode.requestFocus();
@@ -1534,7 +1591,12 @@ public class POSForm extends javax.swing.JInternalFrame {
     private void btnHoldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoldActionPerformed
         
         if (tblSpareCart.getRowCount() > 0) {
-            if (JOptionPane.showConfirmDialog(this, "Hold Cart already has items. Are you sure to remove all existing?", "WARNING", JOptionPane.WARNING_MESSAGE,JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
+            if (JOptionPane.showConfirmDialog(
+                    this,
+                    "Hold Cart already has items. Are you sure to remove all existing?", 
+                    "WARNING", 
+                    JOptionPane.WARNING_MESSAGE,
+                    JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
                 return;
         }
         cloneTableData(tblShoppingCart, modelHoldCartList);
@@ -1553,7 +1615,12 @@ public class POSForm extends javax.swing.JInternalFrame {
     private void btnFillbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFillbackActionPerformed
         
         if (tblShoppingCart.getRowCount() > 0) {
-            if (JOptionPane.showConfirmDialog(this, "Shopping Cart already has items. Are you sure to remove all existing?", "WARNING", JOptionPane.WARNING_MESSAGE,JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
+            if (JOptionPane.showConfirmDialog(
+                    this, 
+                    "Shopping Cart already has items. Are you sure to remove all existing?", 
+                    "WARNING", 
+                    JOptionPane.WARNING_MESSAGE,
+                    JOptionPane.WARNING_MESSAGE) == JOptionPane.CANCEL_OPTION)
                 return;
         }
         setFrameState(frameState.INIT);
@@ -1599,6 +1666,7 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnHold;
     private javax.swing.JButton btnReload;
     private javax.swing.JButton btnRemoe;
+    private javax.swing.JCheckBox chkRequireConfirmCheckout;
     public static javax.swing.JComboBox<String> cmbCategoryFilter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
