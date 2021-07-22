@@ -99,10 +99,12 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnRefresh = new javax.swing.JButton();
-        btnPrint = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        edpReport = new javax.swing.JEditorPane();
+        pnlBody = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         pnlHeader = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
@@ -110,6 +112,10 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
             }
         };
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        edpReport = new javax.swing.JEditorPane();
+        btnRefresh = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -124,28 +130,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
             }
         });
 
-        btnRefresh.setBackground(new java.awt.Color(153, 204, 255));
-        btnRefresh.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
-        btnRefresh.setText("Refresh");
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-
-        btnPrint.setBackground(new java.awt.Color(255, 204, 0));
-        btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/print.png"))); // NOI18N
-        btnPrint.setText("Print");
-        btnPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrintActionPerformed(evt);
-            }
-        });
-
-        edpReport.setContentType("text/html"); // NOI18N
-        jScrollPane1.setViewportView(edpReport);
+        pnlBody.setBackground(new java.awt.Color(102, 102, 102));
 
         pnlHeader.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -167,30 +152,64 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        edpReport.setContentType("text/html"); // NOI18N
+        jScrollPane1.setViewportView(edpReport);
+
+        btnRefresh.setBackground(new java.awt.Color(153, 204, 255));
+        btnRefresh.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/refresh.png"))); // NOI18N
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
+        btnPrint.setBackground(new java.awt.Color(255, 204, 0));
+        btnPrint.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/print.png"))); // NOI18N
+        btnPrint.setText("Print");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
+        pnlBody.setLayout(pnlBodyLayout);
+        pnlBodyLayout.setHorizontalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        pnlBodyLayout.setVerticalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBodyLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrint)
                     .addComponent(btnRefresh))
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlBody, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -224,6 +243,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
     private javax.swing.JEditorPane edpReport;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pnlBody;
     private javax.swing.JPanel pnlHeader;
     // End of variables declaration//GEN-END:variables
 }
