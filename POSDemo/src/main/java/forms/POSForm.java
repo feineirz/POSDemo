@@ -603,7 +603,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                                     DFMT_PRICE_NC.format(receiptDetail.getCurrent_cost()),
                                     DFMT_PRICE_NC.format(receiptDetail.getCurrent_price()),
                                     receiptDetail.getQuantity(),
-                                    receiptDetail.getCurrent_price()*receiptDetail.getQuantity(),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_price()*receiptDetail.getQuantity()),
                                     i < rowCount-1? ",":""
                             )
                     );
