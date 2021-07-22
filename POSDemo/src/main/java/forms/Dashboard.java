@@ -825,7 +825,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private void popSystemLog_CopyReFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyReFormatActionPerformed
         
         copySystemLog();
-        openURL("https://jsonformatter.curiousconcept.com/");
+        openURL("https://elmah.io/tools/json-formatter/");
         
     }//GEN-LAST:event_popSystemLog_CopyReFormatActionPerformed
 

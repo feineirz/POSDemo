@@ -74,6 +74,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         lblCreditURL19 = new javax.swing.JLabel();
         lblCreditURL20 = new javax.swing.JLabel();
+        lblCreditURL21 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -273,6 +274,16 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL20.setText("Mr. Apivat Zaelim");
         lblCreditURL20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lblCreditURL21.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL21.setForeground(new java.awt.Color(153, 255, 51));
+        lblCreditURL21.setText("https://elmah.io/tools/json-formatter/");
+        lblCreditURL21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCreditURL21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCreditURL21MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
         pnlMainLayout.setHorizontalGroup(
@@ -314,7 +325,8 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                             .addComponent(lblCreditURL3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCreditURL4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCreditURL5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreditURL18, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCreditURL18, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreditURL21, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(88, 88, 88))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,13 +392,18 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCreditURL18)
                     .addComponent(lblCreditURL20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreditURL17)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL21))
+                    .addGroup(pnlMainLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCreditURL17)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -454,6 +471,12 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_lblCreditURL18MouseClicked
 
+    private void lblCreditURL21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCreditURL21MouseClicked
+        
+        openURL("https://elmah.io/tools/json-formatter/");        
+        
+    }//GEN-LAST:event_lblCreditURL21MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
@@ -477,6 +500,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCreditURL19;
     private javax.swing.JLabel lblCreditURL2;
     private javax.swing.JLabel lblCreditURL20;
+    private javax.swing.JLabel lblCreditURL21;
     private javax.swing.JLabel lblCreditURL3;
     private javax.swing.JLabel lblCreditURL4;
     private javax.swing.JLabel lblCreditURL5;
