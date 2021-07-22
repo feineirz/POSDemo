@@ -488,6 +488,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckoutActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnCheckoutKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCurrentProductID">

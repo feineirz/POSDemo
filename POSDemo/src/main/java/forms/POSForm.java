@@ -532,6 +532,129 @@ public class POSForm extends javax.swing.JInternalFrame {
         
         lblTotalPrice.setText(DFMT_PRICE.format(grandTotal));
     }
+    
+    private void processCheckout() {
+        
+        if (chkRequireConfirmCheckout.isSelected()) {
+            if (JOptionPane.showConfirmDialog(
+                    this, 
+                    "Are you sure to CHECKOUT?", 
+                    "CHECKOUT CONFIRMATION",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+        
+        Double total = Double.parseDouble(lblTotalPrice.getText());
+        Double cash = Double.parseDouble(tbxCashIn.getText());
+        Double exchange = Double.parseDouble(tbxExchange.getText());
+        
+        ReceiptInfo ri = new ReceiptInfo();
+        ri.id = 0;
+        ri.receipt_date = getCurrentDateTimeFormatted();
+        ri.cost = 0.0;
+        ri.total = total;
+        ri.cash = cash;
+        ri.exchange = exchange;
+        ri.cashier = CURRENT_USER.username;
+        ri.remark = "";
+        
+        Receipt receipt = Receipt.addReceipt(ri);
+        if (receipt != null) {
+            ReceiptDetailInfo rdi = new ReceiptDetailInfo();
+            Double totalCost = 0.0;
+            for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
+                rdi.id = 0;
+                rdi.receipt = receipt.getId();
+                rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
+                rdi.current_cost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString());
+                rdi.current_price = Double.parseDouble(modelCartList.getValueAt(i, 2).toString());
+                rdi.quantity = Integer.parseInt(modelCartList.getValueAt(i, 1).toString());
+                ReceiptDetail receiptDetail = ReceiptDetail.addReceiptDetail(rdi);
+                
+                // Update Stock
+                if (receiptDetail != null) {
+                    Stock stock = Stock.isExist("product='"+rdi.product+"'");
+                    stock.setQuantity(stock.getQuantity() - rdi.quantity);
+                }
+                
+                totalCost += Double.parseDouble(modelCartList.getValueAt(i, 6).toString()) * rdi.quantity;
+            
+            }
+            receipt.setCost(totalCost);
+            CURRENT_CASHRECEIPT_ID = receipt.getId();
+            
+            Log.LogInfo li = new Log.LogInfo();
+            li.id = 0;
+            li.log_date = getCurrentDateTimeFormatted();
+            li.user = CURRENT_USER.username;
+            li.category = "APPLICATION LOG";
+            li.event = "CHECKOUT";
+            
+            // Prepare ReceiptDetail and Product list
+            
+            
+            
+            li.details = String.format(
+                    """
+                    {
+                        "APPLICATION LOG":{
+                            "LogDate":"%s",
+                            "Event":"CHECKOUT",
+                            "Account":{
+                                "ID":%d,
+                                "Username":"%s",
+                                "Email":"%s",
+                                "Phone":"%s",
+                                "Level":"%s"
+                            },
+                            "Data":{
+                                "Receipt":{
+                                    "ID":%d,
+                                    "ReceiptDate":"%s",
+                                    "Cost":%s,
+                                    "Total":%s,
+                                    "Cash":%s,
+                                    "Exchange":%s,
+                                    "Cashier":"%s"
+                                }
+                            },
+                            "Result":"SUCCESS"
+                        }
+                    }
+                    """.formatted(
+                            li.log_date,
+                            CURRENT_USER.id,
+                            CURRENT_USER.username,
+                            CURRENT_USER.email,
+                            CURRENT_USER.phone,
+                            getUserLevel(CURRENT_USER.level),
+                            
+                            receipt.getId(),
+                            receipt.getReceipt_date(),
+                            DFMT_PRICE_NC.format(receipt.getCost()),
+                            DFMT_PRICE_NC.format(receipt.getTotal()),
+                            DFMT_PRICE_NC.format(receipt.getCash()),
+                            DFMT_PRICE_NC.format(receipt.getExchange()),
+                            receipt.getCashier()
+                    )
+            );            
+            Log.addLog(li);
+            
+            setMarginHeight(getToolkit().getScreenSize(), cashReceiptForm, MARGIN_LARGE);
+            cashReceiptForm.show();
+            cashReceiptForm.toFront();
+            cashReceiptForm.callFunction("loadCashReceipt");
+            
+            setFrameState(frameState.POST_CHECKOUT);
+            updateReceiptID();
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Unable to add new receipt data!", "ERROR.", JOptionPane.ERROR);
+        }
+        
+    }
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -845,6 +968,11 @@ public class POSForm extends javax.swing.JInternalFrame {
         btnCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckoutActionPerformed(evt);
+            }
+        });
+        btnCheckout.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCheckoutKeyPressed(evt);
             }
         });
 
@@ -1351,121 +1479,8 @@ public class POSForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbxCashInFocusGained
 
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
-                        
-        if (chkRequireConfirmCheckout.isSelected()) {
-            if (JOptionPane.showConfirmDialog(
-                    this, 
-                    "Are you sure to CHECKOUT?", 
-                    "CHECKOUT CONFIRMATION",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION) {
-                return;
-            }
-        }
-        
-        Double total = Double.parseDouble(lblTotalPrice.getText());
-        Double cash = Double.parseDouble(tbxCashIn.getText());
-        Double exchange = Double.parseDouble(tbxExchange.getText());
-        
-        ReceiptInfo ri = new ReceiptInfo();
-        ri.id = 0;
-        ri.receipt_date = getCurrentDateTimeFormatted();
-        ri.cost = 0.0;
-        ri.total = total;
-        ri.cash = cash;
-        ri.exchange = exchange;
-        ri.cashier = CURRENT_USER.username;
-        ri.remark = "";
-        
-        Receipt receipt = Receipt.addReceipt(ri);
-        if (receipt != null) {
-            ReceiptDetailInfo rdi = new ReceiptDetailInfo();
-            Double totalCost = 0.0;
-            for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
-                rdi.id = 0;
-                rdi.receipt = receipt.getId();
-                rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
-                rdi.current_cost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString());
-                rdi.current_price = Double.parseDouble(modelCartList.getValueAt(i, 2).toString());
-                rdi.quantity = Integer.parseInt(modelCartList.getValueAt(i, 1).toString());
-                ReceiptDetail receiptDetail = ReceiptDetail.addReceiptDetail(rdi);
-                
-                // Update Stock
-                if (receiptDetail != null) {
-                    Stock stock = Stock.isExist("product='"+rdi.product+"'");
-                    stock.setQuantity(stock.getQuantity() - rdi.quantity);
-                }
-                
-                totalCost += Double.parseDouble(modelCartList.getValueAt(i, 6).toString()) * rdi.quantity;
-            
-            }
-            receipt.setCost(totalCost);
-            CURRENT_CASHRECEIPT_ID = receipt.getId();
-            
-            Log.LogInfo li = new Log.LogInfo();
-            li.id = 0;
-            li.log_date = getCurrentDateTimeFormatted();
-            li.user = CURRENT_USER.username;
-            li.category = "APPLICATION LOG";
-            li.event = "ADD RECEIPT";
-            
-            li.details = String.format(
-                    """
-                    {
-                        "APPLICATION LOG":{
-                            "LogDate":"%s",
-                            "Event":"ADD RECEIPT",
-                            "Account":{
-                                "ID":%d,
-                                "Username":"%s",
-                                "Email":"%s",
-                                "Phone":"%s",
-                                "Level":"%s"
-                            },
-                            "Data":{
-                                "Receipt":{
-                                    "ID":%d,
-                                    "ReceiptDate":"%s",
-                                    "Cost":%s,
-                                    "Total":%s,
-                                    "Cash":%s,
-                                    "Exchange":%s,
-                                    "Cashier":"%s"
-                                }
-                            },
-                            "Result":"SUCCESS"
-                        }
-                    }
-                    """.formatted(
-                            li.log_date,
-                            CURRENT_USER.id,
-                            CURRENT_USER.username,
-                            CURRENT_USER.email,
-                            CURRENT_USER.phone,
-                            getUserLevel(CURRENT_USER.level),
-                            
-                            receipt.getId(),
-                            receipt.getReceipt_date(),
-                            DFMT_PRICE_NC.format(receipt.getCost()),
-                            DFMT_PRICE_NC.format(receipt.getTotal()),
-                            DFMT_PRICE_NC.format(receipt.getCash()),
-                            DFMT_PRICE_NC.format(receipt.getExchange()),
-                            receipt.getCashier()
-                    )
-            );            
-            Log.addLog(li);
-            
-            setMarginHeight(getToolkit().getScreenSize(), cashReceiptForm, MARGIN_LARGE);
-            cashReceiptForm.show();
-            cashReceiptForm.toFront();
-            cashReceiptForm.callFunction("loadCashReceipt");
-            
-            setFrameState(frameState.POST_CHECKOUT);
-            updateReceiptID();
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Unable to add new receipt data!", "ERROR.", JOptionPane.ERROR);
-        }   
+                      
+        processCheckout();        
         
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
@@ -1654,6 +1669,14 @@ public class POSForm extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_btnAddToCartKeyPressed
+
+    private void btnCheckoutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCheckoutKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {            
+            processCheckout();            
+        }
+        
+    }//GEN-LAST:event_btnCheckoutKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
