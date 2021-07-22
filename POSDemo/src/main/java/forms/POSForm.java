@@ -564,7 +564,11 @@ public class POSForm extends javax.swing.JInternalFrame {
         if (receipt != null) {
             ReceiptDetailInfo rdi = new ReceiptDetailInfo();
             Double totalCost = 0.0;
-            for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
+            int rowCount = tblShoppingCart.getRowCount();
+            
+            // For Log
+            String rdpList = "";
+            for (int i = 0; i < rowCount; i++) {
                 rdi.id = 0;
                 rdi.receipt = receipt.getId();
                 rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
@@ -577,6 +581,34 @@ public class POSForm extends javax.swing.JInternalFrame {
                 if (receiptDetail != null) {
                     Stock stock = Stock.isExist("product='"+rdi.product+"'");
                     stock.setQuantity(stock.getQuantity() - rdi.quantity);
+                    
+                    // Prepare ReceiptDetail and Product list for Log
+                    Product product = new Product(receiptDetail.getProduct());
+                    
+                    String rdpItem = String.format(
+                            """
+                                                {
+                                                    "Product":{
+                                                        "Code":"%s",
+                                                        "Name":"%s",
+                                                        "Cost":"%s",
+                                                        "Price":"%s",
+                                                    },
+                                                    "Quantity":"%s",
+                                                    "Total":"%s"
+                                                }%s
+                            """.formatted(
+                                    product.getCode(),
+                                    product.getName(),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_cost()),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_price()),
+                                    receiptDetail.getQuantity(),
+                                    receiptDetail.getCurrent_price()*receiptDetail.getQuantity(),
+                                    i < rowCount-1? ",":""
+                            )
+                    );
+                    rdpList += rdpItem;
+                    
                 }
                 
                 totalCost += Double.parseDouble(modelCartList.getValueAt(i, 6).toString()) * rdi.quantity;
@@ -591,10 +623,6 @@ public class POSForm extends javax.swing.JInternalFrame {
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "CHECKOUT";
-            
-            // Prepare ReceiptDetail and Product list
-            
-            
             
             li.details = String.format(
                     """
@@ -613,6 +641,9 @@ public class POSForm extends javax.swing.JInternalFrame {
                                 "Receipt":{
                                     "ID":%d,
                                     "ReceiptDate":"%s",
+                                    "Items":[
+                    %s
+                                    ],
                                     "Cost":%s,
                                     "Total":%s,
                                     "Cash":%s,
@@ -633,6 +664,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                             
                             receipt.getId(),
                             receipt.getReceipt_date(),
+                            rdpList,
                             DFMT_PRICE_NC.format(receipt.getCost()),
                             DFMT_PRICE_NC.format(receipt.getTotal()),
                             DFMT_PRICE_NC.format(receipt.getCash()),
