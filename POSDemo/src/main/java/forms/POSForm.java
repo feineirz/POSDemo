@@ -592,7 +592,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                                                         "Code":"%s",
                                                         "Name":"%s",
                                                         "Cost":%s,
-                                                        "Price":%s,
+                                                        "Price":%s
                                                     },
                                                     "Quantity":%s,
                                                     "Total":%s
