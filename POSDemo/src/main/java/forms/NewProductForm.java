@@ -84,6 +84,16 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, vr.message, "VALIDATION WARNING", JOptionPane.WARNING_MESSAGE);
     }
     
+    private void calcProfitRate() {
+        
+        String cost = tbxCost.getText();
+        
+        if (validateStringIsDouble(cost, "").result) {
+            tbxPrice.setText(DFMT_PRICE.format(Double.parseDouble(cost) + (Double.parseDouble(cost)*sldProfit.getValue()/100)));
+        }
+        
+    }
+    
     /*==== Required Functions ====*/  
     private void listCategory() {
         
@@ -137,13 +147,16 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         lblIcon = new javax.swing.JLabel();
         cmbStatus = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        sldProfit = new javax.swing.JSlider();
+        lblProfitValue = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
-        setMaximumSize(new java.awt.Dimension(1200, 750));
-        setMinimumSize(new java.awt.Dimension(650, 650));
-        setPreferredSize(new java.awt.Dimension(650, 723));
+        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMinimumSize(new java.awt.Dimension(650, 800));
+        setPreferredSize(new java.awt.Dimension(650, 800));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -340,6 +353,31 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel9.setText("Status: ");
         jLabel9.setPreferredSize(new java.awt.Dimension(45, 20));
 
+        sldProfit.setMajorTickSpacing(5);
+        sldProfit.setMinimum(5);
+        sldProfit.setMinorTickSpacing(5);
+        sldProfit.setValue(5);
+        sldProfit.setMaximumSize(new java.awt.Dimension(400, 29));
+        sldProfit.setMinimumSize(new java.awt.Dimension(36, 29));
+        sldProfit.setPreferredSize(new java.awt.Dimension(200, 29));
+        sldProfit.setValueIsAdjusting(true);
+        sldProfit.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldProfitStateChanged(evt);
+            }
+        });
+
+        lblProfitValue.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        lblProfitValue.setForeground(new java.awt.Color(255, 255, 255));
+        lblProfitValue.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblProfitValue.setText("5%");
+
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Profit: ");
+        jLabel10.setPreferredSize(new java.awt.Dimension(45, 20));
+
         javax.swing.GroupLayout pnlMainInfoLayout = new javax.swing.GroupLayout(pnlMainInfo);
         pnlMainInfo.setLayout(pnlMainInfoLayout);
         pnlMainInfoLayout.setHorizontalGroup(
@@ -358,13 +396,11 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tbxQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInfoLayout.createSequentialGroup()
-                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pnlMainInfoLayout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(1, 1, 1)
+                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlMainInfoLayout.createSequentialGroup()
@@ -372,25 +408,30 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                                         .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tbxCode, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                                    .addComponent(tbxCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tbxName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(pnlMainInfoLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInfoLayout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tbxCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInfoLayout.createSequentialGroup()
-                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tbxPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1)))
                             .addGroup(pnlMainInfoLayout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(cmbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInfoLayout.createSequentialGroup()
+                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlMainInfoLayout.createSequentialGroup()
+                                        .addComponent(sldProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblProfitValue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tbxPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1))))
                         .addGap(40, 40, 40))))
         );
         pnlMainInfoLayout.setVerticalGroup(
@@ -413,6 +454,11 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbxCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sldProfit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblProfitValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -425,7 +471,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -642,7 +688,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbxNameFocusLost
 
     private void tbxPriceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxPriceFocusGained
-        // TODO add your handling code here:
+        
+        tbxPrice.selectAll();
+        
     }//GEN-LAST:event_tbxPriceFocusGained
 
     private void tbxPriceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxPriceFocusLost
@@ -662,7 +710,9 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tbxCostFocusGained
 
     private void tbxCostFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCostFocusLost
-        // TODO add your handling code here:
+        
+        calcProfitRate();
+        
     }//GEN-LAST:event_tbxCostFocusLost
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -671,12 +721,21 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formComponentShown
 
+    private void sldProfitStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldProfitStateChanged
+        
+        lblProfitValue.setText(String.valueOf(sldProfit.getValue())+"%");
+        
+        calcProfitRate();
+        
+    }//GEN-LAST:event_sldProfitStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnCancel;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JComboBox<String> cmbStatus;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -687,10 +746,12 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIcon;
+    private javax.swing.JLabel lblProfitValue;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JLabel lblTitle2;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlMainInfo;
+    private javax.swing.JSlider sldProfit;
     private javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxCost;
     private javax.swing.JTextArea tbxDescription;
