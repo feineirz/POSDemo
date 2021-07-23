@@ -97,7 +97,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                 listContentWithFilter();
                 
                 if (!REFILL_STOCK_IGNORE_INIT_CODE) tbxCode.setText("");
-                REFILL_STOCK_IGNORE_INIT_CODE = true;
+                REFILL_STOCK_IGNORE_INIT_CODE = false;
                 
                 lblName.setText("");
                 tbxCost.setText("");
@@ -700,7 +700,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             );            
             Log.addLog(li);
             
-            JOptionPane.showMessageDialog(this, "Add product to Stock successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Refill Stock successful.","SUCCESSFUL.",JOptionPane.INFORMATION_MESSAGE);
             
             setFrameState(frameState.POST_EDIT);
             

@@ -805,7 +805,7 @@ public class HelperFunctions {
         htmlContent = htmlContent.replace("@end_date@", getDateFullFormatted(endDate));        
         
         String reportContent = "", tableContent, rowContent = "", allRowContent = "";        
-        tableContent = tableTemplte.replace("@info_header@", "SYSTEM LOG INFORMATION");
+        tableContent = tableTemplte.replace("@info_header@", "LOG INFORMATION");
         
         allRowContent = "";
         for (Log log : Log.listLog("log_date between '"+getDateFormatted(startDate)+" 00:00:00' and '"+getDateFormatted(endDate)+" 23:59:59'", "log_date desc")) {
