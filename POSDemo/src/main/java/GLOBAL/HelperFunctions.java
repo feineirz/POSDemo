@@ -758,7 +758,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=870>
+                                <body width=950>
                                     <h1>@report_title@<hr height=4/></h1>                               
                                     <span><font size='-1'>Report from &nbsp;<b>@start_date@</b>&nbsp; to &nbsp;<b>@end_date@</b></font></span><hr/>
                                     @report_content@
@@ -771,15 +771,7 @@ public class HelperFunctions {
                             <br/>
                             <table>
                                 <tr>
-                                    <td colspan=5 width=870><h2>@info_header@</h2></td>
-                                </tr>
-                                <tr><td colspan=5><hr></td></tr>
-                                <tr>
-                                    <td width=130><h4>Date</h4></td>
-                                    <td width=130><h4>Category</h4></td>
-                                    <td width=120><h4>User</h4></td>
-                                    <td width=190><h4>Event</h4></td>
-                                    <td width=300><h4>Details</h4></td>
+                                    <td colspan=5 width=950><h2>@info_header@</h2></td>
                                 </tr>
                                 <tr><td colspan=5><hr></td></tr>
                                 @all_row_content@
@@ -791,11 +783,18 @@ public class HelperFunctions {
         
         String rowTemplate = """
                             <tr>
-                                <td valign='top' height=30"><font size='-1'>@log_date@</font></td>
-                                <td valign='top'><font size='-1'>@category@</font></td>
-                                <td valign='top'><font size='-1'>@user@</font></td>
-                                <td valign='top'><font size='-1'>@event@</font></td>
-                                <td valign='top'><font size='-1'>@details@</font></td>
+                                <td width=300 valign='top'>
+                                    <br/>
+                                    <p><b><i>Category</i></b></p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@category@</font></p><br/>
+                                    <p><b><i>Log Date</i></b></p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@log_date@</font></p><br/>
+                                    <p><b><i>Event</i></b></p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@event@</font></p><br/>
+                                    <p><b><i>Account</i></b></p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@user@</font></p>
+                                </td>
+                                <td width=650 valign='top'><font size=-1><br/>@details@</font></td>
                             </tr>
                             <tr><td colspan=5><hr></td></tr>
                              """;

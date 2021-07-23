@@ -84,7 +84,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
     /*==== Required Functions ====*/
     private void loadReport() {  
         
-        edpReport.setText(generateSystemLogReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "SYSTEM LOG"));
+        edpReport.setText(generateSystemLogReportHTML(jdcReportStart.getDate(), jdcReportEnd.getDate(), "LOG REPORT"));
         edpReport.setSelectionStart(0);
         edpReport.setSelectionEnd(0);
         
@@ -130,9 +130,9 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setTitle("Log Report");
-        setMaximumSize(new java.awt.Dimension(950, 2000));
-        setMinimumSize(new java.awt.Dimension(950, 850));
-        setPreferredSize(new java.awt.Dimension(950, 850));
+        setMaximumSize(new java.awt.Dimension(1000, 2000));
+        setMinimumSize(new java.awt.Dimension(1000, 850));
+        setPreferredSize(new java.awt.Dimension(1000, 850));
 
         pnlBody.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -203,7 +203,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jdcReportEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                .addComponent(jdcReportEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReport, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -221,6 +221,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        edpReport.setBackground(new java.awt.Color(204, 204, 204));
         edpReport.setContentType("text/html"); // NOI18N
         jScrollPane1.setViewportView(edpReport);
 
