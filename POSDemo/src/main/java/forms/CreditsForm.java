@@ -243,7 +243,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         lblCreditURL17.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         lblCreditURL17.setForeground(new java.awt.Color(255, 255, 0));
-        lblCreditURL17.setText("Mr. Thanwa S.");
+        lblCreditURL17.setText("Mr. Thunwa Sumnakpong");
         lblCreditURL17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblCreditURL18.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -392,12 +392,10 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCreditURL18)
                     .addComponent(lblCreditURL20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCreditURL21)
                     .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCreditURL21))
-                    .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCreditURL16)

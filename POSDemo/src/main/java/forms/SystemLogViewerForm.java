@@ -46,11 +46,13 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         tblLogList.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             int curRow = tblLogList.getSelectedRow();
             int logID;
-            Log log1;
+            Log log;
             if (curRow > -1) {
                 logID = Integer.parseInt(tblLogList.getValueAt(curRow, 3).toString());
-                log1 = new Log(logID);
-                tbxContent.setText(log1.getDetails());
+                log = new Log(logID);
+                tbxContent.setText(log.getDetails());
+                tbxContent.setSelectionStart(0);
+                tbxContent.setSelectionEnd(0);
             }            
         });
         

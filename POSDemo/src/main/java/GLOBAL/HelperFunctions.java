@@ -784,7 +784,6 @@ public class HelperFunctions {
         String rowTemplate = """
                             <tr>
                                 <td width=300 valign='top'>
-                                    <br/>
                                     <p><b><i>Category</i></b></p>
                                     <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@category@</font></p><br/>
                                     <p><b><i>Log Date</i></b></p>
@@ -794,7 +793,10 @@ public class HelperFunctions {
                                     <p><b><i>Account</i></b></p>
                                     <p>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>@user@</font></p>
                                 </td>
-                                <td width=650 valign='top'><font size=-1><br/>@details@</font></td>
+                                <td width=650 valign='top'>
+                                    <p><b><i>Details</i></b></p>
+                                    <font size=-1>@details@</font>
+                                </td>
                             </tr>
                             <tr><td colspan=5><hr></td></tr>
                              """;
