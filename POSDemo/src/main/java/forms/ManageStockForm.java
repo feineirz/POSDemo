@@ -823,7 +823,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                                     "Code":"%s",
                                     "Name":"%s"
                                 },                                
-                                "NewQuantity":%d,
+                                "NewQuantity":%d
                             },
                             "Result":"SUCCESS"
                         }
@@ -843,7 +843,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                             category.getName(),
                             product.getCode(),
                             product.getName(),
-                            quantity,
+                            Integer.parseInt(quantity),
                             stock.getQuantity()
                     )
             );            
