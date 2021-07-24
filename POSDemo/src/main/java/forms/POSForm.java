@@ -738,7 +738,6 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         };
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         chkRequireConfirmCheckout = new javax.swing.JCheckBox();
         pnlCart = new javax.swing.JPanel(){
             @Override
@@ -763,7 +762,6 @@ public class POSForm extends javax.swing.JInternalFrame {
                 g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSpareCart = new javax.swing.JTable();
@@ -1036,27 +1034,19 @@ public class POSForm extends javax.swing.JInternalFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("CHECKOUT");
 
-        jLabel20.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pos32.png"))); // NOI18N
-
         javax.swing.GroupLayout pnlCheckOutHeaderLayout = new javax.swing.GroupLayout(pnlCheckOutHeader);
         pnlCheckOutHeader.setLayout(pnlCheckOutHeaderLayout);
         pnlCheckOutHeaderLayout.setHorizontalGroup(
             pnlCheckOutHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCheckOutHeaderLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCheckOutHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlCheckOutHeaderLayout.setVerticalGroup(
             pnlCheckOutHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCheckOutHeaderLayout.createSequentialGroup()
-                .addGroup(pnlCheckOutHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1262,10 +1252,6 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         pnlShoppingCartHeader.setBackground(new java.awt.Color(0, 153, 204));
 
-        jLabel10.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cart32.png"))); // NOI18N
-
         jLabel3.setBackground(new java.awt.Color(0, 102, 153));
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1275,19 +1261,15 @@ public class POSForm extends javax.swing.JInternalFrame {
         pnlShoppingCartHeader.setLayout(pnlShoppingCartHeaderLayout);
         pnlShoppingCartHeaderLayout.setHorizontalGroup(
             pnlShoppingCartHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlShoppingCartHeaderLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlShoppingCartHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlShoppingCartHeaderLayout.setVerticalGroup(
             pnlShoppingCartHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlShoppingCartHeaderLayout.createSequentialGroup()
-                .addGroup(pnlShoppingCartHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1721,10 +1703,8 @@ public class POSForm extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox chkRequireConfirmCheckout;
     public static javax.swing.JComboBox<String> cmbCategoryFilter;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
