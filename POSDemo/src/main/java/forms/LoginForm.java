@@ -218,7 +218,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
         });
 
         lblLogInHint.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
-        lblLogInHint.setForeground(new java.awt.Color(153, 255, 51));
+        lblLogInHint.setForeground(new java.awt.Color(204, 255, 0));
         lblLogInHint.setText("* user: demo / pass: demo");
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 2, 16)); // NOI18N

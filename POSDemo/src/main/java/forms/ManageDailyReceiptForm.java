@@ -19,7 +19,6 @@ import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -109,26 +108,22 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         switch(framState) {
             case INIT -> {
 		listReceipt();
-                clearTable(tblReceiptDetail);
+                tblReceiptList.clearSelection();
+                lblReceiptID.setText("");
+                lblTotalPrice.setText("0.00");
+                modelReceiptDetailList.setRowCount(0);
+                edtDisplay.setText("");
             }
         }
     }
     
     /*==== Helper Functions ====*/
-    private void clearTable(JTable tbl) {
-        
-        int lastRow = tbl.getRowCount() - 1;
-        while (lastRow > -1) {
-            ((DefaultTableModel)tbl.getModel()).removeRow(lastRow);
-            lastRow--;
-        }
-        
-    }	
+    
     
     /*==== Required Functions ====*/
     private void listReceipt() {
         
-        clearTable(tblReceiptList);
+        modelReceiptList.setRowCount(0);        
         int row = 0;
         Double totalIncome = 0.0;
         for (Receipt receipt : Receipt.listReceipt("receipt_date between '"+getCurrentDateFormatted()+" 00:00:00' and '"+getCurrentDateFormatted()+" 23:59:59'", "receipt_date desc")) {
@@ -152,7 +147,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         Product product;
         Receipt receipt = new Receipt(Integer.parseInt(receiptID));
         
-        clearTable(tblReceiptDetail);
+        modelReceiptDetailList.setRowCount(0);
         int row = 0;
         for (ReceiptDetail receiptDetail : ReceiptDetail.listReceiptDetail("receipt='"+receiptID+"'")) {
             modelReceiptDetailList.addRow(new Object[0]);
