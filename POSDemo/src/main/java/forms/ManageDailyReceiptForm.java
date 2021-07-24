@@ -184,9 +184,6 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         };
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReceiptList = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        lblTotalIncome = new javax.swing.JLabel();
         pnlHeader = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
@@ -205,6 +202,8 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         tblReceiptDetail = new javax.swing.JTable();
         lblTotalPrice = new javax.swing.JLabel();
         lblReceiptID = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblTotalIncome = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         edtDisplay = new javax.swing.JEditorPane();
@@ -217,7 +216,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         setTitle("DAILY RECEIPT MANAGEMENT PANEL");
         setMaximumSize(new java.awt.Dimension(4000, 1200));
         setMinimumSize(new java.awt.Dimension(1440, 700));
-        setPreferredSize(new java.awt.Dimension(1440, 800));
+        setPreferredSize(new java.awt.Dimension(1440, 900));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -265,38 +264,6 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
             tblReceiptList.getColumnModel().getColumn(3).setPreferredWidth(0);
             tblReceiptList.getColumnModel().getColumn(3).setMaxWidth(0);
         }
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel3.setOpaque(false);
-
-        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Total income");
-
-        lblTotalIncome.setBackground(new java.awt.Color(51, 51, 51));
-        lblTotalIncome.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        lblTotalIncome.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalIncome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTotalIncome.setText("0.00");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTotalIncome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         pnlHeader.setBackground(new java.awt.Color(102, 0, 255));
 
@@ -387,9 +354,9 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         }
 
         lblTotalPrice.setBackground(new java.awt.Color(25, 25, 25));
-        lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 48)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(153, 255, 102));
-        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 52)); // NOI18N
+        lblTotalPrice.setForeground(new java.awt.Color(0, 153, 255));
+        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTotalPrice.setText("0.00");
         lblTotalPrice.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblTotalPrice.setMaximumSize(new java.awt.Dimension(94, 60));
@@ -404,6 +371,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         lblReceiptID.setBackground(new java.awt.Color(102, 102, 102));
         lblReceiptID.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         lblReceiptID.setForeground(new java.awt.Color(255, 255, 255));
+        lblReceiptID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblReceiptID.setText("-");
 
         javax.swing.GroupLayout pnlDetailsLayout = new javax.swing.GroupLayout(pnlDetails);
@@ -415,19 +383,32 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
                 .addComponent(lblReceiptID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                .addGap(9, 9, 9))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
         );
         pnlDetailsLayout.setVerticalGroup(
             pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetailsLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReceiptID))
+                    .addComponent(lblReceiptID)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2))
         );
+
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Total income");
+
+        lblTotalIncome.setBackground(new java.awt.Color(51, 51, 51));
+        lblTotalIncome.setFont(new java.awt.Font("Digital-7 Mono", 0, 52)); // NOI18N
+        lblTotalIncome.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalIncome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotalIncome.setText("0.00");
+        lblTotalIncome.setMaximumSize(new java.awt.Dimension(96, 72));
+        lblTotalIncome.setMinimumSize(new java.awt.Dimension(96, 72));
+        lblTotalIncome.setPreferredSize(new java.awt.Dimension(96, 72));
 
         javax.swing.GroupLayout pnlTableLayout = new javax.swing.GroupLayout(pnlTable);
         pnlTable.setLayout(pnlTableLayout);
@@ -435,12 +416,14 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
             pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlTableLayout.createSequentialGroup()
-                .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTableLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTableLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -451,9 +434,11 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTableLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                        .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
                     .addComponent(pnlDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -543,7 +528,6 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
     private javax.swing.JEditorPane edtDisplay;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

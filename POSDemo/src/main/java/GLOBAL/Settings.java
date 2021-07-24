@@ -33,6 +33,8 @@ public class Settings {
     ImageIcon imageProfitChartsIcon = new ImageIcon(getClass().getResource("/images/profitcharts-bg.jpg"));
     ImageIcon imageSystemLogIcon = new ImageIcon(getClass().getResource("/images/systemlog-bg.jpg"));
     
+    ImageIcon imageDigitPanelIcon = new ImageIcon(getClass().getResource("/images/digitpanel-bg.jpg"));
+    
     ImageIcon imageCreditsIcon = new ImageIcon(getClass().getResource("/images/credits-bg.jpg"));
     
     public final Image BACKGROUND_IMAGE_HEADER = imageHeaderIcon.getImage();    
@@ -43,6 +45,8 @@ public class Settings {
     public final Image BACKGROUND_IMAGE_LOWSTOCK = imageLowStockIcon.getImage();  
     public final Image BACKGROUND_IMAGE_PROFITCHARTS = imageProfitChartsIcon.getImage();  
     public final Image BACKGROUND_IMAGE_SYSTEMLOG = imageSystemLogIcon.getImage();
+    
+    public final Image BACKGROUND_IMAGE_DIGITPANEL = imageDigitPanelIcon.getImage();
     
     public final Image BACKGROUND_IMAGE_CREDITS = imageCreditsIcon.getImage();
     

@@ -712,7 +712,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void mnuReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuReceiptActionPerformed
         
-        setMarginHeight(mainDesktop, manageDailyReceiptForm, MARGIN_MEDIUM);
         pullCenter(mainDesktop, manageDailyReceiptForm);
         manageDailyReceiptForm.show();
         manageDailyReceiptForm.toFront();
