@@ -236,11 +236,11 @@ public class LoginForm extends javax.swing.JInternalFrame {
         pnlHeader.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/secure64.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/secure_blue64.png"))); // NOI18N
 
         lblTitle.setBackground(new java.awt.Color(51, 51, 51));
         lblTitle.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(153, 255, 0));
+        lblTitle.setForeground(new java.awt.Color(0, 153, 255));
         lblTitle.setText("SYSTEM LOGIN");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
