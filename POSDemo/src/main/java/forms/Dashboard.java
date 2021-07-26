@@ -691,7 +691,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         jLabel13.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("SYSTEM LOG");
+        jLabel13.setText("APPLICATION LOG");
 
         edpSystemLog.setBackground(new java.awt.Color(240, 240, 240));
         edpSystemLog.setContentType("text/html"); // NOI18N

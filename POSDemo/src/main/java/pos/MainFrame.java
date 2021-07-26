@@ -159,6 +159,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuMain = new javax.swing.JMenuBar();
         mnuMainSystem = new javax.swing.JMenu();
         mnuDashboard = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
         mnuSystemLogViewer = new javax.swing.JMenuItem();
         mnuSystemLogReport = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -243,6 +244,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         mnuMainSystem.add(mnuDashboard);
+        mnuMainSystem.add(jSeparator5);
 
         mnuSystemLogViewer.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         mnuSystemLogViewer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu/view-logs.png"))); // NOI18N
@@ -878,6 +880,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     public javax.swing.JDesktopPane mainDesktop;
     private javax.swing.JMenuItem mnuAddCategory;
     private javax.swing.JMenuItem mnuAddProduct;
