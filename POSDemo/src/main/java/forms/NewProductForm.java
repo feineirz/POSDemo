@@ -89,7 +89,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         String cost = tbxCost.getText();
         
         if (validateStringIsDouble(cost, "").result) {
-            tbxPrice.setText(DFMT_PRICE.format(Double.parseDouble(cost) + (Double.parseDouble(cost)*sldProfit.getValue()/100)));
+            tbxPrice.setText(DFMT_PRICE_NC.format(Double.parseDouble(cost) + (Double.parseDouble(cost)*sldProfit.getValue()/100)));
         }
         
     }
@@ -119,7 +119,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        btnAddUser = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -165,13 +165,13 @@ public class NewProductForm extends javax.swing.JInternalFrame {
 
         pnlMainInfo.setBackground(new java.awt.Color(102, 102, 102));
 
-        btnAddUser.setBackground(new java.awt.Color(0, 153, 204));
-        btnAddUser.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        btnAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/add.png"))); // NOI18N
-        btnAddUser.setText("Add");
-        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(0, 153, 204));
+        btnAdd.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button/add.png"))); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUserActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -405,7 +405,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlMainInfoLayout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(tbxCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -479,7 +479,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(pnlMainInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
         );
@@ -498,7 +498,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
         String code = tbxCode.getText().trim();
         String name = tbxName.getText().trim();
@@ -506,10 +506,10 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         String categoryname = String.valueOf(cmbCategory.getSelectedItem());
         Category category = Category.NameToCategory(categoryname);
         
-        String cost = tbxCost.getText().trim();
-        String price = tbxPrice.getText().trim();
+        String cost = tbxCost.getText().trim().replace(",", "");
+        String price = tbxPrice.getText().trim().replace(",", "");
         String description = tbxDescription.getText();    
-        String quantity = tbxQuantity.getText().trim();
+        String quantity = tbxQuantity.getText().trim().replace(",", "");
         
         // Validation Phase
         ValidationResult vr = new ValidationResult();
@@ -654,7 +654,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Add new Product failed.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
-    }//GEN-LAST:event_btnAddUserActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         
@@ -731,7 +731,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAddUser;
+    public javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JComboBox<String> cmbStatus;

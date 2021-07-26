@@ -65,8 +65,8 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                 if(curRow > -1){
                     lblStockID.setText(tblContentList.getValueAt(curRow, 0).toString());
                     lblCode.setText(tblContentList.getValueAt(curRow, 1).toString());
-                    lblPrice.setText(tblContentList.getValueAt(curRow, 4).toString());
-                    tbxQuantity.setText(tblContentList.getValueAt(curRow, 5).toString());
+                    lblPrice.setText(tblContentList.getValueAt(curRow, 4).toString().replace(",", ""));
+                    tbxQuantity.setText(tblContentList.getValueAt(curRow, 5).toString().replace(",", ""));
                     tbxRemark.setText(tblContentList.getValueAt(curRow, 7).toString());
                     lblRealID.setText(tblContentList.getValueAt(curRow, 8).toString());
                     setFrameState(frameState.SELECTED);

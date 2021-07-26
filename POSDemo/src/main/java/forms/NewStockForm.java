@@ -582,8 +582,8 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 
         String productID = lblRealID.getText();
-        String cost = tbxCost.getText().trim();
-        String quantity = tbxQuantity.getText().trim();
+        String cost = tbxCost.getText().trim().replace(",", "");
+        String quantity = tbxQuantity.getText().trim().replace(",", "");
         String remark = tbxRemark.getText().trim();
 
         // Validation Phase

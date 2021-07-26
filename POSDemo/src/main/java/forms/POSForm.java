@@ -273,8 +273,6 @@ public class POSForm extends javax.swing.JInternalFrame {
         
     }
     
-     
-    
     private void cloneTableData(JTable source, DefaultTableModel destination) {
         
         if (source.getRowCount() > 0) {
@@ -298,8 +296,8 @@ public class POSForm extends javax.swing.JInternalFrame {
         
         tbxExchange.setText("0.00");
         
-        String grandTotal = lblTotalPrice.getText();
-        String cash = tbxCashIn.getText().trim();
+        String grandTotal = lblTotalPrice.getText().replace(",", "");
+        String cash = tbxCashIn.getText().trim().replace(",", "");
 
         ValidationResult vr = new ValidationResult();
         String errMessage;
@@ -422,10 +420,10 @@ public class POSForm extends javax.swing.JInternalFrame {
         tblShoppingCart.clearSelection();
 
         String code = tbxCode.getText().trim();
-        String quantity = tbxQuantity.getText().trim();
+        String quantity = tbxQuantity.getText().trim().replace(",", "");
         String productID = lblCurrentProductID.getText();
 
-        Double sumPrice = Double.parseDouble(lblTotalPrice.getText());
+        Double sumPrice = Double.parseDouble(lblTotalPrice.getText().replace(",", ""));
 
         ValidationResult vr = new ValidationResult();
         String errMessage;
@@ -452,7 +450,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         int row = getExistProductIDRowNo(productID);
         if (row > -1) { // Item already in cart
-            int curQty = Integer.parseInt(tblShoppingCart.getValueAt(row, 1).toString());
+            int curQty = Integer.parseInt(tblShoppingCart.getValueAt(row, 1).toString().replace(",", ""));
             int addQty = Integer.parseInt(quantity);
 
             if (btnAddToCart.getText().equals("Add To Cart")) {
@@ -522,8 +520,8 @@ public class POSForm extends javax.swing.JInternalFrame {
         // Remove if Qty < 1        
         for (int i = 0; i < tblShoppingCart.getRowCount(); i++) {
             
-            Integer quantity = Integer.parseInt(tblShoppingCart.getValueAt(i, 1).toString());
-            Double price = Double.parseDouble(tblShoppingCart.getValueAt(i, 2).toString());
+            Integer quantity = Integer.parseInt(tblShoppingCart.getValueAt(i, 1).toString().replace(",", ""));
+            Double price = Double.parseDouble(tblShoppingCart.getValueAt(i, 2).toString().replace(",", ""));
             Double total = quantity*price;
             
             grandTotal += total;
@@ -546,9 +544,9 @@ public class POSForm extends javax.swing.JInternalFrame {
             }
         }
         
-        Double total = Double.parseDouble(lblTotalPrice.getText());
-        Double cash = Double.parseDouble(tbxCashIn.getText());
-        Double exchange = Double.parseDouble(tbxExchange.getText());
+        Double total = Double.parseDouble(lblTotalPrice.getText().replace(",", ""));
+        Double cash = Double.parseDouble(tbxCashIn.getText().replace(",", ""));
+        Double exchange = Double.parseDouble(tbxExchange.getText().replace(",", ""));
         
         ReceiptInfo ri = new ReceiptInfo();
         ri.id = 0;
@@ -572,9 +570,9 @@ public class POSForm extends javax.swing.JInternalFrame {
                 rdi.id = 0;
                 rdi.receipt = receipt.getId();
                 rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
-                rdi.current_cost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString());
-                rdi.current_price = Double.parseDouble(modelCartList.getValueAt(i, 2).toString());
-                rdi.quantity = Integer.parseInt(modelCartList.getValueAt(i, 1).toString());
+                rdi.current_cost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString().replace(",", ""));
+                rdi.current_price = Double.parseDouble(modelCartList.getValueAt(i, 2).toString().replace(",", ""));
+                rdi.quantity = Integer.parseInt(modelCartList.getValueAt(i, 1).toString().replace(",", ""));
                 ReceiptDetail receiptDetail = ReceiptDetail.addReceiptDetail(rdi);
                 
                 // Update Stock

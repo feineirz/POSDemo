@@ -7,9 +7,9 @@
 
 package DBCLS;
 
+import java.lang.*;
 import java.sql.*;
 import java.util.*;
-import java.lang.*;
 
 /*********************************************{{{ CLASS START }}}*********************************************/
 
@@ -36,7 +36,7 @@ public class Log {
 		+ " user,"
 		+ " category,"
 		+ " event,"
-		+ " detail";
+		+ " details";
 
 	/// CLASS STRUCTURE ///
 	public static class LogInfo {

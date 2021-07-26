@@ -81,8 +81,8 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
                             break;
                         }
                     }
-                    tbxCost.setText(tblContentList.getValueAt(curRow, 4).toString());
-                    tbxPrice.setText(tblContentList.getValueAt(curRow, 5).toString());
+                    tbxCost.setText(tblContentList.getValueAt(curRow, 4).toString().replace(",", ""));
+                    tbxPrice.setText(tblContentList.getValueAt(curRow, 5).toString().replace(",", ""));
                     tbxDescription.setText(tblContentList.getValueAt(curRow, 6).toString());
                     
                     lblRealID.setText(tblContentList.getValueAt(curRow, 7).toString());
@@ -253,7 +253,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
         String cost = tbxCost.getText();
         
         if (validateStringIsDouble(cost, "").result) {
-            tbxPrice.setText(DFMT_PRICE.format(Double.parseDouble(cost) + (Double.parseDouble(cost)*sldProfit.getValue()/100)));
+            tbxPrice.setText(DFMT_PRICE_NC.format(Double.parseDouble(cost) + (Double.parseDouble(cost)*sldProfit.getValue()/100)));
         }
         
     }
@@ -936,8 +936,8 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             String categoryname = String.valueOf(cmbCategory.getSelectedItem());
             Category category = Category.NameToCategory(categoryname);
 
-            String cost = tbxCost.getText().trim();
-            String price = tbxPrice.getText().trim();
+            String cost = tbxCost.getText().trim().replace(",", "");
+            String price = tbxPrice.getText().trim().replace(",", "");
             String description = tbxDescription.getText();    
 
             // Validation Phase
