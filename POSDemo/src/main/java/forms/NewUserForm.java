@@ -31,6 +31,7 @@ public class NewUserForm extends javax.swing.JInternalFrame {
      * Creates new form NewUser
      */
     public NewUserForm() {
+        
         initComponents();        
         setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK);

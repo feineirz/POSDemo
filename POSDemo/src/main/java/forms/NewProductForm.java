@@ -354,11 +354,11 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         jLabel9.setPreferredSize(new java.awt.Dimension(45, 20));
 
         sldProfit.setMajorTickSpacing(5);
-        sldProfit.setMinimum(5);
         sldProfit.setMinorTickSpacing(5);
-        sldProfit.setValue(5);
+        sldProfit.setValue(30);
         sldProfit.setMaximumSize(new java.awt.Dimension(400, 29));
         sldProfit.setMinimumSize(new java.awt.Dimension(36, 29));
+        sldProfit.setOpaque(false);
         sldProfit.setPreferredSize(new java.awt.Dimension(200, 29));
         sldProfit.setValueIsAdjusting(true);
         sldProfit.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -370,7 +370,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         lblProfitValue.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         lblProfitValue.setForeground(new java.awt.Color(255, 255, 255));
         lblProfitValue.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblProfitValue.setText("5%");
+        lblProfitValue.setText("30%");
 
         jLabel10.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));

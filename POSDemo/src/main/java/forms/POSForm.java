@@ -1052,6 +1052,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         chkRequireConfirmCheckout.setForeground(new java.awt.Color(255, 153, 0));
         chkRequireConfirmCheckout.setSelected(true);
         chkRequireConfirmCheckout.setText("Require confirm checkout");
+        chkRequireConfirmCheckout.setOpaque(false);
 
         javax.swing.GroupLayout pnlCheckoutLayout = new javax.swing.GroupLayout(pnlCheckout);
         pnlCheckout.setLayout(pnlCheckoutLayout);

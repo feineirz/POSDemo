@@ -30,15 +30,32 @@ import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import static pos.Apps.*;
 
 /**
  *
  * @author feine
  */
-public class HelperFunctions {    
+public class HelperFunctions {
     
-    public static void setUIFont (javax.swing.plaf.FontUIResource f){
+    public static void setLAF() {
+        
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public static void setUIFont (javax.swing.plaf.FontUIResource f){        
         java.util.Enumeration keys = UIManager.getDefaults().keys();
         while (keys.hasMoreElements()) {
                 Object key = keys.nextElement();

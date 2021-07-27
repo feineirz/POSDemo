@@ -902,9 +902,8 @@
         <Component class="javax.swing.JSlider" name="sldProfit">
           <Properties>
             <Property name="majorTickSpacing" type="int" value="5"/>
-            <Property name="minimum" type="int" value="5"/>
             <Property name="minorTickSpacing" type="int" value="5"/>
-            <Property name="value" type="int" value="5"/>
+            <Property name="value" type="int" value="30"/>
             <Property name="enabled" type="boolean" value="false"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[400, 29]"/>
@@ -912,6 +911,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[36, 29]"/>
             </Property>
+            <Property name="opaque" type="boolean" value="false"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[200, 29]"/>
             </Property>
@@ -930,7 +930,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="11"/>
-            <Property name="text" type="java.lang.String" value="5%"/>
+            <Property name="text" type="java.lang.String" value="30%"/>
           </Properties>
         </Component>
       </SubComponents>

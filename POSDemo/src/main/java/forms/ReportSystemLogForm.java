@@ -223,7 +223,7 @@ public class ReportSystemLogForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        edpReport.setBackground(new java.awt.Color(204, 204, 204));
+        edpReport.setBackground(java.awt.SystemColor.control);
         edpReport.setContentType("text/html"); // NOI18N
         jScrollPane1.setViewportView(edpReport);
 

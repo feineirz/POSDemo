@@ -35,8 +35,9 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
-        setCurrentToDefaultUser();        
+        setCurrentToDefaultUser();
         initComponents();
+        setLAF();
         setIconImage(new ImageIcon(getClass().getResource("/images/pos.png")).getImage());
         
         mnuMain.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
