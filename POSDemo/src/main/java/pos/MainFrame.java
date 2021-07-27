@@ -224,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGap(0, 633, Short.MAX_VALUE)
         );
 
-        mnuMain.setBackground(new java.awt.Color(204, 204, 204));
+        mnuMain.setBackground(new java.awt.Color(153, 153, 153));
         mnuMain.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuMain.setMaximumSize(new java.awt.Dimension(521, 30));
         mnuMain.setMinimumSize(new java.awt.Dimension(166, 30));

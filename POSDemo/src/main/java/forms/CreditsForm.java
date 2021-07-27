@@ -80,9 +80,9 @@ public class CreditsForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 700));
-        setMinimumSize(new java.awt.Dimension(1000, 700));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
+        setMaximumSize(new java.awt.Dimension(1000, 715));
+        setMinimumSize(new java.awt.Dimension(1000, 715));
+        setPreferredSize(new java.awt.Dimension(1000, 715));
 
         pnlMain.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -352,7 +352,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12))
@@ -419,7 +419,7 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                 .addComponent(lblCreditURL22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCreditURL23)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
