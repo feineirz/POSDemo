@@ -210,7 +210,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
         setTitle("DAILY RECEIPT MANAGEMENT PANEL");
         setMaximumSize(new java.awt.Dimension(4000, 1200));
         setMinimumSize(new java.awt.Dimension(1440, 700));
-        setPreferredSize(new java.awt.Dimension(1440, 900));
+        setPreferredSize(new java.awt.Dimension(1440, 850));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -380,7 +380,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
                     .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblReceiptID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE))
         );
 
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -425,7 +425,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
                             .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE))
                     .addComponent(pnlDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

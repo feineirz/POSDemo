@@ -351,6 +351,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setMaximizable(true);
         setResizable(true);
         setTitle("STOCK MANAGEMENT PANEL");
         addComponentListener(new java.awt.event.ComponentAdapter() {
