@@ -75,6 +75,8 @@ public class CreditsForm extends javax.swing.JInternalFrame {
         lblCreditURL19 = new javax.swing.JLabel();
         lblCreditURL20 = new javax.swing.JLabel();
         lblCreditURL21 = new javax.swing.JLabel();
+        lblCreditURL22 = new javax.swing.JLabel();
+        lblCreditURL23 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -284,6 +286,16 @@ public class CreditsForm extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCreditURL22.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL22.setForeground(new java.awt.Color(255, 255, 0));
+        lblCreditURL22.setText("Mr. Apivat Zaelim");
+        lblCreditURL22.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        lblCreditURL23.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        lblCreditURL23.setForeground(new java.awt.Color(255, 255, 0));
+        lblCreditURL23.setText("Mr. Prasert Kavijit");
+        lblCreditURL23.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
         pnlMainLayout.setHorizontalGroup(
@@ -311,7 +323,9 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                                 .addComponent(lblCreditURL16, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblCreditURL19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreditURL20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCreditURL20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreditURL22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreditURL23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59)
                         .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -401,7 +415,11 @@ public class CreditsForm extends javax.swing.JInternalFrame {
                         .addComponent(lblCreditURL16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCreditURL17)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCreditURL22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCreditURL23)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -499,6 +517,8 @@ public class CreditsForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCreditURL2;
     private javax.swing.JLabel lblCreditURL20;
     private javax.swing.JLabel lblCreditURL21;
+    private javax.swing.JLabel lblCreditURL22;
+    private javax.swing.JLabel lblCreditURL23;
     private javax.swing.JLabel lblCreditURL3;
     private javax.swing.JLabel lblCreditURL4;
     private javax.swing.JLabel lblCreditURL5;
