@@ -868,7 +868,7 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
                 return;
             }
             
-            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE '"+code+"' from stock?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
+            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE '"+code+"' from stock?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE, JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
                                 
                 if (Stock.deleteStock(stockID)) {
                     

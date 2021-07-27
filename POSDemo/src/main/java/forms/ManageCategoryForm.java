@@ -691,7 +691,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
                 return;
             }
             
-            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE category '"+categoryName+"'?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
+            if (JOptionPane.showConfirmDialog(this, "Are you sure to permanently DELETE category '"+categoryName+"'?", "DELETE CONFIRMATION", JOptionPane.WARNING_MESSAGE, JOptionPane.WARNING_MESSAGE) == JOptionPane.OK_OPTION) {
                 
                 int categoryID = Integer.parseInt(lblRealID.getText());
                 Category category = new Category(categoryID);

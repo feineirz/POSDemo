@@ -16,7 +16,6 @@ import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
-import static GLOBAL.Settings.MAIN_FONT;
 import GLOBAL.Validator;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
@@ -29,7 +28,6 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import static pos.Apps.cashReceiptForm;
@@ -48,7 +46,6 @@ public class POSForm extends javax.swing.JInternalFrame {
      */
     public POSForm() {
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK_ALT);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
@@ -157,6 +154,10 @@ public class POSForm extends javax.swing.JInternalFrame {
 
                 listContent();
                 resetInfoPanel();   
+            }
+            
+            case FILTERED -> {
+                tbxCode.setText("");
             }
             
             case SELECT_PRODUCT -> {
@@ -943,7 +944,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         lblTotalPrice.setBackground(new java.awt.Color(20, 20, 20));
         lblTotalPrice.setFont(new java.awt.Font("Digital-7 Mono", 0, 72)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(102, 255, 51));
+        lblTotalPrice.setForeground(new java.awt.Color(51, 204, 255));
         lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTotalPrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/digitpanel-bg.jpg"))); // NOI18N
         lblTotalPrice.setText("0.00");
@@ -1478,6 +1479,7 @@ public class POSForm extends javax.swing.JInternalFrame {
 
         resetInfoPanel();
         listContentWithFilter();
+        setFrameState(frameState.FILTERED);
         
     }//GEN-LAST:event_cmbCategoryFilterActionPerformed
 

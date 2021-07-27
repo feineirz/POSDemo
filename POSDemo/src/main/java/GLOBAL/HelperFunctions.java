@@ -294,7 +294,7 @@ public class HelperFunctions {
         htmlTemplate = """
                     <!doctype html>
                     <html>
-                        <body>
+                        <body style="font-family: tahoma;">
                             <center>
                                 <h2>POSDEMO SHOP</h2><br/>
                                 9/9 Moo 9, Bang Phut, Pak Kret<br/>
@@ -366,7 +366,7 @@ public class HelperFunctions {
                             <!doctype html>
                             <html>
                                 <head></head>
-                                <body width=870>
+                                <body width=870 style="font-family: tahoma;">
                                     <h1>STOCK REPORT<hr height=4/></h1>
                                     @report_content@
                                     <br/><br/>
@@ -499,7 +499,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=870>
+                                <body width=870 style="font-family: tahoma;">
                                     <h1>@report_title@<hr height=4/></h1>                               
                                     <span><font size='-1'>Report from &nbsp;<b>@start_date@</b>&nbsp; to &nbsp;<b>@end_date@</b></font></span><hr/>
                                     @report_content@
@@ -637,7 +637,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=870>
+                                <body width=870 style="font-family: tahoma;">
                                     <h1>@report_title@<hr height=4/></h1>                               
                                     <span><font size='-1'>Report from &nbsp;<b>@start_date@</b>&nbsp; to &nbsp;<b>@end_date@</b></font></span><hr/>
                                     @report_content@
@@ -780,7 +780,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=950>
+                                <body width=950 style="font-family: tahoma;">
                                     <h1>@report_title@<hr height=4/></h1>                               
                                     <span><font size='-1'>Report from &nbsp;<b>@start_date@</b>&nbsp; to &nbsp;<b>@end_date@</b></font></span><hr/>
                                     @report_content@
@@ -860,7 +860,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=380>
+                                <body width=380 style="font-family: tahoma;">
                                     <table>
                                         @all_row_content@
                                     </table>
@@ -876,7 +876,7 @@ public class HelperFunctions {
             rowContent = ""
                     + "<tr>"
                     + "<td rowspan=2 align='center' valign='top'><h1>"+no+"</h1></td>"
-                    + "<td><font size='-1'><b>"+tbsi.product.getCode()+"</b></font></td>"
+                    + "<td><b>"+tbsi.product.getCode()+"</b></td>"
                     + "<td rowspan=2 align='right' valign='top'><h2>"+tbsi.sumQuantity+"</h2></td>"
                     + "</tr>"
                     + "<tr>"
@@ -897,7 +897,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=380>
+                                <body width=380 style="font-family: tahoma;">
                                     <table>
                                         @all_row_content@
                                     </table>
@@ -933,7 +933,7 @@ public class HelperFunctions {
         String htmlTemplate = """
                             <!doctype html>
                             <html>
-                                <body width=100%>
+                                <body width=100% style="font-family: tahoma;">
                                     <table>
                                         @all_row_content@
                                     </table>

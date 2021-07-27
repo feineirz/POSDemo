@@ -211,7 +211,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         popSystemLog = new javax.swing.JPopupMenu();
         popSystemLog_Copy = new javax.swing.JMenuItem();
-        popSystemLog_CopyReFormat = new javax.swing.JMenuItem();
+        popSystemLog_CopyReFormatEL = new javax.swing.JMenuItem();
+        popSystemLog_CopyReFormatJF = new javax.swing.JMenuItem();
         popLowStockNTF = new javax.swing.JPopupMenu();
         popLowStockNTF_RefillStock = new javax.swing.JMenuItem();
         pnlMain = new javax.swing.JPanel(){
@@ -287,13 +288,21 @@ public class Dashboard extends javax.swing.JInternalFrame {
         });
         popSystemLog.add(popSystemLog_Copy);
 
-        popSystemLog_CopyReFormat.setText("Copy and Reformat");
-        popSystemLog_CopyReFormat.addActionListener(new java.awt.event.ActionListener() {
+        popSystemLog_CopyReFormatEL.setText("Copy and Reformat at elmah.io");
+        popSystemLog_CopyReFormatEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popSystemLog_CopyReFormatActionPerformed(evt);
+                popSystemLog_CopyReFormatELActionPerformed(evt);
             }
         });
-        popSystemLog.add(popSystemLog_CopyReFormat);
+        popSystemLog.add(popSystemLog_CopyReFormatEL);
+
+        popSystemLog_CopyReFormatJF.setText("Copy and Reformat at jsonformatter");
+        popSystemLog_CopyReFormatJF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popSystemLog_CopyReFormatJFActionPerformed(evt);
+            }
+        });
+        popSystemLog.add(popSystemLog_CopyReFormatJF);
 
         popLowStockNTF_RefillStock.setText("Refill Stock");
         popLowStockNTF_RefillStock.addActionListener(new java.awt.event.ActionListener() {
@@ -692,6 +701,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
 
         edpSystemLog.setBackground(new java.awt.Color(240, 240, 240));
         edpSystemLog.setContentType("text/html"); // NOI18N
+        edpSystemLog.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         edpSystemLog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 edpSystemLogMouseClicked(evt);
@@ -819,12 +829,12 @@ public class Dashboard extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_edpSystemLogMouseClicked
 
-    private void popSystemLog_CopyReFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyReFormatActionPerformed
+    private void popSystemLog_CopyReFormatELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyReFormatELActionPerformed
         
         copySystemLog();
         openURL("https://elmah.io/tools/json-formatter/");
         
-    }//GEN-LAST:event_popSystemLog_CopyReFormatActionPerformed
+    }//GEN-LAST:event_popSystemLog_CopyReFormatELActionPerformed
 
     private void popLowStockNTF_RefillStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popLowStockNTF_RefillStockActionPerformed
         
@@ -858,6 +868,13 @@ public class Dashboard extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_edpLowStockNotificationMouseClicked
+
+    private void popSystemLog_CopyReFormatJFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popSystemLog_CopyReFormatJFActionPerformed
+        
+        copySystemLog();
+        openURL("https://jsonformatter.curiousconcept.com/");
+        
+    }//GEN-LAST:event_popSystemLog_CopyReFormatJFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -901,7 +918,8 @@ public class Dashboard extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem popLowStockNTF_RefillStock;
     private javax.swing.JPopupMenu popSystemLog;
     private javax.swing.JMenuItem popSystemLog_Copy;
-    private javax.swing.JMenuItem popSystemLog_CopyReFormat;
+    private javax.swing.JMenuItem popSystemLog_CopyReFormatEL;
+    private javax.swing.JMenuItem popSystemLog_CopyReFormatJF;
     private javax.swing.JScrollPane scpBestSelling;
     private javax.swing.JScrollPane scpLowStockNotification;
     private javax.swing.JScrollPane scpSystemLog;
