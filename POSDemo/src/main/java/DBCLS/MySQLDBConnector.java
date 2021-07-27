@@ -1,6 +1,7 @@
 package DBCLS;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class MySQLDBConnector {
 	
@@ -25,9 +26,9 @@ public class MySQLDBConnector {
 					"fakepassword" );
 
 		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 		}catch(SQLException ex){
-			ex.printStackTrace();
+			JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		return conn;

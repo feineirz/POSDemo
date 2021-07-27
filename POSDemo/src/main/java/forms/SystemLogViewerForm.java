@@ -155,7 +155,7 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         pnlFilter = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jLabel1 = new javax.swing.JLabel();

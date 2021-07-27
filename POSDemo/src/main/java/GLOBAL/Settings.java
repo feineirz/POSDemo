@@ -26,6 +26,7 @@ public class Settings {
     
     ImageIcon imageHeaderIcon = new ImageIcon(getClass().getResource("/images/header-bg.jpg"));
     ImageIcon imageBodyIcon = new ImageIcon(getClass().getResource("/images/body-bg.jpg"));
+    ImageIcon imageBodyPortraitIcon = new ImageIcon(getClass().getResource("/images/body-portrait-bg.jpg"));
     
     ImageIcon imageDashboardIcon = new ImageIcon(getClass().getResource("/images/dashboard-bg.jpg"));
     ImageIcon imageBestSellingIcon = new ImageIcon(getClass().getResource("/images/bestselling-bg.jpg"));
@@ -38,7 +39,8 @@ public class Settings {
     ImageIcon imageCreditsIcon = new ImageIcon(getClass().getResource("/images/credits-bg.jpg"));
     
     public final Image BACKGROUND_IMAGE_HEADER = imageHeaderIcon.getImage();    
-    public final Image BACKGROUND_IMAGE_BODY = imageBodyIcon.getImage();  
+    public final Image BACKGROUND_IMAGE_BODY = imageBodyIcon.getImage();
+    public final Image BACKGROUND_IMAGE_BODY_PORTRAIT = imageBodyPortraitIcon.getImage();
     
     public final Image BACKGROUND_IMAGE_DASHBOARD = imageDashboardIcon.getImage();
     public final Image BACKGROUND_IMAGE_BESTSELLING = imageBestSellingIcon.getImage();    

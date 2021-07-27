@@ -318,9 +318,9 @@ public class Dashboard extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setMaximumSize(new java.awt.Dimension(2400, 2000));
-        setMinimumSize(new java.awt.Dimension(1900, 850));
+        setMinimumSize(new java.awt.Dimension(1900, 950));
         setOpaque(true);
-        setPreferredSize(new java.awt.Dimension(1900, 870));
+        setPreferredSize(new java.awt.Dimension(1900, 950));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -731,7 +731,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         );
 
         jLabel11.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DASHBOARD");
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
@@ -780,7 +780,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
                         .addComponent(pnlMonthlyIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlMonthlyProfit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 56, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainLayout.createSequentialGroup()
                         .addComponent(pnlCharts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

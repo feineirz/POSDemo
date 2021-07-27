@@ -116,7 +116,7 @@ public class NewUserForm extends javax.swing.JInternalFrame {
         pnlMainInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         btnAddUser = new javax.swing.JButton();

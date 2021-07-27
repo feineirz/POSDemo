@@ -115,7 +115,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         pnlMainInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         btnAdd = new javax.swing.JButton();
@@ -153,7 +153,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setResizable(true);
-        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMaximumSize(new java.awt.Dimension(750, 800));
         setMinimumSize(new java.awt.Dimension(650, 800));
         setPreferredSize(new java.awt.Dimension(650, 800));
         addComponentListener(new java.awt.event.ComponentAdapter() {

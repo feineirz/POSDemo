@@ -265,7 +265,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
         pnlUserInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         jLabel3 = new javax.swing.JLabel();

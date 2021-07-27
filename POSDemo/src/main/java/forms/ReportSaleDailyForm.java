@@ -102,7 +102,7 @@ public class ReportSaleDailyForm extends javax.swing.JInternalFrame {
         pnlBody = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         pnlHeader = new javax.swing.JPanel(){

@@ -211,20 +211,16 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlTable = new javax.swing.JPanel(){
+        pnlMain = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
                 g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        jLabel8 = new javax.swing.JLabel();
-        cmbCategory = new javax.swing.JComboBox<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblContentList = new javax.swing.JTable();
         pnlContentInfo = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g){
-                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY, 0, 0, getWidth(), getHeight(), this);
+                g.drawImage(new Settings().BACKGROUND_IMAGE_BODY_PORTRAIT, 0, 0, getWidth(), getHeight(), this);
             }
         };
         lblRealID = new javax.swing.JLabel();
@@ -249,6 +245,11 @@ public class NewStockForm extends javax.swing.JInternalFrame {
         };
         lblTitle = new javax.swing.JLabel();
         lblIcon = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        cmbCategory = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblContentList = new javax.swing.JTable();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -262,66 +263,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             }
         });
 
-        pnlTable.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 2, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("Category: ");
-        jLabel8.setPreferredSize(new java.awt.Dimension(45, 20));
-
-        cmbCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbCategory.setMaximumSize(new java.awt.Dimension(400, 29));
-        cmbCategory.setMinimumSize(new java.awt.Dimension(34, 29));
-        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 29));
-        cmbCategory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCategoryActionPerformed(evt);
-            }
-        });
-
-        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Code", "Name", "Cost", "Price", "RealID"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblContentList.setRowHeight(20);
-        tblContentList.setShowVerticalLines(false);
-        tblContentList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(tblContentList);
-        if (tblContentList.getColumnModel().getColumnCount() > 0) {
-            tblContentList.getColumnModel().getColumn(0).setMinWidth(120);
-            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tblContentList.getColumnModel().getColumn(0).setMaxWidth(120);
-            tblContentList.getColumnModel().getColumn(2).setMinWidth(70);
-            tblContentList.getColumnModel().getColumn(2).setPreferredWidth(70);
-            tblContentList.getColumnModel().getColumn(2).setMaxWidth(70);
-            tblContentList.getColumnModel().getColumn(3).setMinWidth(70);
-            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(70);
-            tblContentList.getColumnModel().getColumn(3).setMaxWidth(70);
-            tblContentList.getColumnModel().getColumn(4).setMinWidth(0);
-            tblContentList.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tblContentList.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
+        pnlMain.setBackground(new java.awt.Color(102, 102, 102));
 
         pnlContentInfo.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -493,7 +435,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                 .addGroup(pnlContentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(lblRealID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -531,36 +473,107 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnlTableLayout = new javax.swing.GroupLayout(pnlTable);
-        pnlTable.setLayout(pnlTableLayout);
-        pnlTableLayout.setHorizontalGroup(
-            pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(pnlTableLayout.createSequentialGroup()
+        jPanel1.setOpaque(false);
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 2, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("Category: ");
+        jLabel8.setPreferredSize(new java.awt.Dimension(45, 20));
+
+        cmbCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbCategory.setMaximumSize(new java.awt.Dimension(400, 29));
+        cmbCategory.setMinimumSize(new java.awt.Dimension(34, 29));
+        cmbCategory.setPreferredSize(new java.awt.Dimension(57, 29));
+        cmbCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCategoryActionPerformed(evt);
+            }
+        });
+
+        tblContentList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tblContentList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Code", "Name", "Cost", "Price", "RealID"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblContentList.setRowHeight(20);
+        tblContentList.setShowVerticalLines(false);
+        tblContentList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tblContentList);
+        if (tblContentList.getColumnModel().getColumnCount() > 0) {
+            tblContentList.getColumnModel().getColumn(0).setMinWidth(120);
+            tblContentList.getColumnModel().getColumn(0).setPreferredWidth(120);
+            tblContentList.getColumnModel().getColumn(0).setMaxWidth(120);
+            tblContentList.getColumnModel().getColumn(2).setMinWidth(70);
+            tblContentList.getColumnModel().getColumn(2).setPreferredWidth(70);
+            tblContentList.getColumnModel().getColumn(2).setMaxWidth(70);
+            tblContentList.getColumnModel().getColumn(3).setMinWidth(70);
+            tblContentList.getColumnModel().getColumn(3).setPreferredWidth(70);
+            tblContentList.getColumnModel().getColumn(3).setMaxWidth(70);
+            tblContentList.getColumnModel().getColumn(4).setMinWidth(0);
+            tblContentList.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tblContentList.getColumnModel().getColumn(4).setMaxWidth(0);
+        }
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane3)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
+        pnlMain.setLayout(pnlMainLayout);
+        pnlMainLayout.setHorizontalGroup(
+            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlTableLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlContentInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        pnlTableLayout.setVerticalGroup(
-            pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTableLayout.createSequentialGroup()
+        pnlMainLayout.setVerticalGroup(
+            pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainLayout.createSequentialGroup()
                 .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTableLayout.createSequentialGroup()
-                        .addGroup(pnlTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE))
-                    .addComponent(pnlContentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlContentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -568,11 +581,11 @@ public class NewStockForm extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -864,6 +877,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblIcon;
@@ -872,7 +886,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlContentInfo;
     private javax.swing.JPanel pnlHeader;
-    private javax.swing.JPanel pnlTable;
+    private javax.swing.JPanel pnlMain;
     private javax.swing.JTable tblContentList;
     public javax.swing.JTextField tbxCode;
     private javax.swing.JTextField tbxCost;
