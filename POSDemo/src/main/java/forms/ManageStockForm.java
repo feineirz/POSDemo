@@ -13,7 +13,6 @@ import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
-import static GLOBAL.Settings.MAIN_FONT;
 import GLOBAL.Validator;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
@@ -24,7 +23,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,11 +41,9 @@ public class ManageStockForm extends javax.swing.JInternalFrame {
     public ManageStockForm() {
         
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK_ALT);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
-        tblContentList.getTableHeader().setFont(MAIN_FONT);
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblContentList.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);

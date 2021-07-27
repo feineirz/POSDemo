@@ -14,7 +14,6 @@ import static GLOBAL.Varibles.*;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.FontUIResource;
 
 /**
  *
@@ -27,7 +26,6 @@ public class LoginForm extends javax.swing.JInternalFrame {
      */
     public LoginForm() {
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         
         this.setName("LOGIN_FORM");
     }

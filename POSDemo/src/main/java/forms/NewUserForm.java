@@ -18,7 +18,6 @@ import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.plaf.FontUIResource;
 
 
 /**
@@ -32,8 +31,7 @@ public class NewUserForm extends javax.swing.JInternalFrame {
      */
     public NewUserForm() {
         
-        initComponents();        
-        setUIFont(new FontUIResource(MAIN_FONT));
+        initComponents();
         getContentPane().setBackground(BG_DARK);
         
     }

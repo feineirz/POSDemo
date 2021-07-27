@@ -17,7 +17,6 @@ import static GLOBAL.Settings.*;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.text.DecimalFormat;
 import javax.swing.JLabel;
@@ -25,7 +24,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,11 +42,9 @@ public class NewStockForm extends javax.swing.JInternalFrame {
     public NewStockForm() {
         
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK);
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
-        tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblContentList.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);

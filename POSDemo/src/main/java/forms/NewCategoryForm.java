@@ -10,13 +10,11 @@ import DBCLS.Category.CategoryInfo;
 import DBCLS.Log;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
-import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.CURRENT_USER;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.FontUIResource;
 import static pos.Apps.*;
 
 /**
@@ -29,8 +27,8 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
      * Creates new form NewCategoryForm
      */
     public NewCategoryForm() {
+        
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         
     }
     

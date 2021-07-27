@@ -21,7 +21,6 @@ import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.plaf.FontUIResource;
 
 /**
  *
@@ -33,8 +32,8 @@ public class NewProductForm extends javax.swing.JInternalFrame {
      * Creates new form NewProductForm
      */
     public NewProductForm() {
+        
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK);
         
         listCategory();

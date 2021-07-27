@@ -11,9 +11,7 @@ import DBCLS.ReceiptDetail;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
-import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Varibles.*;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
@@ -22,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -42,18 +39,15 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
      */
     public ManageDailyReceiptForm() {
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK_ALT);
         
         modelReceiptList = (DefaultTableModel)tblReceiptList.getModel();
-        tblReceiptList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblReceiptList.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);        
         tblReceiptList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         modelReceiptDetailList = (DefaultTableModel)tblReceiptDetail.getModel();
-        tblReceiptDetail.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         tblReceiptDetail.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);  

@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableModel;
 import static pos.Apps.*;
 
@@ -37,11 +36,9 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
     public ManageUserForm() {        
         
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK_ALT);
         
         contentModel = (DefaultTableModel)tblContentList.getModel();
-        tblContentList.getTableHeader().setFont(MAIN_FONT);
         tblContentList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         // Hide buffer labels

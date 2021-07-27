@@ -13,12 +13,10 @@ import DBCLS.Stock;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.BG_DARK_ALT;
-import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Validator.InputValidation.*;
 import GLOBAL.Validator.InputValidation.ValidationResult;
 import static GLOBAL.Varibles.*;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,7 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import static pos.Apps.posForm;
@@ -48,13 +45,11 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
     public ManageProductForm() {
         
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         getContentPane().setBackground(BG_DARK_ALT);
         
         listCategory();
         
         modelContentList = (DefaultTableModel)tblContentList.getModel();
-        tblContentList.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         // Align numeric column to the right
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);

@@ -12,6 +12,7 @@ import DBCLS.Receipt;
 import DBCLS.ReceiptDetail;
 import DBCLS.ReceiptDetail.TopBestSellingInfo;
 import DBCLS.Stock;
+import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Varibles.*;
 import forms.ReportSaleSummaryForm;
 import java.awt.Desktop;
@@ -31,6 +32,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.FontUIResource;
 import static pos.Apps.*;
 
 /**
@@ -43,6 +45,7 @@ public class HelperFunctions {
         
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -52,6 +55,8 @@ public class HelperFunctions {
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(HelperFunctions.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        setUIFont(new FontUIResource(MAIN_FONT));
         
     }
     

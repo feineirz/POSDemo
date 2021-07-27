@@ -9,7 +9,6 @@ import DBCLS.*;
 import DBCLS.Receipt.MonthlyIncomeInfo;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
-import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Varibles.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,7 +21,6 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import static javax.swing.SwingUtilities.isRightMouseButton;
-import javax.swing.plaf.FontUIResource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -46,7 +44,6 @@ public class Dashboard extends javax.swing.JInternalFrame {
      */
     public Dashboard() {
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         
         edpBestSelling.setEditable(false);
         edpLowStockNotification.setEditable(false);

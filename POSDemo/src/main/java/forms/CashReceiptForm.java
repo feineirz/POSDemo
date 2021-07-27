@@ -6,12 +6,10 @@
 package forms;
 
 import static GLOBAL.HelperFunctions.*;
-import static GLOBAL.Settings.MAIN_FONT;
 import static GLOBAL.Varibles.*;
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.plaf.FontUIResource;
 
 /**
  *
@@ -24,7 +22,6 @@ public class CashReceiptForm extends javax.swing.JInternalFrame {
      */
     public CashReceiptForm() {
         initComponents();
-        setUIFont(new FontUIResource(MAIN_FONT));
         
         edtDisplay.setEditable(false);
     }
@@ -87,6 +84,7 @@ public class CashReceiptForm extends javax.swing.JInternalFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(331, 300));
 
         edtDisplay.setContentType("text/html"); // NOI18N
+        edtDisplay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jScrollPane3.setViewportView(edtDisplay);
 
         btnPrint.setBackground(new java.awt.Color(255, 204, 0));

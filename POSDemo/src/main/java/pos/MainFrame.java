@@ -36,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         setCurrentToDefaultUser();
+        
         initComponents();
         setLAF();
         setIconImage(new ImageIcon(getClass().getResource("/images/pos.png")).getImage());
@@ -847,7 +848,7 @@ public class MainFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) { 
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -866,6 +867,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
                 MainFrame f = new MainFrame();
                 f.setVisible(true);
