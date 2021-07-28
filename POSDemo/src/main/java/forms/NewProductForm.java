@@ -11,7 +11,6 @@ import DBCLS.Product;
 import DBCLS.Product.ProductInfo;
 import DBCLS.Stock;
 import DBCLS.Stock.StockInfo;
-import GLOBAL.APIData;
 import static GLOBAL.HelperFunctions.*;
 import GLOBAL.Settings;
 import static GLOBAL.Settings.*;
@@ -675,11 +674,12 @@ public class NewProductForm extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(this, "Product Code '"+code+"' is already exists.", "Error", JOptionPane.ERROR_MESSAGE);
                 tbxCode.setText("");
                 tbxCode.requestFocus();
-            } else {
-                if(code.length() >= 7 && code.length() <= 14) {
-                    APIData.getAPIData(code);
-                }
-            }
+            } 
+//            else {
+//                if(code.length() >= 7 && code.length() <= 14) {
+//                    APIData.getAPIData(code);
+//                }
+//            }
         }
     }//GEN-LAST:event_tbxCodeFocusLost
 
