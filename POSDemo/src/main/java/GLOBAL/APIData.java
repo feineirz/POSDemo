@@ -92,8 +92,7 @@ public class APIData {
             System.out.println(data);
 
         } catch (Exception ex) {
-            
-            //ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
 
     }
