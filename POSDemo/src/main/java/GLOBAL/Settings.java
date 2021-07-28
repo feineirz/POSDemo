@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 public class Settings {
     
     public static final String SECRET_KEY = "Hige wo Soru Soshite Joshikousei wo Hirou";
+    public static final String API_KEY = "f5e6acc4-2aae-4008-b00f-8ab0df4520c2";
     
     public static final Font MAIN_FONT = new Font("Tahoma", Font.PLAIN, 14);
     
