@@ -612,7 +612,7 @@ public class ManageCategoryForm extends javax.swing.JInternalFrame {
             // Validate data
             ValidationResult vr = new ValidationResult();
 
-            String categoryName = tbxCategoryName.getText().trim();
+            String categoryName = tbxCategoryName.getText().trim().replace("\"", "'");
             String description = tbxDescription.getText().trim();
 
             vr = validateCategoryName(categoryName);

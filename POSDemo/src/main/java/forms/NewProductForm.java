@@ -500,7 +500,7 @@ public class NewProductForm extends javax.swing.JInternalFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
         String code = tbxCode.getText().trim();
-        String name = tbxName.getText().trim();
+        String name = tbxName.getText().trim().replace("\"", "'");
         
         String categoryname = String.valueOf(cmbCategory.getSelectedItem());
         Category category = Category.NameToCategory(categoryname);

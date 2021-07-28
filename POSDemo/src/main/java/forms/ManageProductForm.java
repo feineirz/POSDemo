@@ -927,7 +927,7 @@ public class ManageProductForm extends javax.swing.JInternalFrame {
             tbxCode.requestFocus();
         }else{
             String code = tbxCode.getText().trim();
-            String name = tbxName.getText().trim();
+            String name = tbxName.getText().trim().replace("\"", "'");
 
             String categoryname = String.valueOf(cmbCategory.getSelectedItem());
             Category category = Category.NameToCategory(categoryname);

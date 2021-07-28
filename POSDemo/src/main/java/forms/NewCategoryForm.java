@@ -256,7 +256,7 @@ public class NewCategoryForm extends javax.swing.JInternalFrame {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
 
-        String name = tbxCategoryName.getText().trim();
+        String name = tbxCategoryName.getText().trim().replace("\"", "'");
         String description = tbxDescription.getText();
         
         CategoryInfo ci = new CategoryInfo();
