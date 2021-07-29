@@ -710,6 +710,10 @@ public class NewProductForm extends javax.swing.JInternalFrame {
 
     private void tbxCostFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbxCostFocusLost
         
+        if (validateStringIsInteger(tbxCost.getText(), "").result) {
+            tbxCost.setText(DFMT_PRICE_NC.format(Integer.parseInt(tbxCost.getText())));
+        }
+        
         calcProfitRate();
         
     }//GEN-LAST:event_tbxCostFocusLost
