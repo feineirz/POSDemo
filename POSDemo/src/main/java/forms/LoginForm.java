@@ -62,6 +62,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                             "Account":{
                                 "ID":%d,
                                 "Username":"%s",
+                                "Password":"<***SECRET***>",
                                 "Email":"%s",
                                 "Phone":"%s",
                                 "Level":"%s"
@@ -89,9 +90,11 @@ public class LoginForm extends javax.swing.JInternalFrame {
                             "LogDate":"%s",
                             "Event":"LOGIN",
                             "Account":{
-                                "Username":"%s"
+                                "Username":"%s",
+                                "Password":"<***SECRET***>"
                             },
-                            "Result":"FAILED"
+                            "Result":"FAILED",
+                            "Reason":"Invalid Username and/or Password!"
                         }
                     }
                     """.formatted(

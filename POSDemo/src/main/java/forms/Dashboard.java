@@ -221,7 +221,12 @@ public class Dashboard extends javax.swing.JInternalFrame {
                 g.drawImage(new Settings().BACKGROUND_IMAGE_DASHBOARD, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        pnlUserInfo = new javax.swing.JPanel();
+        pnlUserInfo = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                g.drawImage(new Settings().BACKGROUND_IMAGE_HEADER, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jLabel1 = new javax.swing.JLabel();
         lblWelcomeUser = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
@@ -731,7 +736,7 @@ public class Dashboard extends javax.swing.JInternalFrame {
         );
 
         jLabel11.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("DASHBOARD");
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
