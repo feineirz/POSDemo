@@ -191,7 +191,7 @@ public class MainFrame extends javax.swing.JFrame {
         mnuReceipt = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("POS Management System");
+        setTitle("POSMan.sys : POS Management System");
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);

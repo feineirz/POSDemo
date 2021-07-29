@@ -296,7 +296,7 @@ public class HelperFunctions {
                     <html>
                         <body style="font-family: tahoma;">
                             <center>
-                                <h2>POSDEMO SHOP</h2><br/>
+                                <h2>POSMan SHOP</h2><br/>
                                 9/9 Moo 9, Bang Phut, Pak Kret<br/>
                                 Nonthaburi 11120<br/>
                                 Tel. 02 504 7788<br/>
@@ -304,17 +304,17 @@ public class HelperFunctions {
                                 TaxID. 1123345667789<br/>
                                 ***********************************<br/>
                                 <b>CASH RECEIPT</b><br/>
-                                -----------------------------------<br/>
+                                -------------------------------------------------<br/>
                                 <font size='-1'>VAT INCLUDED</font><br/>
-                                -----------------------------------<br/>
+                                -------------------------------------------------<br/>
                                 @receipt_id_prefix@@receipt_id@<br/>
                                 ***********************************<br/>
                                 @receipt_detail@<br/>
                                 ***********************************<br/>
                                 THANK YOU<br/>
-                                -----------------------------------<br/>
+                                -------------------------------------------------<br/>
                                 Cashier: @cashier@<br/>
-                                -----------------------------------<br/>
+                                -------------------------------------------------<br/>
                                 @time_stamp@<br/>
                                 ***********************************<br/>                                
                             </center>
