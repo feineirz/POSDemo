@@ -713,7 +713,6 @@ public class Category {
                             return category;
                     }			
                     conn.close();
-                    return category;
 
             } catch (SQLException e) {
                     try {
@@ -722,8 +721,8 @@ public class Category {
                             ex.printStackTrace();
                     }
                     e.printStackTrace();
-                    return null;
             }
+            return category;
 
         }
 
