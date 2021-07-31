@@ -162,7 +162,7 @@ public class ManageUserForm extends javax.swing.JInternalFrame {
                 resetInfoPanel();
                 listContentWithFilter();
                 
-                CURRENT_USER = new User(CURRENT_USER.id).toUserInfo();
+                CURRENT_USER = new User(CURRENT_USER.id).toUserInfoWithDefault();
                 dashboardForm.callFunction("loadUserInfo");
                 
             }

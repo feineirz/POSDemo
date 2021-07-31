@@ -41,7 +41,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
         User user = User.LogIn(username, encPassword);
         
         if (user != null) {
-            CURRENT_USER = user.toUserInfo();
+            CURRENT_USER = user.toUserInfoWithDefault();
         }        
         
         Log.LogInfo li = new Log.LogInfo();
