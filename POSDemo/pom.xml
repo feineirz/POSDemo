@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.feinz</groupId>
     <artifactId>POSDemo</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <build>
         <plugins>
@@ -19,7 +19,7 @@
                 <!-- Build an executable JAR -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                       <manifest>
@@ -27,6 +27,11 @@
                         <classpathPrefix>lib/</classpathPrefix>
                         <mainClass>pos.MainFrame</mainClass>
                       </manifest>
+                      <manifestEntries>
+                        <mode>development</mode>
+                        <url>${project.url}</url>
+                        <key>value</key>
+                    </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
@@ -57,4 +62,6 @@
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
+    <name>POSDemo</name>
+    <description>POS Management System (POSMan.sys)</description>
 </project>
