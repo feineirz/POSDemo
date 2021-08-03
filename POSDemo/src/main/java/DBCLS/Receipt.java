@@ -836,10 +836,11 @@ public class Receipt {
         Connection conn = new MySQLDBConnector().getDBConnection();
 
         try {
-            String qry = "SELECT auto_increment as id"
-                            + " FROM information_schema.TABLES"
-                            + " WHERE TABLE_SCHEMA = 'posdemo'"
-                            + " AND TABLE_NAME = 'receipt'";
+            String qry = ""
+                + "SELECT auto_increment as id"
+                + " FROM information_schema.TABLES"
+                + " WHERE TABLE_SCHEMA = 'posdemo'"
+                + " AND TABLE_NAME = 'receipt'";
             Statement stmt = conn.createStatement();
 
             ResultSet rs = stmt.executeQuery(qry);
@@ -863,8 +864,9 @@ public class Receipt {
 		
         if(condition != "") condition = " WHERE " + condition;
 		try {
-			String qry = "SELECT sum(cost) as sumcost" 
-					+ " FROM receipt"
+			String qry = ""
+                + "SELECT sum(cost) as sumcost" 
+                + " FROM receipt"
                                         + condition;
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
@@ -895,8 +897,9 @@ public class Receipt {
 		
         if(condition != "") condition = " WHERE " + condition;
 		try {
-			String qry = "SELECT sum(total) as sumtotal" 
-					+ " FROM receipt"
+			String qry = ""
+                + "SELECT sum(total) as sumtotal" 
+                + " FROM receipt"
                                         + condition;
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(qry);
