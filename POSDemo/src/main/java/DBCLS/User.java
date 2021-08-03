@@ -785,7 +785,10 @@ public class User {
             Connection conn = new MySQLDBConnector().getDBConnection();
             User user = null;
             try {
-                    String qry = "SELECT * FROM user WHERE username = ? AND password = ?";
+                    String qry = ""
+                        + "SELECT *"
+                        + " FROM user"
+                        + " WHERE username = ? AND password = ?";
                     PreparedStatement stmt = conn.prepareStatement(qry);
                     stmt.setString(1, username);
                     stmt.setString(2, password);
