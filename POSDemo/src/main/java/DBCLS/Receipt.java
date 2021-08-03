@@ -919,7 +919,6 @@ public class Receipt {
 		}
 
 	}
-        
 
         
     public static class MonthlyIncomeInfo {
@@ -971,7 +970,7 @@ public class Receipt {
 			e.printStackTrace();
 		}
                 
-                return buff;
+        return buff;
 
 	}
 
