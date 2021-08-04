@@ -108,7 +108,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         Log.LogInfo li = new Log.LogInfo();
         li.id = 0;
-        li.log_date = getCurrentDateTimeFormatted();
+        li.logDate = getCurrentDateTimeFormatted();
         li.user = CURRENT_USER.username;
         li.category = "SYSTEM LOG";
         li.event = "LOGOUT";
@@ -129,7 +129,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,

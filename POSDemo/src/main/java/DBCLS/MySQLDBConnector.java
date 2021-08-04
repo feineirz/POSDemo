@@ -13,7 +13,9 @@ public class MySQLDBConnector {
 	/**
 	 * <pre>
 	 * Default Class constructor.
-	 * Usage: MySQLDBConnector mysqlDBConnector = new MySQLDBConnector();
+	 *
+	 * Usage: 
+	 *  MySQLDBConnector mysqlDBConnector = new MySQLDBConnector();
 	 * </pre>
 	 */
 	public MySQLDBConnector() {}
@@ -21,7 +23,9 @@ public class MySQLDBConnector {
 	/**
 	 * <pre>
 	 * Get MySQL connection instance.
-	 * Usage: Connection conn = MySQLDBConnector.getDBConnection();
+	 *
+	 * Usage:
+	 *  Connection conn = MySQLDBConnector.getDBConnection();
 	 * </pre>
 	 * 
 	 * @return MySQL connection.

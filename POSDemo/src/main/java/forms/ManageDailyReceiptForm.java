@@ -125,7 +125,7 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
             totalIncome += receipt.getTotal();
             modelReceiptList.addRow(new Object[0]);
             
-            modelReceiptList.setValueAt(receipt.getReceipt_date(), row, 0);
+            modelReceiptList.setValueAt(receipt.getReceiptDate(), row, 0);
             modelReceiptList.setValueAt(IDPF_RECEIPT+IDFMT_RECEIPT.format(receipt.getId()), row, 1);            
             modelReceiptList.setValueAt(DFMT_PRICE.format(receipt.getTotal()) , row, 2);
             modelReceiptList.setValueAt(receipt.getId(), row, 3); //RealID            
@@ -149,8 +149,8 @@ public class ManageDailyReceiptForm extends javax.swing.JInternalFrame {
             product = new Product(receiptDetail.getProduct());
             modelReceiptDetailList.setValueAt(product.getName(), row, 0);
             modelReceiptDetailList.setValueAt(DFMT_QUANTITY.format(receiptDetail.getQuantity()), row, 1);
-            modelReceiptDetailList.setValueAt(DFMT_PRICE.format(receiptDetail.getCurrent_price()), row, 2);
-            modelReceiptDetailList.setValueAt(DFMT_PRICE.format(receiptDetail.getQuantity()*receiptDetail.getCurrent_price()), row, 3);
+            modelReceiptDetailList.setValueAt(DFMT_PRICE.format(receiptDetail.getCurrentPrice()), row, 2);
+            modelReceiptDetailList.setValueAt(DFMT_PRICE.format(receiptDetail.getQuantity()*receiptDetail.getCurrentPrice()), row, 3);
             row++;
         }
         

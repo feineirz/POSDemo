@@ -112,15 +112,15 @@ public class SystemLogViewerForm extends javax.swing.JInternalFrame {
         String category = String.valueOf(cmbLogType.getSelectedItem().toString());
         String filter = tbxFilter.getText().trim();
         String cond = ""
-                + "log_date between '"+dateStart+" 00:00:00' and '"+dateEnd+" 23:59:59'"
+                + "logDate between '"+dateStart+" 00:00:00' and '"+dateEnd+" 23:59:59'"
                 + " and category = '"+category+"'"
                 + " and details like '%"+filter+"%'";
         System.out.println("Cond: "+cond);
         int row = 0;
         modelLogList.setRowCount(0);
-        for (Log log: Log.listLog(cond, "log_date desc")) {
+        for (Log log: Log.listLog(cond, "logDate desc")) {
             modelLogList.addRow(new Object[0]);
-            modelLogList.setValueAt(log.getLog_date(), row, 0);
+            modelLogList.setValueAt(log.getLogDate(), row, 0);
             modelLogList.setValueAt(log.getUser(), row, 1);
             modelLogList.setValueAt(log.getEvent(), row, 2);
             modelLogList.setValueAt(log.getId(), row, 3);

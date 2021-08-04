@@ -643,7 +643,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
             
             LogInfo li = new LogInfo();
             li.id = 0;
-            li.log_date = getCurrentDateTimeFormatted();
+            li.logDate = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "REFILL STOCK";
@@ -685,7 +685,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -719,7 +719,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                 
                 LogInfo li = new LogInfo();
                 li.id = 0;
-                li.log_date = getCurrentDateTimeFormatted();
+                li.logDate = getCurrentDateTimeFormatted();
                 li.user = CURRENT_USER.username;
                 li.category = "APPLICATION LOG";
                 li.event = "REFILL STOCK";
@@ -761,7 +761,7 @@ public class NewStockForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,

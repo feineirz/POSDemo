@@ -551,7 +551,7 @@ public class POSForm extends javax.swing.JInternalFrame {
         
         ReceiptInfo ri = new ReceiptInfo();
         ri.id = 0;
-        ri.receipt_date = getCurrentDateTimeFormatted();
+        ri.receiptDate = getCurrentDateTimeFormatted();
         ri.cost = 0.0;
         ri.total = total;
         ri.cash = cash;
@@ -571,8 +571,8 @@ public class POSForm extends javax.swing.JInternalFrame {
                 rdi.id = 0;
                 rdi.receipt = receipt.getId();
                 rdi.product = Integer.parseInt(modelCartList.getValueAt(i, 4).toString());
-                rdi.current_cost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString().replace(",", ""));
-                rdi.current_price = Double.parseDouble(modelCartList.getValueAt(i, 2).toString().replace(",", ""));
+                rdi.currentCost = Double.parseDouble(modelCartList.getValueAt(i, 6).toString().replace(",", ""));
+                rdi.currentPrice = Double.parseDouble(modelCartList.getValueAt(i, 2).toString().replace(",", ""));
                 rdi.quantity = Integer.parseInt(modelCartList.getValueAt(i, 1).toString().replace(",", ""));
                 ReceiptDetail receiptDetail = ReceiptDetail.addReceiptDetail(rdi);
                 
@@ -599,10 +599,10 @@ public class POSForm extends javax.swing.JInternalFrame {
                             """.formatted(
                                     product.getCode(),
                                     product.getName(),
-                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_cost()),
-                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_price()),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrentCost()),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrentPrice()),
                                     receiptDetail.getQuantity(),
-                                    DFMT_PRICE_NC.format(receiptDetail.getCurrent_price()*receiptDetail.getQuantity()),
+                                    DFMT_PRICE_NC.format(receiptDetail.getCurrentPrice()*receiptDetail.getQuantity()),
                                     i < rowCount-1? ",":""
                             )
                     );
@@ -618,7 +618,7 @@ public class POSForm extends javax.swing.JInternalFrame {
             
             Log.LogInfo li = new Log.LogInfo();
             li.id = 0;
-            li.log_date = getCurrentDateTimeFormatted();
+            li.logDate = getCurrentDateTimeFormatted();
             li.user = CURRENT_USER.username;
             li.category = "APPLICATION LOG";
             li.event = "CHECKOUT";
@@ -654,7 +654,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -662,7 +662,7 @@ public class POSForm extends javax.swing.JInternalFrame {
                             getUserLevel(CURRENT_USER.level),
                             
                             receipt.getId(),
-                            receipt.getReceipt_date(),
+                            receipt.getReceiptDate(),
                             rdpList,
                             DFMT_PRICE_NC.format(receipt.getCost()),
                             DFMT_PRICE_NC.format(receipt.getTotal()),

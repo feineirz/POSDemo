@@ -46,7 +46,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
         
         Log.LogInfo li = new Log.LogInfo();
         li.id = 0;
-        li.log_date = getCurrentDateTimeFormatted();
+        li.logDate = getCurrentDateTimeFormatted();
         li.user = CURRENT_USER.username;
         li.category = "SYSTEM LOG";
         li.event = "LOGIN";    
@@ -71,7 +71,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             CURRENT_USER.id,
                             CURRENT_USER.username,
                             CURRENT_USER.email,
@@ -98,7 +98,7 @@ public class LoginForm extends javax.swing.JInternalFrame {
                         }
                     }
                     """.formatted(
-                            li.log_date,
+                            li.logDate,
                             username
                     )
             );            

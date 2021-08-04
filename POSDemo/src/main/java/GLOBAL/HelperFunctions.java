@@ -342,7 +342,7 @@ public class HelperFunctions {
         for (ReceiptDetail receiptDetail : ReceiptDetail.listReceiptDetail("receipt='"+receiptID+"'")) {
             product = new Product(receiptDetail.getProduct());
             tableContent += "<tr><td width='70%' valign='top'>"+product.getName()+" [x"+receiptDetail.getQuantity()+"]</td>"
-                    + "<td width='30%' align='right' valign='top'>"+DFMT_PRICE.format(receiptDetail.getQuantity()*receiptDetail.getCurrent_price())+"</td></tr>";            
+                    + "<td width='30%' align='right' valign='top'>"+DFMT_PRICE.format(receiptDetail.getQuantity()*receiptDetail.getCurrentPrice())+"</td></tr>";            
         }
         
         htmlReceiptDetail = htmlReceiptDetailTemplate.replace("@table_content@", tableContent);
@@ -354,7 +354,7 @@ public class HelperFunctions {
         
         htmlContent = htmlContent.replace("@receipt_detail@", htmlReceiptDetail); 
         htmlContent = htmlContent.replace("@cashier@", receipt.getCashier());
-        htmlContent = htmlContent.replace("@time_stamp@", receipt.getReceipt_date());
+        htmlContent = htmlContent.replace("@time_stamp@", receipt.getReceiptDate());
         
         return htmlContent;
         
@@ -590,13 +590,13 @@ public class HelperFunctions {
                 Product product = new Product(rdgi.receiptDetail.getProduct());
                 rowContent = rowTemplate.replace("@code@", product.getCode());
                 rowContent = rowContent.replace("@name@", product.getName());
-                rowContent = rowContent.replace("@cost@", DFMT_PRICE.format(rdgi.receiptDetail.getCurrent_cost()));
-                rowContent = rowContent.replace("@price@", DFMT_PRICE.format(rdgi.receiptDetail.getCurrent_price()));
+                rowContent = rowContent.replace("@cost@", DFMT_PRICE.format(rdgi.receiptDetail.getCurrentCost()));
+                rowContent = rowContent.replace("@price@", DFMT_PRICE.format(rdgi.receiptDetail.getCurrentPrice()));
                 rowContent = rowContent.replace("@quantity@", DFMT_QUANTITY.format(rdgi.sumQuantity));
-                rowContent = rowContent.replace("@subtotal@", DFMT_PRICE.format(rdgi.sumQuantity*rdgi.receiptDetail.getCurrent_price()));
+                rowContent = rowContent.replace("@subtotal@", DFMT_PRICE.format(rdgi.sumQuantity*rdgi.receiptDetail.getCurrentPrice()));
                 
-                totalCost += rdgi.sumQuantity * rdgi.receiptDetail.getCurrent_cost();
-                total += rdgi.sumQuantity * rdgi.receiptDetail.getCurrent_price();
+                totalCost += rdgi.sumQuantity * rdgi.receiptDetail.getCurrentCost();
+                total += rdgi.sumQuantity * rdgi.receiptDetail.getCurrentPrice();
                 allRowContent += rowContent;
             }
             totalProfit = total-totalCost;
@@ -732,13 +732,13 @@ public class HelperFunctions {
                 Product product = new Product(rd.getProduct());
                 rowContent = rowTemplate.replace("@code@", product.getCode());
                 rowContent = rowContent.replace("@name@", product.getName());
-                rowContent = rowContent.replace("@cost@", DFMT_PRICE.format(rd.getCurrent_cost()));
-                rowContent = rowContent.replace("@price@", DFMT_PRICE.format(rd.getCurrent_price()));
+                rowContent = rowContent.replace("@cost@", DFMT_PRICE.format(rd.getCurrentCost()));
+                rowContent = rowContent.replace("@price@", DFMT_PRICE.format(rd.getCurrentPrice()));
                 rowContent = rowContent.replace("@quantity@", DFMT_QUANTITY.format(rd.getQuantity()));
-                rowContent = rowContent.replace("@subtotal@", DFMT_PRICE.format(rd.getQuantity()*rd.getCurrent_price()));
+                rowContent = rowContent.replace("@subtotal@", DFMT_PRICE.format(rd.getQuantity()*rd.getCurrentPrice()));
                 
-                totalCost += rd.getQuantity() * rd.getCurrent_cost();
-                total += rd.getQuantity() * rd.getCurrent_price();
+                totalCost += rd.getQuantity() * rd.getCurrentCost();
+                total += rd.getQuantity() * rd.getCurrentPrice();
                 allRowContent += rowContent;
             }
             
@@ -834,7 +834,7 @@ public class HelperFunctions {
         for (Log log : Log.listLog("log_date between '"+getDateFormatted(startDate)+" 00:00:00' and '"+getDateFormatted(endDate)+" 23:59:59'", "log_date desc")) {
             
             rowContent = rowTemplate;
-            rowContent = rowContent.replace("@log_date@", log.getLog_date());
+            rowContent = rowContent.replace("@log_date@", log.getLogDate());
             rowContent = rowContent.replace("@category@", log.getCategory());
             rowContent = rowContent.replace("@user@", log.getUser());
             rowContent = rowContent.replace("@event@", log.getEvent());
@@ -949,7 +949,7 @@ public class HelperFunctions {
         for (Log log : Log.listLog(filter, order)) {
             rowContent = ""
                     + "<tr>"
-                    + "<td>Log Date:"+log.getLog_date()+" &nbsp;&nbsp; User: "+log.getUser()+"</td>"
+                    + "<td>Log Date:"+log.getLogDate()+" &nbsp;&nbsp; User: "+log.getUser()+"</td>"
                     + "<td>"
                     + "</tr>"
                     + "<tr>"
