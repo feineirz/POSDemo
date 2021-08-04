@@ -2,12 +2,30 @@ package DBCLS;
 
 import java.sql.*;
 
+/**
+ * MySQL connector class to provide a MySQL database connection.
+ */
+
 public class MySQLDBConnector {
 	
 	public Connection conn = null;
-	
+
+	/**
+	 * <pre>
+	 * Default Class constructor.
+	 * Usage: MySQLDBConnector mysqlDBConnector = new MySQLDBConnector();
+	 * </pre>
+	 */
 	public MySQLDBConnector() {}
 	
+	/**
+	 * <pre>
+	 * Get MySQL connection instance.
+	 * Usage: Connection conn = MySQLDBConnector.getDBConnection();
+	 * </pre>
+	 * 
+	 * @return MySQL connection.
+	 */
 	public Connection getDBConnection() {
 		
 		try{

@@ -46,6 +46,12 @@ public class Category {
 		+ " description";
 
 	/// CLASS STRUCTURE ///
+	/**
+	 * <pre>
+	 * Category structure class to collect or prepare Category information.
+	 * Usage: CategoryInfo categoryInfo = new CategoryInfo();
+	 * </pre>
+	 */
 	public static class CategoryInfo {
 		public Integer id;
 		public String name;
@@ -71,39 +77,52 @@ public class Category {
 
 	/// DEFAULT CONSTRUCTOR ///
 	/**
-	 * Default Category class to use a private helpful methods.
+	 * <pre>
+	 * Default constructor for Category class to use a private helpful methods.
+	 * Usage: Category category = new Category();
+	 * </pre>
 	 */
 	public Category() {}
 
 	/// OVERLOAD CONSTRUCTOR ///
 	/**
-	 * 
-	 * @param Category_id A Primary key of Category to be instances.
+	 * <pre>
+	 * Class constructor for Category class by giving a Primary key.
+	 * Usage: Category category = new Category(id);
+	 * </pre>
+	 *
+	 * @param id A Primary key of Category to be instances.
 	 */       
-	public Category(Integer Category_id) {		
-		this(Category_id, new MySQLDBConnector().getDBConnection(), true);		
+	public Category(Integer id) {		
+		this(id, new MySQLDBConnector().getDBConnection(), true);		
 	}
 	
 	/**
-	 * 
-	 * @param Category_id A Primary key of Category to be instances.
+	 * <pre>
+	 * Class constructor for Category class by giving a Primary key and a MySQL connector.
+	 * Usage: Category category = new Category(id, conn);
+	 * </pre>
 	 *
-	 * @param conn MySQL Connection to be connected to the database.
+	 * @param id A Primary key of Category to be instances.
+	 * @param conn MySQL Connection use to connect to the database.
 	 */
-	public Category(Integer Category_id, Connection conn) {
-		this(Category_id, conn, false);
+	public Category(Integer id, Connection conn) {
+		this(id, conn, false);
 	}
 	
 	/// MAIN CONSTRUCTOR ///
 	/**
+	 * <pre>
+	 * Class constructor for Category class by giving a Primary key, MySQL connector
+	 * and Auto close connection option.
+	 * Usage: Category category = new Category(id, conn, true);
+	 * </pre>
 	 * 
-	 * @param Category_id A Primary key of Category to be instances.
-	 *
-	 * @param conn MySQL Connection to be connected to the database.
-	 *
+	 * @param id A Primary key of Category to be instances.
+	 * @param conn MySQL Connection to be connect to the database.
 	 * @param autoCloseConnection Auto close the given connection after query successful.
 	 */
-	public Category(Integer Category_id, Connection conn, boolean autoCloseConnection) {
+	public Category(Integer id, Connection conn, boolean autoCloseConnection) {
 		
 		try {
 			String qry = ""
@@ -111,7 +130,7 @@ public class Category {
 				+ " FROM " + relName
 				+ " WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(qry);
-			stmt.setInt(1, Category_id);
+			stmt.setInt(1, id);
 			
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -135,7 +154,6 @@ public class Category {
 	}
 
 /*===================================[ END CLASS CONSTRUCTOR ]====================================*/
-
 
 
 /*================================================================================================*/
@@ -192,13 +210,16 @@ public class Category {
 /*------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------[ LIST ]--------------------------------------------*/
 /*------------------------------------------------------------------------------------------------*/
-/*------------------------ List Category in database as Category objects. ------------------------*/
+/*----------------------- List Category in a database as Category objects. -----------------------*/
 /*------------------------------------------------------------------------------------------------*/
 
 	/// Overload ///
 	/**
-	 * 
-	 * Default List method to list all record of Category in the database.
+	 * <pre>
+	 * Default List method to list all records of Category in a database.
+	 * Usage:
+	 *  ArrayList<Category> categoryList = listCategory();
+	 * </pre>
 	 * 
 	 * @return ArrayList of Category objects.
 	 * 
@@ -208,12 +229,16 @@ public class Category {
 	}
 
 	/**
+	 * <pre>
+	 * List record(s) of Category in a database matches the given condition.
+	 * Usage:
+	 *  ArrayList<Category> categoryList = listCategory(condition);
+	 * </pre>
 	 * 
-	 * @param condition The condition to specify the record to be return.
+	 * @param condition The condition to specify the record to be return.<pre>
+	 *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"</pre>
 	 * 
-	 *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"
-	 * 
-	 * @return ArrayList of Category objects matches to the given condition.
+	 * @return ArrayList of Category objects match the given condition.
 	 * 
 	 */
 	public static ArrayList<Category> listCategory(String condition){
@@ -222,16 +247,20 @@ public class Category {
 	
 	/// Main ///
 	/**
+	 * <pre>
+	 * List record(s) of Category in a database matches the given condition
+	 *  and sorted by the given order.
+	 * Usage:
+	 *  ArrayList<Category> categoryList = listCategory(condition, order);
+	 * </pre>
 	 * 
-	 * @param condition The condition to specify the record to be return.
+	 * @param condition The condition to specify the record to be return.<pre>
+	 *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"</pre>
 	 * 
-	 *  Ex. "name = 'Foo' AND date BETWEEN '2021-01-01' AND '2021-12-31'"
+	 * @param order The order to sort the returned list.<pre>
+	 *  Ex. "name desc"</pre>
 	 * 
-	 * @param order The order to sort the returned list.
-	 * 
-	 *  Ex. "name desc"
-	 * 
-	 * @return ArrayList of Category objects matches to the given condition.
+	 * @return ArrayList of Category objects match the given condition.
 	 * 
 	 */
 	public static ArrayList<Category> listCategory(String condition, String order) {
@@ -277,6 +306,10 @@ public class Category {
 /*------------------------------------------------------------------------------------------------*/
 
 	/**
+	 * <pre>
+	 * Add Category to database by giving a raw information.
+	 * Usage: Category category = addCategory(...);
+	 * </pre>
 	 * 
 	 * @return Category object of new created Category.
 	 */
@@ -301,6 +334,15 @@ public class Category {
 /*------------------------------------------------------------------------------------------------*/
 
 	/**
+	 * <pre>
+	 * Add Category to database by giving a structured information.
+	 * Usage:
+	 *     CategoryInfo categoryInfo = new CategoryInfo();
+	 *     categoryInfo.id = id;
+	 *     ...
+	 *
+	 *     Category category = addCategory(categoryInfo);
+	 * </pre>
 	 * 
 	 * @param categoryInfo Category information structure that contains all Category's information.
 	 *
@@ -340,7 +382,7 @@ public class Category {
 		return null;
 		
 	}
-	
+        
 	
 /*------------------------------------------------------------------------------------------------*/
 /*----------------------------------------[ UPDATE (RAW) ]----------------------------------------*/
