@@ -4,12 +4,12 @@
 /*------------------------------ Required for every Database Class -------------------------------*/
 /*------------------------------------------------------------------------------------------------*/
 
-package DBCLS;
+package default;
 
 import java.sql.*;
 
 /**
- * MySQL connector class to provide a MySQL database connection.
+ * MySQL connector class to provide MySQL database connection.
  */
 
 public class MySQLDBConnector {
@@ -18,7 +18,7 @@ public class MySQLDBConnector {
 
 	/**
 	 * <pre>
-	 * Default Class constructor.
+	 * Default MySQLDBConnector class.
 	 *
 	 * Usage: 
 	 *  MySQLDBConnector mysqlDBConnector = new MySQLDBConnector();
